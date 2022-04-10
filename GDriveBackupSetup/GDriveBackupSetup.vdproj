@@ -21,6 +21,12 @@
         }
         "Entry"
         {
+        "MsmKey" = "8:_0F0D5C691AE44F10B7C6E8461DDDAAE1"
+        "OwnerKey" = "8:_UNDEFINED"
+        "MsmSig" = "8:_UNDEFINED"
+        }
+        "Entry"
+        {
         "MsmKey" = "8:_114775834CAC4BF0A7B359163F506034"
         "OwnerKey" = "8:_UNDEFINED"
         "MsmSig" = "8:_UNDEFINED"
@@ -240,6 +246,26 @@
             {
             "SourcePath" = "8:..\\GDrive Local Backup\\conf\\log"
             "TargetName" = "8:log"
+            "Tag" = "8:"
+            "Folder" = "8:_61B95106ED2044B4B645AB4EA2EBEE88"
+            "Condition" = "8:"
+            "Transitive" = "11:FALSE"
+            "Vital" = "11:TRUE"
+            "ReadOnly" = "11:FALSE"
+            "Hidden" = "11:FALSE"
+            "System" = "11:FALSE"
+            "Permanent" = "11:FALSE"
+            "SharedLegacy" = "11:FALSE"
+            "PackageAs" = "3:1"
+            "Register" = "3:1"
+            "Exclude" = "11:FALSE"
+            "IsDependency" = "11:FALSE"
+            "IsolateTo" = "8:"
+            }
+            "{1FB2D0AE-D3B9-43D4-B9DD-F88EC61E35DE}:_0F0D5C691AE44F10B7C6E8461DDDAAE1"
+            {
+            "SourcePath" = "8:..\\GDrive Local Backup\\conf\\timeInit"
+            "TargetName" = "8:timeInit"
             "Tag" = "8:"
             "Folder" = "8:_61B95106ED2044B4B645AB4EA2EBEE88"
             "Condition" = "8:"
@@ -726,7 +752,7 @@
         "Name" = "8:Microsoft Visual Studio"
         "ProductName" = "8:Migrate To GDrive"
         "ProductCode" = "8:{F182D289-6FA4-4866-B46F-ED64EAD105FF}"
-        "PackageCode" = "8:{16AD251E-2C6B-44E8-A3D2-B10CE96B2915}"
+        "PackageCode" = "8:{7A05018F-88DA-4B88-828A-1AC07BCD9491}"
         "UpgradeCode" = "8:{397E3C26-24CD-43A8-BBC8-868FE4193D0A}"
         "AspNetVersion" = "8:4.0.30319.0"
         "RestartWWWService" = "11:FALSE"
