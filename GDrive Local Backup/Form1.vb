@@ -49,7 +49,6 @@
                     checkFileExist(uiDestPath, uiTrimDest)
                     prepareNotif(lastResult)
                     prepareNotif(lastErr)
-                    Threading.Thread.Sleep(2000)
                     manualBackup("bat/MigrateToGDrive_AT_MN.bat")
                 ElseIf ComboBox1.Text = "Today" Then
                     If File.Exists(uiDatePath) Then
@@ -74,7 +73,6 @@
                     checkFileExist(uiDestPath, uiTrimDest)
                     prepareNotif(lastResult)
                     prepareNotif(lastErr)
-                    Threading.Thread.Sleep(2000)
                     manualBackup("bat/MigrateToGDrive_TD_MN.bat")
                 End If
                 Threading.Thread.Sleep(2000)
@@ -224,6 +222,7 @@
         psi.WindowStyle = ProcessWindowStyle.Hidden
         psi.UseShellExecute = False
         Dim process As Process = Process.Start(psi)
+        process.WaitForExit()
     End Sub
     Private Function pathVal(path As String, line As Integer) As String
         Dim value As String
