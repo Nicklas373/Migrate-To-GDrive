@@ -38,6 +38,7 @@
                 MsgBox("Destination Folder Is Empty !, Please Fill Source Folder Location", MsgBoxStyle.Critical)
                 RichTextBox1.Text = ""
             Else
+
                 If ComboBox1.Text = "" Then
                     MsgBox("Backup Time Is Empty !, Please Select Backup Time First !", MsgBoxStyle.Critical)
                     RichTextBox1.Text = ""
@@ -78,8 +79,6 @@
                 End If
                 Threading.Thread.Sleep(2000)
                 getDriveSize()
-                showLog("Backup", logPath)
-                Threading.Thread.Sleep(2000)
                 showNotif()
             End If
         End If
@@ -177,26 +176,32 @@
             Dim lastRest As String = pathVal(lastResult, 0)
             If pathVal(lastResult, 0).Equals("success") Then
                 MsgBox("Backup Success !", MsgBoxStyle.Information)
+                showLog("Backup", logPath)
             ElseIf pathVal(lastResult, 0).Equals("err") Then
                 MsgBox("Backup Error !", MsgBoxStyle.Critical)
+                RichTextBox1.Text = ""
                 If File.Exists(lastErr) Then
                     If pathVal(lastErr, 0).Equals("") Then
                         MsgBox("Unknown Error Reason !", MsgBoxStyle.Critical)
                         MsgBox("Please Contact Your Administrator !", MsgBoxStyle.Critical)
+                        RichTextBox1.Text = ""
                     Else
                         MsgBox(pathVal(lastErr, 0), MsgBoxStyle.Critical)
                     End If
                 Else
                     MsgBox("Error File Not Found !", MsgBoxStyle.Critical)
                     MsgBox("Please Contact Your Administrator !", MsgBoxStyle.Critical)
+                    RichTextBox1.Text = ""
                 End If
             Else
                 MsgBox("Unknown Result Status !", MsgBoxStyle.Critical)
                 MsgBox("Please Contact Your Administrator !", MsgBoxStyle.Critical)
+                RichTextBox1.Text = ""
             End If
         Else
             MsgBox("Result File Not Found !", MsgBoxStyle.Critical)
             MsgBox("Please Contact Your Administrator !", MsgBoxStyle.Critical)
+            RichTextBox1.Text = ""
         End If
     End Sub
     Private Sub showLog(log As String, path As String)

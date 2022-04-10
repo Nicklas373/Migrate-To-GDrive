@@ -85,7 +85,7 @@ Partial Class Form1
         Me.RichTextBox1.Margin = New System.Windows.Forms.Padding(3, 2, 3, 2)
         Me.RichTextBox1.Name = "RichTextBox1"
         Me.RichTextBox1.ReadOnly = True
-        Me.RichTextBox1.Size = New System.Drawing.Size(910, 290)
+        Me.RichTextBox1.Size = New System.Drawing.Size(910, 296)
         Me.RichTextBox1.TabIndex = 5
         Me.RichTextBox1.Text = "Log Will Show Here ..."
         '
