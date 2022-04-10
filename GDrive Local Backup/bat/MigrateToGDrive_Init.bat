@@ -1,9 +1,9 @@
 @echo off
 cd ..
-set /p TtimePath=<conf/time
-echo "%TtimePath%"
+set /p TtimePath=<conf/timeInit
 if %TtimePath% == Anytime goto :anytime
 if %TtimePath% == Today goto :today
+if %TtimePath% == null goto :error
 
 :anytime
 cd bat
@@ -25,6 +25,14 @@ goto :endofline
 
 :today_success
 echo "Backup with Today is Success!"
+goto :endofline
+
+:error
+echo. >> "log/err"
+echo Auto Backup Init Was Failed ! >> "log/err"
+echo Reason: Backup Preferences Was Not Exist Or Config Is Not Exist ! >> "log/err"
+echo Last Backup Time: %date% - %time% >> "log/err"
+echo Backup Type: Init >> "log/err"
 goto :endofline
 
 :endofline
