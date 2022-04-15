@@ -18,6 +18,7 @@
     End Sub
     Private Sub FolderBrowserDialog1_Disposed(sender As Object, e As EventArgs) Handles Button1.Click
         TextBox1.Text = filedialog.SelectedPath.ToString
+        getSrcDriveSize()
     End Sub
     Private Sub Button3_Click(sender As Object, e As EventArgs) Handles Button3.Click
         filedialog.InitialDirectory = Environment.SpecialFolder.UserProfile
@@ -25,31 +26,41 @@
     End Sub
     Private Sub FolderBrowserDialog2_Disposed(sender As Object, e As EventArgs) Handles Button3.Click
         TextBox2.Text = filedialog.SelectedPath.ToString
+        getDestDriveSize()
     End Sub
     Private Sub Button5_Click(sender As Object, e As EventArgs) Handles Button5.Click
         Dim uiTrimSrc As String
         Dim uiTrimDest As String
         RichTextBox1.Text = "Processing ..."
         If TextBox1.Text = "" Then
-            MsgBox("Source Folder Is Empty !, Please Fill Source Folder Location", MsgBoxStyle.Critical)
+            MsgBox("Source folder is empty !, please fill source folder location", MsgBoxStyle.Critical, "MigrateToGDrive")
             RichTextBox1.Text = ""
         Else
             If TextBox2.Text = "" Then
-                MsgBox("Destination Folder Is Empty !, Please Fill Source Folder Location", MsgBoxStyle.Critical)
+                MsgBox("Destination folder is empty !, Please fill source folder location", MsgBoxStyle.Critical, "MigrateToGDrive")
+                RichTextBox1.Text = ""
+            ElseIf ComboBox1.Text = "" Then
+                MsgBox("Backup preference is empty !, Please select backup preference first !", MsgBoxStyle.Critical, "MigrateToGDrive")
                 RichTextBox1.Text = ""
             Else
-
-                If ComboBox1.Text = "" Then
-                    MsgBox("Backup Time Is Empty !, Please Select Backup Time First !", MsgBoxStyle.Critical)
-                    RichTextBox1.Text = ""
-                ElseIf ComboBox1.Text = "Anytime" Then
+                If ComboBox1.Text = "Anytime" Then
                     uiTrimSrc = TextBox1.Text
                     uiTrimDest = TextBox2.Text
-                    checkFileExist(uiSrcPath, uiTrimSrc)
-                    checkFileExist(uiDestPath, uiTrimDest)
-                    prepareNotif(lastResult)
-                    prepareNotif(lastErr)
-                    manualBackup("bat/MigrateToGDrive_AT_MN.bat")
+                    If Directory.Exists(uiTrimSrc) Then
+                        If Directory.Exists(uiTrimDest) Then
+                            checkFileExist(uiSrcPath, uiTrimSrc)
+                            checkFileExist(uiDestPath, uiTrimDest)
+                            prepareNotif(lastResult)
+                            prepareNotif(lastErr)
+                            manualBackup("bat/MigrateToGDrive_AT_MN.bat")
+                        Else
+                            checkFileExist(lastResult, "err")
+                            checkFileExist(lastErr, "Destination drive not exist !")
+                        End If
+                    Else
+                        checkFileExist(lastResult, "err")
+                        checkFileExist(lastErr, "Source drive not exist !")
+                    End If
                 ElseIf ComboBox1.Text = "Today" Then
                     If File.Exists(uiDatePath) Then
                         GC.Collect()
@@ -69,21 +80,80 @@
                     End If
                     uiTrimSrc = TextBox1.Text
                     uiTrimDest = TextBox2.Text
-                    checkFileExist(uiSrcPath, uiTrimSrc)
-                    checkFileExist(uiDestPath, uiTrimDest)
-                    prepareNotif(lastResult)
-                    prepareNotif(lastErr)
-                    manualBackup("bat/MigrateToGDrive_TD_MN.bat")
+                    If Directory.Exists(uiTrimSrc) Then
+                        If Directory.Exists(uiTrimDest) Then
+                            checkFileExist(uiSrcPath, uiTrimSrc)
+                            checkFileExist(uiDestPath, uiTrimDest)
+                            prepareNotif(lastResult)
+                            prepareNotif(lastErr)
+                            manualBackup("bat/MigrateToGDrive_TD_MN.bat")
+                        Else
+                            checkFileExist(lastResult, "err")
+                            checkFileExist(lastErr, "Destination drive not exist !")
+                        End If
+                    Else
+                        checkFileExist(lastResult, "err")
+                        checkFileExist(lastErr, "Source drive not exist !")
+                    End If
+                ElseIf ComboBox1.Text = "From Date" Then
+                    If File.Exists(uiDatePath) Then
+                        GC.Collect()
+                        GC.WaitForPendingFinalizers()
+                        File.Delete(uiDatePath)
+                        File.Create(uiDatePath).Dispose()
+                        Dim destWriter As New StreamWriter(uiDatePath, True)
+                        Dim dt As Date = DateTimePicker1.Value.ToShortDateString
+                        destWriter.WriteLine(dt.ToString("MM/dd/yyyy"))
+                        destWriter.Close()
+                    Else
+                        File.Create(uiDatePath).Dispose()
+                        Dim destWriter As New StreamWriter(uiDatePath, True)
+                        Dim dt As Date = DateTimePicker1.Value.ToShortDateString
+                        destWriter.WriteLine(dt.ToString("MM/dd/yyyy"))
+                        destWriter.Close()
+                    End If
+                    uiTrimSrc = TextBox1.Text
+                    uiTrimDest = TextBox2.Text
+                    If Directory.Exists(uiTrimSrc) Then
+                        If Directory.Exists(uiTrimDest) Then
+                            checkFileExist(uiSrcPath, uiTrimSrc)
+                            checkFileExist(uiDestPath, uiTrimDest)
+                            prepareNotif(lastResult)
+                            prepareNotif(lastErr)
+                            manualBackup("bat/MigrateToGDrive_TD_MN.bat")
+                        Else
+                            checkFileExist(lastResult, "err")
+                            checkFileExist(lastErr, "Destination drive not exist !")
+                        End If
+                    Else
+                        checkFileExist(lastResult, "err")
+                        checkFileExist(lastErr, "Source drive not exist !")
+                    End If
                 End If
-                Threading.Thread.Sleep(2000)
-                getDriveSize()
                 showNotif()
             End If
         End If
     End Sub
-    Private Sub Button2_Click(sender As Object, e As EventArgs) Handles Button2.Click
-        MsgBox("To Configure Auto Backup, Please Go To Menu -> Settings Then Configure Specific Directory !", MsgBoxStyle.Information)
-        MsgBox("Contact Your Administrator After Configure Auto Backup Directory !", MsgBoxStyle.Information)
+    Private Sub Form1_Load(sender As Object, e As EventArgs) Handles MyBase.Load
+        DateTimePicker1.Visible = False
+        DateTimePicker1.Format = DateTimePickerFormat.Custom
+        DateTimePicker1.CustomFormat = "MM-dd-yyyy"
+        Label4.Visible = False
+        Dim dt As Date = Today
+        TextBox3.Text = dt.ToString("MM-dd-yyyy")
+        TextBox3.Enabled = False
+        TextBox3.Visible = False
+    End Sub
+    Private Sub ComboBox1_SelectedIndexChanged(sender As Object, e As EventArgs) Handles ComboBox1.SelectedIndexChanged
+        If ComboBox1.Text = "From Date" Then
+            DateTimePicker1.Visible = True
+            Label4.Visible = True
+            TextBox3.Visible = True
+        Else
+            DateTimePicker1.Visible = False
+            Label4.Visible = False
+            TextBox3.Visible = False
+        End If
     End Sub
     Private Sub SettingsToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles SettingsToolStripMenuItem.Click
         Dim menu_settings = New Settings()
@@ -93,55 +163,21 @@
         Dim menu_log = New Log()
         menu_log.Show()
     End Sub
-    Private Sub getDriveSize()
+    Private Sub getSrcDriveSize()
         Dim trimSrc As String
-        Dim trimDest As String
         trimSrc = TextBox1.Text
+        Dim freeSpaceSrc As Double = (My.Computer.FileSystem.GetDriveInfo(trimSrc.Remove(3)).TotalFreeSpace / 1024 / 1024 / 1024)
+        Dim totalspaceSrc As Double = (My.Computer.FileSystem.GetDriveInfo(trimSrc.Remove(3)).TotalSize / 1024 / 1024 / 1024)
+        Label3.Text = ""
+        Label3.Text = "Source drive size : " & Format(freeSpaceSrc, "###.##").ToString & " GB" & " | " & Format(totalspaceSrc, "###.##").ToString & " GB"
+    End Sub
+    Private Sub getDestDriveSize()
+        Dim trimDest As String
         trimDest = TextBox2.Text
-        Dim freeSpaceSrc As String = (My.Computer.FileSystem.GetDriveInfo(trimSrc.Remove(3)).TotalFreeSpace / 1024 / 1024 / 1024).ToString
-        Dim totalspaceSrc As String = (My.Computer.FileSystem.GetDriveInfo(trimSrc.Remove(3)).TotalSize / 1024 / 1024 / 1024).ToString
-        Dim freeSpaceDest As String = (My.Computer.FileSystem.GetDriveInfo(trimDest.Remove(3)).TotalFreeSpace / 1024 / 1024 / 1024).ToString
-        Dim totalspaceDest As String = (My.Computer.FileSystem.GetDriveInfo(trimDest.Remove(3)).TotalSize / 1024 / 1024 / 1024).ToString
-        If freeSpaceDest.Length <= 4 Then
-            If totalspaceDest.Length <= 4 Then
-                Label1.Text = ""
-                Label1.Text = "Destination Drive Size : " & freeSpaceDest & " GB" & " | " & totalspaceDest & " GB"
-            ElseIf totalspaceDest.Length > 4 & totalspaceDest.Length <= 7 Then
-                Dim fixedTotalSpaceDest As String = totalspaceDest.Remove(5)
-                Label1.Text = ""
-                Label1.Text = "Destination Drive Size : " & freeSpaceDest & " GB" & " | " & fixedTotalSpaceDest & " GB"
-            End If
-        ElseIf freeSpaceDest > 4 & freeSpaceDest <= 7 Then
-            Dim fixedFreeSpaceDest As String = freeSpaceDest.Remove(5)
-            If totalspaceDest.Length <= 4 Then
-                Label1.Text = ""
-                Label1.Text = "Destination Drive Size : " & fixedFreeSpaceDest & " GB" & " | " & totalspaceDest & " GB"
-            ElseIf totalspaceDest.Length > 4 & totalspaceDest <= 7 Then
-                Dim fixedTotalSpaceDest As String = totalspaceDest.Remove(5)
-                Label1.Text = ""
-                Label1.Text = "Destination Drive Size : " & fixedFreeSpaceDest & " GB" & " | " & fixedTotalSpaceDest & " GB"
-            End If
-        End If
-        If freeSpaceSrc.Length <= 4 Then
-            If totalspaceSrc.Length <= 4 Then
-                Label3.Text = ""
-                Label3.Text = "Source Drive Size : " & freeSpaceSrc & " GB" & " | " & totalspaceSrc & " GB"
-            ElseIf totalspaceSrc.Length > 4 & totalspaceSrc.Length <= 7 Then
-                Dim fixedTotalSpaceSrc As String = totalspaceSrc.Remove(5)
-                Label3.Text = ""
-                Label3.Text = "Source Drive Size : " & freeSpaceSrc & " GB" & " | " & fixedTotalSpaceSrc & " GB"
-            End If
-        ElseIf freeSpaceSrc > 4 & freeSpaceSrc <= 7 Then
-            Dim fixedFreeSpaceSrc As String = freeSpaceSrc.Remove(5)
-            If totalspaceSrc.Length <= 4 Then
-                Label3.Text = ""
-                Label3.Text = "Source Drive Size : " & fixedFreeSpaceSrc & " GB" & " | " & totalspaceSrc & " GB"
-            ElseIf totalspaceSrc.Length > 4 & totalspaceSrc <= 7 Then
-                Dim fixedTotalSpaceSrc As String = totalspaceSrc.Remove(5)
-                Label3.Text = ""
-                Label3.Text = "Source Drive Size : " & fixedFreeSpaceSrc & " GB" & " | " & fixedTotalSpaceSrc & " GB"
-            End If
-        End If
+        Dim freeSpaceDest As Double = (My.Computer.FileSystem.GetDriveInfo(trimDest.Remove(3)).TotalFreeSpace / 1024 / 1024 / 1024)
+        Dim totalspaceDest As Double = (My.Computer.FileSystem.GetDriveInfo(trimDest.Remove(3)).TotalSize / 1024 / 1024 / 1024)
+        Label1.Text = ""
+        Label1.Text = "Destination drive size : " & Format(freeSpaceDest, "###.##").ToString & " GB" & " | " & Format(totalspaceDest, "###.##").ToString & " GB"
     End Sub
     Private Sub checkFileExist(path As String, trim As String)
         If File.Exists(path) Then
@@ -173,32 +209,28 @@
         If File.Exists(lastResult) Then
             Dim lastRest As String = pathVal(lastResult, 0)
             If pathVal(lastResult, 0).Equals("success") Then
-                MsgBox("Backup Success !", MsgBoxStyle.Information)
+                MsgBox("Backup success !", MsgBoxStyle.Information, "MigrateToGDrive")
                 showLog("Backup", logPath)
             ElseIf pathVal(lastResult, 0).Equals("err") Then
-                MsgBox("Backup Error !", MsgBoxStyle.Critical)
+                MsgBox("Backup error !", MsgBoxStyle.Critical, "MigrateToGDrive")
                 RichTextBox1.Text = ""
                 If File.Exists(lastErr) Then
                     If pathVal(lastErr, 0).Equals("") Then
-                        MsgBox("Unknown Error Reason !", MsgBoxStyle.Critical)
-                        MsgBox("Please Contact Your Administrator !", MsgBoxStyle.Critical)
+                        MsgBox("Unknown error reason !", MsgBoxStyle.Critical, "MigrateToGDrive")
                         RichTextBox1.Text = ""
                     Else
-                        MsgBox(pathVal(lastErr, 0), MsgBoxStyle.Critical)
+                        MsgBox(pathVal(lastErr, 0), MsgBoxStyle.Critical, "MigrateToGDrive")
                     End If
                 Else
-                    MsgBox("Error File Not Found !", MsgBoxStyle.Critical)
-                    MsgBox("Please Contact Your Administrator !", MsgBoxStyle.Critical)
+                    MsgBox("Error file not found !", MsgBoxStyle.Critical, "MigrateToGDrive")
                     RichTextBox1.Text = ""
                 End If
             Else
-                MsgBox("Unknown Result Status !", MsgBoxStyle.Critical)
-                MsgBox("Please Contact Your Administrator !", MsgBoxStyle.Critical)
+                MsgBox("Unknown result status !", MsgBoxStyle.Critical, "MigrateToGDrive")
                 RichTextBox1.Text = ""
             End If
         Else
-            MsgBox("Result File Not Found !", MsgBoxStyle.Critical)
-            MsgBox("Please Contact Your Administrator !", MsgBoxStyle.Critical)
+            MsgBox("Result file not found !", MsgBoxStyle.Critical, "MigrateToGDrive")
             RichTextBox1.Text = ""
         End If
     End Sub
@@ -206,19 +238,19 @@
         RichTextBox1.Text = ""
         If File.Exists(path) Then
             If New FileInfo(path).Length.Equals(0) Then
-                MsgBox(log & " File Is Empty !", MsgBoxStyle.Critical)
+                MsgBox(log & " File is empty !", MsgBoxStyle.Critical, "MigrateToGDrive")
             Else
                 RichTextBox1.Text = File.ReadAllText(path)
             End If
         Else
-            MsgBox(log & " File Does Not Exist !", MsgBoxStyle.Critical)
+            MsgBox(log & " File does not exist !", MsgBoxStyle.Critical, "MigrateToGDrive")
         End If
     End Sub
     Private Sub manualBackup(bat As String)
         Dim psi As New ProcessStartInfo(bat)
         psi.RedirectStandardError = True
         psi.RedirectStandardOutput = True
-        psi.CreateNoWindow = False
+        psi.CreateNoWindow = True
         psi.WindowStyle = ProcessWindowStyle.Hidden
         psi.UseShellExecute = False
         Dim process As Process = Process.Start(psi)
