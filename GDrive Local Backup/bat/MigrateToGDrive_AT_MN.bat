@@ -3,46 +3,118 @@ set /p TsrcPath=<conf/uiSrcPath
 set /p TdestPath=<conf/uiDestPath
 if exist "%TsrcPath%" (
 	if exist "%TdestPath%" (
-		call xcopy "%TsrcPath%" "%TdestPath%" /s /y >> "log/log"
+		call xcopy "%TsrcPath%" "%TdestPath%" /s /e /y >> "log/log"
 		if %ERRORLEVEL% == 0 goto :next
-		echo. >> "log/err"
+		if %ERRORLEVEL% == 1 goto :err1
+		if %ERRORLEVEL% == 2 goto :err2
+		if %ERRORLEVEL% == 4 goto :err4
+		if %ERRORLEVEL% == 5 goto :err5
 		echo err>> "log/lastResult"
-		echo Backup with AnyTime Preferences Was Failed !, error code: %errorlevel% >> "log/err"
-		echo Backup with AnyTime Preferences Was Failed !, error code: %errorlevel% >> "log/lastErr"
-		echo Last Backup Time: %date% - %time% >> "log/err"
-		echo Backup Type: Manual >> "log/err"
+		echo # MigrateToGDrive v1.0 >> "log/err" 
+		echo Backup Result		: Error >> "log/err"
+		echo Reason				: Unspecified Error: %errorlevel% >> "log/err"
+		echo Unspecified Error: %errorlevel% >> "log/lastErr"
+		echo Source Path		: %TsrcPath% >> "log/err" 
+		echo Destination Path	: %TdestPath% >> "log/err" 
+		echo Backup Time		: %date% - %time% >> "log/err"
+		echo Backup Pref		: Anytime >> "log/err"
+		echo Backup Type		: Manual >> "log/err"
+		echo. >> "log/err"
+		goto :endofscript
+
+		:err1
+		echo err>> "log/lastResult"
+		echo # MigrateToGDrive v1.0 >> "log/err" 
+		echo Backup Result		: Error >> "log/err"
+		echo Reason				: No files or folder found to backup >> "log/err"
+		echo No files or folder found to backup >> "log/lastErr"
+		echo Source Path		: %TsrcPath% >> "log/err 
+		echo Destination Path	: %TdestPath% >> "log/err"
+		echo Backup Time		: %date% - %time% >> "log/err"
+		echo Backup Pref		: Anytime >> "log/err"
+		echo Backup Type		: Manual >> "log/err"
+		echo. >> "log/err"
+		goto :endofscript
+
+		:err2
+		echo err>> "log/lastResult"
+		echo # MigrateToGDrive v1.0 >> "log/err" 
+		echo Backup Result		: Error >> "log/err"
+		echo Reason				: Process terminate by user >> "log/err"
+		echo Process terminate by user >> "log/lastErr"
+		echo Source Path		: %TsrcPath% >> "log/err" 
+		echo Destination Path	: %TdestPath% >> "log/err" 
+		echo Backup Time		: %date% - %time% >> "log/err"
+		echo Backup Pref		: Anytime >> "log/err"
+		echo Backup Type		: Manual >> "log/err"
+		echo. >> "log/err"
+		goto :endofscript
+
+		:err4
+		echo err>> "log/lastResult"
+		echo # MigrateToGDrive v1.0 >> "log/err" 
+		echo Backup Result		: Error >> "log/err"
+		echo Reason				: Insufficient permissions >> "log/err"
+		echo Insufficient permissions >> "log/lastErr"
+		echo Source Path		: %TsrcPath% >> "log/err" 
+		echo Destination Path	: %TdestPath% >> "log/err" 
+		echo Backup Time		: %date% - %time% >> "log/err"
+		echo Backup Pref		: Anytime >> "log/err"
+		echo Backup Type		: Manual >> "log/err"
+		echo. >> "log/err"
+		goto :endofscript
+
+		:err5
+		echo err>> "log/lastResult"
+		echo #MigrateToGDrive v1.0 >> "log/err" 
+		echo Backup Result		: Error >> "log/err"
+		echo Reason				: Disk write error occured >> "log/err"
+		echo Disk write error occured >> "log/lastErr"
+		echo Source Path		: %TsrcPath%
+		echo Destination Path	: %TdestPath%
+		echo Backup Time		: %date% - %time% >> "log/err"
+		echo Backup Pref		: Anytime >> "log/err"
+		echo Backup Type		: Manual >> "log/err"
+		echo. >> "log/err"
 		goto :endofscript
 
 		:next
 		echo success>> "log/lastResult"
-		echo Backup with AnyTime Preferences Was Success! >> "log/log"
-		echo Last Backup Time: %date% - %time% >> "log/log"
-		echo Backup Preferences: Anytime >> "log/log"
-		echo Backup Type: Manual >> "log/log"
+		echo # MigrateToGDrive v1.0 >> "log/log"
+		echo Backup Result		: Success >> "log/log"
+		echo Source Path		: %TsrcPath% >> "log/log"
+		echo Destination Path		: %TdestPath% >> "log/log"
+		echo Backup Time		: %date% - %time% >> "log/log"
+		echo Backup Pref		: Anytime >> "log/log"
+		echo Backup Type		: Manual >> "log/log"
 		echo. >> "log/log"
 		goto :endofscript
 	) else (
-		echo. >> "log/err"
 		echo err>> "log/lastResult"
-		echo Backup with AnyTime Preferences Was Failed ! >> "log/err"
-		echo Source Path : %TsrcPath% >> "log/err"
-		echo Destination Path : %TdestPath% >> "log/err"
-		echo Reason : Destination Path Was Not Exists ! >> "log/err"
-		echo Reason : Destination Path Was Not Exists ! >> "log/lastErr"
-		echo Last Backup Time: %date% - %time% >> "log/err"
-		echo Backup Type: Manual >> "log/err"
+		echo # MigrateToGDrive v1.0 >> "log/err"
+		echo Backup Result		: Error >> "log/err"
+		echo Reason				: Destination path not exist >> "log/err"
+		echo Destination path not exist >> "log/lastErr"
+		echo Source Path		: %TsrcPath% >> "log/err"
+		echo Destination Path	: %TdestPath% >> "log/err"
+		echo Backup Time		: %date% - %time% >> "log/err"
+		echo Backup Pref		: Anytime >> "log/err"
+		echo Backup Type		: Manual >> "log/err"
+		echo. >> "log/err"
 		goto :endofscript
 	)
 ) else (
-	echo. >> "log/err"
 	echo err>> "log/lastResult"
-	echo Backup with AnyTime Preferences Was Failed ! >> "log/err"
-	echo Source Path : %TsrcPath% >> "log/err"
-	echo Destination Path : %TdestPath% >> "log/err"
-	echo Reason : Source Path Was Not Exists ! >> "log/err"
-	echo Reason : Source Path Was Not Exists ! >> "log/lastErr"
-	echo Last Backup Time: %date% - %time% >> "log/err"
-	echo Backup Type: Manual >> "log/err"
+	echo # MigrateToGDrive v1.0 >> "log/err"
+	echo Backup Result		: Error >> "log/err"
+	echo Reason				: Source path not exist >> "log/err"
+	echo Reason				: Source path not exist >> "log/lastErr"
+	echo Source Path		: %TsrcPath% >> "log/err"
+	echo Destination Path	: %TdestPath% >> "log/err"
+	echo Backup Time		: %date% - %time% >> "log/err"
+	echo Backup Pref		: Anytime >> "log/err"
+	echo Backup Type		: Manual >> "log/err"
+	echo. >> "log/err"
 	goto :endofscript
 )
 
