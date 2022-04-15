@@ -9,13 +9,21 @@
     <MyType>WindowsForms</MyType>
     <AssemblyName>Migrate To GDrive</AssemblyName>
     <ApplicationIcon>drive.ico</ApplicationIcon>
-    <Authors>Dicky</Authors>
-    <Company>EMSITPRO - IT</Company>
-    <PackageId>MigrateToGdrive_1.0</PackageId>
+    <Authors>Dicky Herlambang</Authors>
+    <Company>Hana-CI Build Project</Company>
+    <PackageId>MigrateToGDrive</PackageId>
     <Copyright>HANA-CI Build Project 2016-2022</Copyright>
-    <PackageIcon>drive.jpg</PackageIcon>
+    <PackageIcon>drive.ico</PackageIcon>
     <PackageIconUrl />
     <PackageReleaseNotes>Initial Release</PackageReleaseNotes>
+    <ApplicationManifest>My Project\app.manifest</ApplicationManifest>
+    <Version>1.0.0</Version>
+    <Description>Special purpose application that only have aim to backup data from directory to directory that was specified by users with several time frame options and include with scheduler management that can do backup automatically (Based on Windows Task Scheduler Library)</Description>
+    <PackageProjectUrl>https://github.com/Nicklas373/Migrate-To-GDrive</PackageProjectUrl>
+    <RepositoryUrl>https://github.com/Nicklas373/Migrate-To-GDrive</RepositoryUrl>
+    <RepositoryType>public</RepositoryType>
+    <PackageTags>#Migrate-To-GDrive</PackageTags>
+    <NeutralLanguage>en-ID</NeutralLanguage>
   </PropertyGroup>
 
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|AnyCPU'">
@@ -54,6 +62,10 @@
     <None Update="My Project\Application.myapp">
       <Generator>MyApplicationCodeGenerator</Generator>
       <LastGenOutput>Application.Designer.vb</LastGenOutput>
+    </None>
+    <None Include="drive.ico">
+      <Pack>True</Pack>
+      <PackagePath></PackagePath>
     </None>
   </ItemGroup>
 
