@@ -24,11 +24,11 @@ by users with several time frame options and include with scheduler management t
   * Reset Task
   * Reset Config
  
-- Log Info
-  * Check Backup Log
-  * Check Error Log
-  * Clear Log
-  * Export Log
+- History Info
+  * Check Backup History
+  * Check Error History
+  * Clear History
+  * Export History
 
 # App Compatibility
 - [.NET Desktop Runtime 6.0](https://dotnet.microsoft.com/en-us/download/dotnet/6.0)
@@ -50,5 +50,16 @@ by users with several time frame options and include with scheduler management t
   that has mapped into windows as standalone drive then backup was configure by scheduler (depends on what company want options). Google Drive
   name and logo was taken to make "familiar in case" in term of introduction to the app and function, nothing more than that.
 - And also this is only for my personal usage, if anyone want to use. Just use it at your own risk !
+
+# Credits
+- <a href="https://www.flaticon.com/free-icons/history" title="history icons">History icons created by Izwar Muis - Flaticon</a>
+- <a href="https://www.flaticon.com/free-icons/backup" title="backup icons">Backup icons created by Smashicons - Flaticon</a>
+- <a href="https://www.flaticon.com/free-icons/backup" title="backup icons">Backup icons created by Freepik - Flaticon</a>
+- <a href="https://www.flaticon.com/free-icons/dust" title="dust icons">Dust icons created by Flat Icons - Flaticon</a>
+- <a href="https://www.flaticon.com/free-icons/criteria" title="criteria icons">Criteria icons created by Designspace Team - Flaticon</a>
+- <a href="https://www.flaticon.com/free-icons/delete" title="delete icons">Delete icons created by Alfredo Hernandez - Flaticon</a>
+- <a href="https://www.flaticon.com/free-icons/edit" title="edit icons">Edit icons created by Pixel perfect - Flaticon</a>
+- <a href="https://www.flaticon.com/free-icons/reset" title="reset icons">Reset icons created by Andrean Prabowo - Flaticon</a>
+- <a href="https://www.flaticon.com/free-icons/tasks" title="tasks icons">Tasks icons created by Kiranshastry - Flaticon</a>
 
 # HANA-CI Build Project 2016 - 2022
