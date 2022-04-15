@@ -35,9 +35,9 @@ by users with several time frame options and include with scheduler management t
 
 # App Screenshoot
 <p align="left">
-<img width="480" height="240" src="https://github.com/Nicklas373/Migrate-To-GDrive/raw/master/GDrive%20Local%20Backup/Screenshots/Main%20Menu.png">&nbsp;&nbsp;&nbsp;
-<img width="480" height="240" src="https://github.com/Nicklas373/Migrate-To-GDrive/raw/master/GDrive%20Local%20Backup/Screenshots/Log%20Menu.png">&nbsp;&nbsp;&nbsp;
-<img width="480" height="240" src="https://github.com/Nicklas373/Migrate-To-GDrive/raw/master/GDrive%20Local%20Backup/Screenshots/Settings%20Menu.png">&nbsp;&nbsp;&nbsp;
+<img width="480" height="240" src="https://github.com/Nicklas373/Migrate-To-GDrive/raw/master/MigrateToGDrive/Screenshots/Main%20Menu.png">&nbsp;&nbsp;&nbsp;
+<img width="480" height="240" src="https://github.com/Nicklas373/Migrate-To-GDrive/raw/master/MigrateToGDrive/Screenshots/Log%20Menu.png">&nbsp;&nbsp;&nbsp;
+<img width="480" height="240" src="https://github.com/Nicklas373/Migrate-To-GDrive/raw/master/MigrateToGDrive/Screenshots/Settings%20Menu.png">&nbsp;&nbsp;&nbsp;
 </p>
 
 # Note
