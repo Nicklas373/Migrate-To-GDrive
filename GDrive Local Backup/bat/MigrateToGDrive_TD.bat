@@ -2,10 +2,14 @@
 cd ..
 set /p TsrcPath=<conf/srcPath
 set /p TdestPath=<conf/destPath
-set /p TdatePath=<conf/datePath
+for /f "skip=1" %%x in ('wmic os get localdatetime') do if not defined MyDate set MyDate=%%x
+for /f %%x in ('wmic path win32_localtime get /format:list ^| findstr "="') do set %%x
+set fmonth=00%Month%
+set fday=00%Day%
+set today=%fmonth:~-2%-%fday:~-2%-%Year%
 if exist "%TsrcPath%" (
 	if exist "%TdestPath%" (
-		call xcopy "%TsrcPath%" "%TdestPath%" /s /e /d:%TdatePath% /y >> "log/log"
+		call xcopy "%TsrcPath%" "%TdestPath%" /s /e /d:%today% /y >> "log/log"
 		if %ERRORLEVEL% == 0 goto :next
 		if %ERRORLEVEL% == 1 goto :err1
 		if %ERRORLEVEL% == 2 goto :err2
