@@ -31,6 +31,7 @@ Public Class Settings
     Private Sub FolderBrowserDialog1_Disposed(sender As Object, e As EventArgs) Handles Button1.Click
         If TextBox1.ReadOnly = False Then
             TextBox1.Text = filedialog.SelectedPath.ToString
+            getSrcDriveSize(2)
         End If
     End Sub
     Private Sub Button2_Click(sender As Object, e As EventArgs) Handles Button2.Click
@@ -44,6 +45,7 @@ Public Class Settings
     Private Sub FolderBrowserDialog2_Disposed(sender As Object, e As EventArgs) Handles Button2.Click
         If TextBox2.ReadOnly = False Then
             TextBox2.Text = filedialog.SelectedPath.ToString
+            getDestDriveSize(2)
         End If
     End Sub
     Private Sub Button3_Click(sender As Object, e As EventArgs) Handles Button3.Click
@@ -91,6 +93,11 @@ Public Class Settings
     End Sub
     Private Sub Button5_Click(sender As Object, e As EventArgs) Handles Button5.Click
         TextBox1.ReadOnly = True
+        TextBox1.Text = ""
+        TextBox2.Text = ""
+        Label1.Text = ""
+        Label2.Text = ""
+        ComboBox1.SelectedIndex = 0
         TextBox2.ReadOnly = True
         Button3.Visible = False
         Button4.Visible = True
@@ -264,12 +271,6 @@ Public Class Settings
         Else
             MsgBox("Config file is not exist !, Please configure directory first !", MsgBoxStyle.Critical, "MigrateToGDrive")
         End If
-    End Sub
-    Private Sub TextBox1_TextChanged(sender As Object, e As EventArgs) Handles TextBox1.TextChanged
-        getSrcDriveSize(2)
-    End Sub
-    Private Sub TextBox2_TextChanged(sender As Object, e As EventArgs) Handles TextBox2.TextChanged
-        getDestDriveSize(2)
     End Sub
     Private Sub TextBox3_TextChanged(sender As Object, e As EventArgs) Handles TextBox3.TextChanged
         If TextBox3.Text = "0" Then

@@ -143,6 +143,8 @@
         TextBox3.Text = dt.ToString("MM-dd-yyyy")
         TextBox3.Enabled = False
         TextBox3.Visible = False
+        TextBox1.ReadOnly = True
+        TextBox2.ReadOnly = True
     End Sub
     Private Sub ComboBox1_SelectedIndexChanged(sender As Object, e As EventArgs) Handles ComboBox1.SelectedIndexChanged
         If ComboBox1.Text = "From Date" Then
@@ -163,21 +165,32 @@
         Dim menu_log = New Log()
         menu_log.Show()
     End Sub
+    Private Sub AboutToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles AboutToolStripMenuItem.Click
+        MsgBox("Work in progress !", vbInformation, "MigrateToGDrive")
+    End Sub
     Private Sub getSrcDriveSize()
         Dim trimSrc As String
         trimSrc = TextBox1.Text
-        Dim freeSpaceSrc As Double = (My.Computer.FileSystem.GetDriveInfo(trimSrc.Remove(3)).TotalFreeSpace / 1024 / 1024 / 1024)
-        Dim totalspaceSrc As Double = (My.Computer.FileSystem.GetDriveInfo(trimSrc.Remove(3)).TotalSize / 1024 / 1024 / 1024)
-        Label3.Text = ""
-        Label3.Text = "Source drive size : " & Format(freeSpaceSrc, "###.##").ToString & " GB" & " | " & Format(totalspaceSrc, "###.##").ToString & " GB"
+        If trimSrc = "" Then
+            Label3.Text = ""
+        Else
+            Dim freeSpaceSrc As Double = (My.Computer.FileSystem.GetDriveInfo(trimSrc.Remove(3)).TotalFreeSpace / 1024 / 1024 / 1024)
+            Dim totalspaceSrc As Double = (My.Computer.FileSystem.GetDriveInfo(trimSrc.Remove(3)).TotalSize / 1024 / 1024 / 1024)
+            Label3.Text = ""
+            Label3.Text = "Source drive size : " & Format(freeSpaceSrc, "###.##").ToString & " GB" & " | " & Format(totalspaceSrc, "###.##").ToString & " GB"
+        End If
     End Sub
     Private Sub getDestDriveSize()
         Dim trimDest As String
         trimDest = TextBox2.Text
-        Dim freeSpaceDest As Double = (My.Computer.FileSystem.GetDriveInfo(trimDest.Remove(3)).TotalFreeSpace / 1024 / 1024 / 1024)
-        Dim totalspaceDest As Double = (My.Computer.FileSystem.GetDriveInfo(trimDest.Remove(3)).TotalSize / 1024 / 1024 / 1024)
-        Label1.Text = ""
-        Label1.Text = "Destination drive size : " & Format(freeSpaceDest, "###.##").ToString & " GB" & " | " & Format(totalspaceDest, "###.##").ToString & " GB"
+        If trimDest = "" Then
+            Label1.Text = ""
+        Else
+            Dim freeSpaceDest As Double = (My.Computer.FileSystem.GetDriveInfo(trimDest.Remove(3)).TotalFreeSpace / 1024 / 1024 / 1024)
+            Dim totalspaceDest As Double = (My.Computer.FileSystem.GetDriveInfo(trimDest.Remove(3)).TotalSize / 1024 / 1024 / 1024)
+            Label1.Text = ""
+            Label1.Text = "Destination drive size : " & Format(freeSpaceDest, "###.##").ToString & " GB" & " | " & Format(totalspaceDest, "###.##").ToString & " GB"
+        End If
     End Sub
     Private Sub checkFileExist(path As String, trim As String)
         If File.Exists(path) Then

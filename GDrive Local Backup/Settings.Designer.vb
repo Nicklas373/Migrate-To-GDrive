@@ -89,11 +89,15 @@ Partial Class Settings
         '
         'Button1
         '
+        Me.Button1.Font = New System.Drawing.Font("Segoe UI", 9.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point)
+        Me.Button1.Image = Global.Migrate_To_GDrive.My.Resources.Resources.folder
+        Me.Button1.ImageAlign = System.Drawing.ContentAlignment.MiddleRight
         Me.Button1.Location = New System.Drawing.Point(6, 22)
         Me.Button1.Name = "Button1"
-        Me.Button1.Size = New System.Drawing.Size(139, 42)
+        Me.Button1.Size = New System.Drawing.Size(154, 42)
         Me.Button1.TabIndex = 0
-        Me.Button1.Text = "Source Directory"
+        Me.Button1.Text = "Source Folder"
+        Me.Button1.TextAlign = System.Drawing.ContentAlignment.MiddleLeft
         Me.Button1.UseVisualStyleBackColor = True
         '
         'GroupBox1
@@ -114,14 +118,15 @@ Partial Class Settings
         Me.GroupBox1.Size = New System.Drawing.Size(1105, 198)
         Me.GroupBox1.TabIndex = 1
         Me.GroupBox1.TabStop = False
-        Me.GroupBox1.Text = "Configure Directory"
+        Me.GroupBox1.Text = "Configure Folder"
         '
         'Label7
         '
         Me.Label7.AutoSize = True
+        Me.Label7.Font = New System.Drawing.Font("Segoe UI", 9.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point)
         Me.Label7.Location = New System.Drawing.Point(17, 137)
         Me.Label7.Name = "Label7"
-        Me.Label7.Size = New System.Drawing.Size(110, 15)
+        Me.Label7.Size = New System.Drawing.Size(119, 15)
         Me.Label7.TabIndex = 14
         Me.Label7.Text = "Backup Preferences"
         Me.Label7.Visible = False
@@ -157,30 +162,42 @@ Partial Class Settings
         '
         'Button5
         '
+        Me.Button5.Font = New System.Drawing.Font("Segoe UI", 9.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point)
+        Me.Button5.Image = CType(resources.GetObject("Button5.Image"), System.Drawing.Image)
+        Me.Button5.ImageAlign = System.Drawing.ContentAlignment.MiddleRight
         Me.Button5.Location = New System.Drawing.Point(513, 137)
         Me.Button5.Name = "Button5"
-        Me.Button5.Size = New System.Drawing.Size(91, 42)
+        Me.Button5.Size = New System.Drawing.Size(82, 42)
         Me.Button5.TabIndex = 7
         Me.Button5.Text = "Cancel"
+        Me.Button5.TextAlign = System.Drawing.ContentAlignment.MiddleLeft
         Me.Button5.UseVisualStyleBackColor = True
         Me.Button5.Visible = False
         '
         'Button4
         '
-        Me.Button4.Location = New System.Drawing.Point(1009, 137)
+        Me.Button4.Font = New System.Drawing.Font("Segoe UI", 9.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point)
+        Me.Button4.Image = CType(resources.GetObject("Button4.Image"), System.Drawing.Image)
+        Me.Button4.ImageAlign = System.Drawing.ContentAlignment.MiddleRight
+        Me.Button4.Location = New System.Drawing.Point(1009, 134)
         Me.Button4.Name = "Button4"
-        Me.Button4.Size = New System.Drawing.Size(90, 42)
+        Me.Button4.Size = New System.Drawing.Size(82, 42)
         Me.Button4.TabIndex = 6
         Me.Button4.Text = "Edit"
+        Me.Button4.TextAlign = System.Drawing.ContentAlignment.MiddleLeft
         Me.Button4.UseVisualStyleBackColor = True
         '
         'Button3
         '
+        Me.Button3.Font = New System.Drawing.Font("Segoe UI", 9.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point)
+        Me.Button3.Image = CType(resources.GetObject("Button3.Image"), System.Drawing.Image)
+        Me.Button3.ImageAlign = System.Drawing.ContentAlignment.MiddleRight
         Me.Button3.Location = New System.Drawing.Point(417, 137)
         Me.Button3.Name = "Button3"
-        Me.Button3.Size = New System.Drawing.Size(90, 42)
+        Me.Button3.Size = New System.Drawing.Size(82, 42)
         Me.Button3.TabIndex = 5
         Me.Button3.Text = "Save"
+        Me.Button3.TextAlign = System.Drawing.ContentAlignment.MiddleLeft
         Me.Button3.UseVisualStyleBackColor = True
         Me.Button3.Visible = False
         '
@@ -202,11 +219,15 @@ Partial Class Settings
         '
         'Button2
         '
+        Me.Button2.Font = New System.Drawing.Font("Segoe UI", 9.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point)
+        Me.Button2.Image = Global.Migrate_To_GDrive.My.Resources.Resources.folder
+        Me.Button2.ImageAlign = System.Drawing.ContentAlignment.MiddleRight
         Me.Button2.Location = New System.Drawing.Point(6, 70)
         Me.Button2.Name = "Button2"
-        Me.Button2.Size = New System.Drawing.Size(139, 42)
+        Me.Button2.Size = New System.Drawing.Size(154, 42)
         Me.Button2.TabIndex = 2
-        Me.Button2.Text = "Destination Directory"
+        Me.Button2.Text = "Destination Folder"
+        Me.Button2.TextAlign = System.Drawing.ContentAlignment.MiddleLeft
         Me.Button2.UseVisualStyleBackColor = True
         '
         'Label3
@@ -445,20 +466,28 @@ Partial Class Settings
         '
         'Button7
         '
+        Me.Button7.Font = New System.Drawing.Font("Segoe UI", 9.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point)
+        Me.Button7.Image = CType(resources.GetObject("Button7.Image"), System.Drawing.Image)
+        Me.Button7.ImageAlign = System.Drawing.ContentAlignment.MiddleRight
         Me.Button7.Location = New System.Drawing.Point(1009, 328)
         Me.Button7.Name = "Button7"
-        Me.Button7.Size = New System.Drawing.Size(90, 40)
+        Me.Button7.Size = New System.Drawing.Size(82, 42)
         Me.Button7.TabIndex = 13
         Me.Button7.Text = "Edit"
+        Me.Button7.TextAlign = System.Drawing.ContentAlignment.MiddleLeft
         Me.Button7.UseVisualStyleBackColor = True
         '
         'Button8
         '
+        Me.Button8.Font = New System.Drawing.Font("Segoe UI", 9.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point)
+        Me.Button8.Image = CType(resources.GetObject("Button8.Image"), System.Drawing.Image)
+        Me.Button8.ImageAlign = System.Drawing.ContentAlignment.MiddleRight
         Me.Button8.Location = New System.Drawing.Point(518, 328)
         Me.Button8.Name = "Button8"
-        Me.Button8.Size = New System.Drawing.Size(90, 39)
+        Me.Button8.Size = New System.Drawing.Size(82, 42)
         Me.Button8.TabIndex = 15
         Me.Button8.Text = "Cancel"
+        Me.Button8.TextAlign = System.Drawing.ContentAlignment.MiddleLeft
         Me.Button8.UseVisualStyleBackColor = True
         '
         'GroupBox4
@@ -576,11 +605,15 @@ Partial Class Settings
         '
         'Button6
         '
+        Me.Button6.Font = New System.Drawing.Font("Segoe UI", 9.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point)
+        Me.Button6.Image = CType(resources.GetObject("Button6.Image"), System.Drawing.Image)
+        Me.Button6.ImageAlign = System.Drawing.ContentAlignment.MiddleRight
         Me.Button6.Location = New System.Drawing.Point(422, 328)
         Me.Button6.Name = "Button6"
-        Me.Button6.Size = New System.Drawing.Size(90, 40)
+        Me.Button6.Size = New System.Drawing.Size(82, 42)
         Me.Button6.TabIndex = 14
         Me.Button6.Text = "Save"
+        Me.Button6.TextAlign = System.Drawing.ContentAlignment.MiddleLeft
         Me.Button6.UseVisualStyleBackColor = True
         '
         'GroupBox3
@@ -600,55 +633,76 @@ Partial Class Settings
         '
         'Button13
         '
+        Me.Button13.Font = New System.Drawing.Font("Segoe UI", 9.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point)
+        Me.Button13.Image = CType(resources.GetObject("Button13.Image"), System.Drawing.Image)
+        Me.Button13.ImageAlign = System.Drawing.ContentAlignment.MiddleRight
         Me.Button13.Location = New System.Drawing.Point(6, 117)
         Me.Button13.Name = "Button13"
-        Me.Button13.Size = New System.Drawing.Size(90, 37)
+        Me.Button13.Size = New System.Drawing.Size(130, 37)
         Me.Button13.TabIndex = 5
         Me.Button13.Text = "Run Task"
+        Me.Button13.TextAlign = System.Drawing.ContentAlignment.MiddleLeft
         Me.Button13.UseVisualStyleBackColor = True
         '
         'Button12
         '
+        Me.Button12.Font = New System.Drawing.Font("Segoe UI", 9.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point)
+        Me.Button12.Image = CType(resources.GetObject("Button12.Image"), System.Drawing.Image)
+        Me.Button12.ImageAlign = System.Drawing.ContentAlignment.MiddleRight
         Me.Button12.Location = New System.Drawing.Point(6, 202)
         Me.Button12.Name = "Button12"
-        Me.Button12.Size = New System.Drawing.Size(90, 39)
+        Me.Button12.Size = New System.Drawing.Size(130, 39)
         Me.Button12.TabIndex = 4
         Me.Button12.Text = "Reset Config"
+        Me.Button12.TextAlign = System.Drawing.ContentAlignment.MiddleLeft
         Me.Button12.UseVisualStyleBackColor = True
         '
         'Button11
         '
+        Me.Button11.Font = New System.Drawing.Font("Segoe UI", 9.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point)
+        Me.Button11.Image = CType(resources.GetObject("Button11.Image"), System.Drawing.Image)
+        Me.Button11.ImageAlign = System.Drawing.ContentAlignment.MiddleRight
         Me.Button11.Location = New System.Drawing.Point(6, 160)
         Me.Button11.Name = "Button11"
-        Me.Button11.Size = New System.Drawing.Size(90, 36)
+        Me.Button11.Size = New System.Drawing.Size(130, 36)
         Me.Button11.TabIndex = 3
         Me.Button11.Text = "Reset Task"
+        Me.Button11.TextAlign = System.Drawing.ContentAlignment.MiddleLeft
         Me.Button11.UseVisualStyleBackColor = True
         '
         'Button10
         '
+        Me.Button10.Font = New System.Drawing.Font("Segoe UI", 9.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point)
+        Me.Button10.Image = CType(resources.GetObject("Button10.Image"), System.Drawing.Image)
+        Me.Button10.ImageAlign = System.Drawing.ContentAlignment.MiddleRight
         Me.Button10.Location = New System.Drawing.Point(6, 73)
         Me.Button10.Name = "Button10"
-        Me.Button10.Size = New System.Drawing.Size(91, 38)
+        Me.Button10.Size = New System.Drawing.Size(130, 38)
         Me.Button10.TabIndex = 2
         Me.Button10.Text = "Check Config"
+        Me.Button10.TextAlign = System.Drawing.ContentAlignment.MiddleLeft
         Me.Button10.UseVisualStyleBackColor = True
         '
         'Button9
         '
-        Me.Button9.Location = New System.Drawing.Point(6, 28)
+        Me.Button9.Font = New System.Drawing.Font("Segoe UI", 9.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point)
+        Me.Button9.Image = CType(resources.GetObject("Button9.Image"), System.Drawing.Image)
+        Me.Button9.ImageAlign = System.Drawing.ContentAlignment.MiddleRight
+        Me.Button9.Location = New System.Drawing.Point(6, 25)
         Me.Button9.Name = "Button9"
-        Me.Button9.Size = New System.Drawing.Size(90, 39)
+        Me.Button9.Size = New System.Drawing.Size(130, 42)
         Me.Button9.TabIndex = 1
         Me.Button9.Text = "Check Task"
+        Me.Button9.TextAlign = System.Drawing.ContentAlignment.MiddleLeft
         Me.Button9.UseVisualStyleBackColor = True
         '
         'RichTextBox1
         '
-        Me.RichTextBox1.Location = New System.Drawing.Point(103, 28)
+        Me.RichTextBox1.BackColor = System.Drawing.Color.WhiteSmoke
+        Me.RichTextBox1.Location = New System.Drawing.Point(142, 18)
         Me.RichTextBox1.Name = "RichTextBox1"
         Me.RichTextBox1.ReadOnly = True
-        Me.RichTextBox1.Size = New System.Drawing.Size(975, 277)
+        Me.RichTextBox1.Size = New System.Drawing.Size(957, 283)
         Me.RichTextBox1.TabIndex = 0
         Me.RichTextBox1.Text = "Log Will Show Here ..."
         '
@@ -658,6 +712,7 @@ Partial Class Settings
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
         Me.AutoSize = True
         Me.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink
+        Me.BackColor = System.Drawing.Color.LightSteelBlue
         Me.ClientSize = New System.Drawing.Size(1126, 910)
         Me.Controls.Add(Me.GroupBox3)
         Me.Controls.Add(Me.GroupBox2)
@@ -665,7 +720,7 @@ Partial Class Settings
         Me.FormBorderStyle = System.Windows.Forms.FormBorderStyle.Fixed3D
         Me.Icon = CType(resources.GetObject("$this.Icon"), System.Drawing.Icon)
         Me.Name = "Settings"
-        Me.Text = "MigrateToGDrive | Settings Menu"
+        Me.Text = "MigrateToGDrive | Settings"
         Me.GroupBox1.ResumeLayout(False)
         Me.GroupBox1.PerformLayout()
         Me.GroupBox2.ResumeLayout(False)
