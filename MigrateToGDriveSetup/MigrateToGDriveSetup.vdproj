@@ -39,6 +39,12 @@
         }
         "Entry"
         {
+        "MsmKey" = "8:_1DC350A5EC0647D8B9CA7CDFDB94433A"
+        "OwnerKey" = "8:_UNDEFINED"
+        "MsmSig" = "8:_UNDEFINED"
+        }
+        "Entry"
+        {
         "MsmKey" = "8:_288C53795AB84FD7BD2A40F50B142E85"
         "OwnerKey" = "8:_UNDEFINED"
         "MsmSig" = "8:_UNDEFINED"
@@ -244,7 +250,7 @@
         {
             "{1FB2D0AE-D3B9-43D4-B9DD-F88EC61E35DE}:_05D64367017142889060848995B6EB08"
             {
-            "SourcePath" = "8:..\\GDrive Local Backup\\conf\\log"
+            "SourcePath" = "8:..\\MigrateToGDrive\\conf\\log"
             "TargetName" = "8:log"
             "Tag" = "8:"
             "Folder" = "8:_61B95106ED2044B4B645AB4EA2EBEE88"
@@ -264,7 +270,7 @@
             }
             "{1FB2D0AE-D3B9-43D4-B9DD-F88EC61E35DE}:_0F0D5C691AE44F10B7C6E8461DDDAAE1"
             {
-            "SourcePath" = "8:..\\GDrive Local Backup\\conf\\timeInit"
+            "SourcePath" = "8:..\\MigrateToGDrive\\conf\\timeInit"
             "TargetName" = "8:timeInit"
             "Tag" = "8:"
             "Folder" = "8:_61B95106ED2044B4B645AB4EA2EBEE88"
@@ -284,7 +290,7 @@
             }
             "{1FB2D0AE-D3B9-43D4-B9DD-F88EC61E35DE}:_114775834CAC4BF0A7B359163F506034"
             {
-            "SourcePath" = "8:..\\GDrive Local Backup\\conf\\srcPath"
+            "SourcePath" = "8:..\\MigrateToGDrive\\conf\\srcPath"
             "TargetName" = "8:srcPath"
             "Tag" = "8:"
             "Folder" = "8:_61B95106ED2044B4B645AB4EA2EBEE88"
@@ -304,7 +310,7 @@
             }
             "{1FB2D0AE-D3B9-43D4-B9DD-F88EC61E35DE}:_19619CCC6C2D4D7F8A3C1155100087C7"
             {
-            "SourcePath" = "8:..\\GDrive Local Backup\\conf\\time"
+            "SourcePath" = "8:..\\MigrateToGDrive\\conf\\time"
             "TargetName" = "8:time"
             "Tag" = "8:"
             "Folder" = "8:_61B95106ED2044B4B645AB4EA2EBEE88"
@@ -322,9 +328,29 @@
             "IsDependency" = "11:FALSE"
             "IsolateTo" = "8:"
             }
+            "{1FB2D0AE-D3B9-43D4-B9DD-F88EC61E35DE}:_1DC350A5EC0647D8B9CA7CDFDB94433A"
+            {
+            "SourcePath" = "8:..\\MigrateToGDrive\\bin\\Debug\\net6.0-windows\\changelog.txt"
+            "TargetName" = "8:changelog.txt"
+            "Tag" = "8:"
+            "Folder" = "8:_3464D903FD494FEE9989C0849166D0D8"
+            "Condition" = "8:"
+            "Transitive" = "11:FALSE"
+            "Vital" = "11:TRUE"
+            "ReadOnly" = "11:FALSE"
+            "Hidden" = "11:FALSE"
+            "System" = "11:FALSE"
+            "Permanent" = "11:FALSE"
+            "SharedLegacy" = "11:FALSE"
+            "PackageAs" = "3:1"
+            "Register" = "3:1"
+            "Exclude" = "11:FALSE"
+            "IsDependency" = "11:FALSE"
+            "IsolateTo" = "8:"
+            }
             "{1FB2D0AE-D3B9-43D4-B9DD-F88EC61E35DE}:_288C53795AB84FD7BD2A40F50B142E85"
             {
-            "SourcePath" = "8:..\\GDrive Local Backup\\bat\\MigrateToGDrive_AT_MN.bat"
+            "SourcePath" = "8:..\\MigrateToGDrive\\bat\\MigrateToGDrive_AT_MN.bat"
             "TargetName" = "8:MigrateToGDrive_AT_MN.bat"
             "Tag" = "8:"
             "Folder" = "8:_75B248F3553F487E8B32B0B8CB98897F"
@@ -344,7 +370,7 @@
             }
             "{1FB2D0AE-D3B9-43D4-B9DD-F88EC61E35DE}:_43CEF9B6157740DF8DB5DF939D5FCDC5"
             {
-            "SourcePath" = "8:..\\GDrive Local Backup\\log\\log"
+            "SourcePath" = "8:..\\MigrateToGDrive\\log\\log"
             "TargetName" = "8:log"
             "Tag" = "8:"
             "Folder" = "8:_D24512488E594136BB7F2CDBC9EDDE37"
@@ -364,7 +390,7 @@
             }
             "{1FB2D0AE-D3B9-43D4-B9DD-F88EC61E35DE}:_4ED1251824F540BBBBC2EAF03C17B26C"
             {
-            "SourcePath" = "8:..\\GDrive Local Backup\\conf\\config"
+            "SourcePath" = "8:..\\MigrateToGDrive\\conf\\config"
             "TargetName" = "8:config"
             "Tag" = "8:"
             "Folder" = "8:_61B95106ED2044B4B645AB4EA2EBEE88"
@@ -384,7 +410,7 @@
             }
             "{1FB2D0AE-D3B9-43D4-B9DD-F88EC61E35DE}:_625207C5D5944BF99D97E12BA2EB98E0"
             {
-            "SourcePath" = "8:..\\GDrive Local Backup\\conf\\destPath"
+            "SourcePath" = "8:..\\MigrateToGDrive\\conf\\destPath"
             "TargetName" = "8:destPath"
             "Tag" = "8:"
             "Folder" = "8:_61B95106ED2044B4B645AB4EA2EBEE88"
@@ -404,7 +430,7 @@
             }
             "{1FB2D0AE-D3B9-43D4-B9DD-F88EC61E35DE}:_62A9A1D9FA8C4636B7BA9667084CE47F"
             {
-            "SourcePath" = "8:..\\GDrive Local Backup\\conf\\uiSrcPath"
+            "SourcePath" = "8:..\\MigrateToGDrive\\conf\\uiSrcPath"
             "TargetName" = "8:uiSrcPath"
             "Tag" = "8:"
             "Folder" = "8:_61B95106ED2044B4B645AB4EA2EBEE88"
@@ -424,7 +450,7 @@
             }
             "{1FB2D0AE-D3B9-43D4-B9DD-F88EC61E35DE}:_727FE2DFA22C4119BE3D82A97E022E36"
             {
-            "SourcePath" = "8:..\\GDrive Local Backup\\log\\lastErr"
+            "SourcePath" = "8:..\\MigrateToGDrive\\log\\lastErr"
             "TargetName" = "8:lastErr"
             "Tag" = "8:"
             "Folder" = "8:_D24512488E594136BB7F2CDBC9EDDE37"
@@ -444,7 +470,7 @@
             }
             "{1FB2D0AE-D3B9-43D4-B9DD-F88EC61E35DE}:_81ED3C32C029481182BF6D8FAA3309D5"
             {
-            "SourcePath" = "8:..\\GDrive Local Backup\\drive.ico"
+            "SourcePath" = "8:..\\MigrateToGDrive\\drive.ico"
             "TargetName" = "8:drive.ico"
             "Tag" = "8:"
             "Folder" = "8:_3464D903FD494FEE9989C0849166D0D8"
@@ -464,7 +490,7 @@
             }
             "{1FB2D0AE-D3B9-43D4-B9DD-F88EC61E35DE}:_8CED3CD5F8804BD3AE29F627E57BB004"
             {
-            "SourcePath" = "8:..\\GDrive Local Backup\\bat\\MigrateToGDrive_TD.bat"
+            "SourcePath" = "8:..\\MigrateToGDrive\\bat\\MigrateToGDrive_TD.bat"
             "TargetName" = "8:MigrateToGDrive_TD.bat"
             "Tag" = "8:"
             "Folder" = "8:_75B248F3553F487E8B32B0B8CB98897F"
@@ -484,7 +510,7 @@
             }
             "{1FB2D0AE-D3B9-43D4-B9DD-F88EC61E35DE}:_954C03235CA94B30AE28B64A347921C3"
             {
-            "SourcePath" = "8:..\\GDrive Local Backup\\bat\\MigrateToGDrive_AT.bat"
+            "SourcePath" = "8:..\\MigrateToGDrive\\bat\\MigrateToGDrive_AT.bat"
             "TargetName" = "8:MigrateToGDrive_AT.bat"
             "Tag" = "8:"
             "Folder" = "8:_75B248F3553F487E8B32B0B8CB98897F"
@@ -504,7 +530,7 @@
             }
             "{1FB2D0AE-D3B9-43D4-B9DD-F88EC61E35DE}:_98B0BED0EDF24CDEA0FE98CAD724E5A9"
             {
-            "SourcePath" = "8:..\\GDrive Local Backup\\conf\\uiDestPath"
+            "SourcePath" = "8:..\\MigrateToGDrive\\conf\\uiDestPath"
             "TargetName" = "8:uiDestPath"
             "Tag" = "8:"
             "Folder" = "8:_61B95106ED2044B4B645AB4EA2EBEE88"
@@ -524,7 +550,7 @@
             }
             "{1FB2D0AE-D3B9-43D4-B9DD-F88EC61E35DE}:_A4711E0B6177483397C2BF1A1FA65EA5"
             {
-            "SourcePath" = "8:..\\GDrive Local Backup\\conf\\err"
+            "SourcePath" = "8:..\\MigrateToGDrive\\conf\\err"
             "TargetName" = "8:err"
             "Tag" = "8:"
             "Folder" = "8:_61B95106ED2044B4B645AB4EA2EBEE88"
@@ -544,7 +570,7 @@
             }
             "{1FB2D0AE-D3B9-43D4-B9DD-F88EC61E35DE}:_B620E70C5C3C4E5ABBAFFDD5112DDD98"
             {
-            "SourcePath" = "8:..\\GDrive Local Backup\\bat\\MigrateToGDrive_Init.bat"
+            "SourcePath" = "8:..\\MigrateToGDrive\\bat\\MigrateToGDrive_Init.bat"
             "TargetName" = "8:MigrateToGDrive_Init.bat"
             "Tag" = "8:"
             "Folder" = "8:_75B248F3553F487E8B32B0B8CB98897F"
@@ -564,7 +590,7 @@
             }
             "{1FB2D0AE-D3B9-43D4-B9DD-F88EC61E35DE}:_C319D2B4D4544A80BB1D5DB470FE05D6"
             {
-            "SourcePath" = "8:..\\GDrive Local Backup\\conf\\uiDatePath"
+            "SourcePath" = "8:..\\MigrateToGDrive\\conf\\uiDatePath"
             "TargetName" = "8:uiDatePath"
             "Tag" = "8:"
             "Folder" = "8:_61B95106ED2044B4B645AB4EA2EBEE88"
@@ -584,7 +610,7 @@
             }
             "{1FB2D0AE-D3B9-43D4-B9DD-F88EC61E35DE}:_C8C0D441600F48F48BD28353CBDE6E50"
             {
-            "SourcePath" = "8:..\\GDrive Local Backup\\bat\\MigrateToGDrive_TD_MN.bat"
+            "SourcePath" = "8:..\\MigrateToGDrive\\bat\\MigrateToGDrive_TD_MN.bat"
             "TargetName" = "8:MigrateToGDrive_TD_MN.bat"
             "Tag" = "8:"
             "Folder" = "8:_75B248F3553F487E8B32B0B8CB98897F"
@@ -604,7 +630,7 @@
             }
             "{1FB2D0AE-D3B9-43D4-B9DD-F88EC61E35DE}:_CA52F48C520B43B3BCE75BE6AE987061"
             {
-            "SourcePath" = "8:..\\GDrive Local Backup\\log\\err"
+            "SourcePath" = "8:..\\MigrateToGDrive\\log\\err"
             "TargetName" = "8:err"
             "Tag" = "8:"
             "Folder" = "8:_D24512488E594136BB7F2CDBC9EDDE37"
@@ -624,7 +650,7 @@
             }
             "{1FB2D0AE-D3B9-43D4-B9DD-F88EC61E35DE}:_D747BA57E67D4580A113BF4022AA7F32"
             {
-            "SourcePath" = "8:..\\GDrive Local Backup\\log\\lastResult"
+            "SourcePath" = "8:..\\MigrateToGDrive\\log\\lastResult"
             "TargetName" = "8:lastResult"
             "Tag" = "8:"
             "Folder" = "8:_D24512488E594136BB7F2CDBC9EDDE37"
@@ -644,7 +670,7 @@
             }
             "{1FB2D0AE-D3B9-43D4-B9DD-F88EC61E35DE}:_E1CC53D46CFB4E368603565436339822"
             {
-            "SourcePath" = "8:..\\GDrive Local Backup\\conf\\datePath"
+            "SourcePath" = "8:..\\MigrateToGDrive\\conf\\datePath"
             "TargetName" = "8:datePath"
             "Tag" = "8:"
             "Folder" = "8:_61B95106ED2044B4B645AB4EA2EBEE88"
@@ -1287,7 +1313,7 @@
         {
             "{5259A561-127C-4D43-A0A1-72F10C7B3BF8}:_3467BA22A8D74493A070BE4DD727028E"
             {
-            "SourcePath" = "8:..\\GDrive Local Backup\\obj\\Release\\net6.0-windows\\apphost.exe"
+            "SourcePath" = "8:..\\MigrateToGDrive\\obj\\Debug\\net6.0-windows\\apphost.exe"
             "TargetName" = "8:"
             "Tag" = "8:"
             "Folder" = "8:_3464D903FD494FEE9989C0849166D0D8"
