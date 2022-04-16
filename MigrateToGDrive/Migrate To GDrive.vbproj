@@ -8,7 +8,7 @@
     <UseWindowsForms>true</UseWindowsForms>
     <MyType>WindowsForms</MyType>
     <AssemblyName>Migrate To GDrive</AssemblyName>
-    <ApplicationIcon>drive.ico</ApplicationIcon>
+    <ApplicationIcon>ico\google-drive.ico</ApplicationIcon>
     <Authors>Dicky Herlambang</Authors>
     <Company>Hana-CI Build Project</Company>
     <PackageId>MigrateToGDrive</PackageId>
