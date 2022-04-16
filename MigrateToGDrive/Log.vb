@@ -36,6 +36,9 @@
             End If
         End If
     End Sub
+    Private Sub Log_Load(sender As Object, e As EventArgs) Handles MyBase.Load
+        Me.AllowTransparency = False
+    End Sub
     Private Sub showLog(log As String, path As String)
         RichTextBox1.Text = ""
         If File.Exists(path) Then
