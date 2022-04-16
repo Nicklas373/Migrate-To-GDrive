@@ -145,6 +145,7 @@
         TextBox3.Visible = False
         TextBox1.ReadOnly = True
         TextBox2.ReadOnly = True
+        Me.AllowTransparency = False
     End Sub
     Private Sub ComboBox1_SelectedIndexChanged(sender As Object, e As EventArgs) Handles ComboBox1.SelectedIndexChanged
         If ComboBox1.Text = "From Date" Then
@@ -166,7 +167,8 @@
         menu_log.Show()
     End Sub
     Private Sub AboutToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles AboutToolStripMenuItem.Click
-        MsgBox("Work in progress !", vbInformation, "MigrateToGDrive")
+        Dim menu_about = New About
+        menu_about.Show()
     End Sub
     Private Sub getSrcDriveSize()
         Dim trimSrc As String
