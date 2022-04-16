@@ -324,6 +324,7 @@ Public Class Settings
         End If
     End Sub
     Private Sub Settings_Load(sender As Object, e As EventArgs) Handles MyBase.Load
+        Me.AllowTransparency = False
         GroupBox4.Enabled = False
         GroupBox5.Enabled = False
         Button6.Visible = False
