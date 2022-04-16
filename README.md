@@ -38,6 +38,7 @@ by users with several time frame options and include with scheduler management t
 <img width="480" height="240" src="https://github.com/Nicklas373/Migrate-To-GDrive/raw/master/MigrateToGDrive/Screenshots/Main%20Menu.png">&nbsp;&nbsp;&nbsp;
 <img width="480" height="240" src="https://github.com/Nicklas373/Migrate-To-GDrive/raw/master/MigrateToGDrive/Screenshots/Log%20Menu.png">&nbsp;&nbsp;&nbsp;
 <img width="480" height="240" src="https://github.com/Nicklas373/Migrate-To-GDrive/raw/master/MigrateToGDrive/Screenshots/Settings%20Menu.png">&nbsp;&nbsp;&nbsp;
+<img width="480" height="240" src="https://github.com/Nicklas373/Migrate-To-GDrive/raw/master/MigrateToGDrive/Screenshots/About%20Menu.png">&nbsp;&nbsp;&nbsp;
 </p>
 
 # Note
@@ -61,5 +62,6 @@ by users with several time frame options and include with scheduler management t
 - <a href="https://www.flaticon.com/free-icons/edit" title="edit icons">Edit icons created by Pixel perfect - Flaticon</a>
 - <a href="https://www.flaticon.com/free-icons/reset" title="reset icons">Reset icons created by Andrean Prabowo - Flaticon</a>
 - <a href="https://www.flaticon.com/free-icons/tasks" title="tasks icons">Tasks icons created by Kiranshastry - Flaticon</a>
+- <a href="https://www.flaticon.com/free-icons/github" title="github icons">Github icons created by Royyan Wijaya - Flaticon</a>
 
 # HANA-CI Build Project 2016 - 2022
