@@ -9,7 +9,7 @@ set fday=00%Day%
 set today=%fmonth:~-2%-%fday:~-2%-%Year%
 if exist "%TsrcPath%" (
 	if exist "%TdestPath%" (
-		call xcopy "%TsrcPath%" "%TdestPath%" /s /e /d:%today% /y >> "log/log"
+		call xcopy "%TsrcPath%" "%TdestPath%" /e /f /d:%today% /i /k /v /y >> "log/log"
 		if %ERRORLEVEL% == 0 goto :next
 		if %ERRORLEVEL% == 1 goto :err1
 		if %ERRORLEVEL% == 2 goto :err2

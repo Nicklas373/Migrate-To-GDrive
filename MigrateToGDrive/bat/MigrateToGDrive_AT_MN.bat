@@ -3,7 +3,7 @@ set /p TsrcPath=<conf/uiSrcPath
 set /p TdestPath=<conf/uiDestPath
 if exist "%TsrcPath%" (
 	if exist "%TdestPath%" (
-		call xcopy "%TsrcPath%" "%TdestPath%" /s /e /y >> "log/log"
+		call xcopy "%TsrcPath%" "%TdestPath%" /e /f /i /k /v /y >> "log/log"
 		if %ERRORLEVEL% == 0 goto :next
 		if %ERRORLEVEL% == 1 goto :err1
 		if %ERRORLEVEL% == 2 goto :err2
