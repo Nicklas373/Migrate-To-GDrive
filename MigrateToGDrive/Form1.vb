@@ -120,7 +120,7 @@
                             checkFileExist(uiDestPath, uiTrimDest)
                             prepareNotif(lastResult)
                             prepareNotif(lastErr)
-                            manualBackup("bat/MigrateToGDrive_TD_MN.bat")
+                            manualBackup("bat/MigrateToGDrive_FD_MN.bat")
                         Else
                             checkFileExist(lastResult, "err")
                             checkFileExist(lastErr, "Destination drive not exist !")
