@@ -1,2 +1,12 @@
-v1.0.0 (20220416):
+v1.1.0.0 (20220419):
+- Add more log for archive backup (success and error log)
+- Re-design several layout
+- Re-structure code to separate module
+- Support backup method to archive using 7zip command line (www.7-zip.org)
+  * Support extensions (.7z & .zip)
+  * Support archive compression level (Native from 7za library)
+  * Support password encryption on archive backup (SHA256 or HMAC SHA256) 
+  * Decryption still work in progress
+
+v1.0.0.0 (20220416):
 - INITIAL RELEASE

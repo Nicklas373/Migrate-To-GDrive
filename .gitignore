@@ -361,3 +361,7 @@ MigrationBackup/
 
 # Fody - auto-generated XML schema
 FodyWeavers.xsd
+MigrateToGDrive/Test enc and dec.Designer.vb
+MigrateToGDrive/Test enc and dec.resx
+MigrateToGDrive/Test enc and dec.vb
+MigrateToGDrive/EncDecModul.vb
