@@ -4,13 +4,10 @@ Public Class Settings
     Dim confPath As String = "conf/config"
     Dim logPath As String = "log/log"
     Dim errPath As String = "log/err"
-    Dim timePath As String = "conf/timeInit"
-    Dim cliSrcPath As String = "conf/srcPath"
-    Dim cliDestPath As String = "conf/destPath"
-    Dim cliDatePath As String = "conf/datePath"
-    Dim uiSrcPath As String = "conf/uiSrcPath"
-    Dim uiDestPath As String = "conf/uiDestPath"
-    Dim uiDatePath As String = "conf/uiDatePath"
+    Dim timePath As String = "conf/cli_backup/cliTimeInit"
+    Dim cliSrcPath As String = "conf/cli_backup/cliSrcPath"
+    Dim cliDestPath As String = "conf/cli_backup/cliDestPath"
+    Dim cliDatePath As String = "conf/cli_backup/cliDatePath"
     Private Sub Button4_Click(sender As Object, e As EventArgs) Handles Button4.Click
         TextBox1.ReadOnly = False
         TextBox2.ReadOnly = False
@@ -68,7 +65,7 @@ Public Class Settings
                     writer.WriteLine("Destination Directory: " & TextBox2.Text)
                     writer.WriteLine("Backup Preferences: " & ComboBox1.Text)
                     writer.Close()
-                    writeForAutoBackup()
+                    WriteForAutoBackup(confPath, cliSrcPath, cliDestPath, cliDatePath, timePath)
                     MsgBox("Config created !", MsgBoxStyle.Information, "MigrateToGDrive")
                 Else
                     File.Create(confPath).Dispose()
@@ -78,7 +75,7 @@ Public Class Settings
                     writer.WriteLine("Destination Directory: " & TextBox2.Text)
                     writer.WriteLine("Backup Preferences: " & ComboBox1.Text)
                     writer.Close()
-                    writeForAutoBackup()
+                    WriteForAutoBackup(confPath, cliSrcPath, cliDestPath, cliDatePath, timePath)
                     MsgBox("Config created !", MsgBoxStyle.Information, "MigrateToGDrive")
                 End If
                 TextBox1.ReadOnly = True
@@ -148,7 +145,7 @@ Public Class Settings
                         ComboBox5.SelectedIndex = 0
                         MsgBox("If repeat duration is disabled, then repeat task will be disable", vbExclamation, "MigrateToGDrive")
                     End If
-                    DailyTrigger(custdate, 1, CInt(TextBox3.Text), custRepDurValDaily(), custRepDurIntDaily())
+                    DailyTrigger(custdate, 1, CInt(TextBox3.Text), CustRepDurValDaily(ComboBox5.Text), CustRepDurIntDaily(ComboBox4.Text), ComboBox5.Text, ComboBox4.Text)
                     ComboBox2.Enabled = False
                     GroupBox4.Enabled = False
                     Button6.Visible = False
@@ -172,7 +169,7 @@ Public Class Settings
                             ComboBox6.SelectedIndex = 0
                             MsgBox("If repeat duration is disabled, then repeat task will be disable", vbExclamation, "MigrateToGDrive")
                         End If
-                        WeeklyTrigger(custdate, 1, CInt(TextBox4.Text), custRepDurValWeek, custRepDurIntWeek, cb1, cb2, cb3, cb4, cb5, cb6, cb7)
+                        WeeklyTrigger(custdate, 1, CInt(TextBox4.Text), CustRepDurValWeek(ComboBox6.Text), custRepDurIntWeek(ComboBox7.Text), Cb1, Cb2, Cb3, Cb4, Cb5, Cb6, Cb7, ComboBox6.Text, ComboBox7.Text)
                         ComboBox2.Enabled = False
                         GroupBox5.Enabled = False
                         Button6.Visible = False
@@ -304,7 +301,6 @@ Public Class Settings
             End If
         End If
     End Sub
-
     Private Sub ComboBox7_SelectedIndexChanged(sender As Object, e As EventArgs) Handles ComboBox7.SelectedIndexChanged
         If GroupBox5.Enabled = True Then
             If ComboBox7.Text = "Disabled" Then
@@ -313,7 +309,6 @@ Public Class Settings
             End If
         End If
     End Sub
-
     Private Sub ComboBox6_SelectedIndexChanged(sender As Object, e As EventArgs) Handles ComboBox6.SelectedIndexChanged
         If GroupBox5.Enabled = True Then
             If ComboBox6.Text = "Disabled" Then
@@ -338,150 +333,14 @@ Public Class Settings
         getDestDriveSize(1)
         getBackPref()
     End Sub
-    Private Sub DailyTrigger(custDate As String, repDayInt As Integer, custInt As Integer, custrepdur As Integer, custrepint As Integer)
-        Dim appPath As String = Application.StartupPath()
-        Using tService As New TaskService()
-            Dim tTask As Task = tService.GetTask("MigrateToGDrive")
-            Dim repDurVal As Integer = custRepDurValDecDaily()
-            Dim repDurInt As Integer = custRepDurIntDecDaily()
-            Dim tDefinition As TaskDefinition = tService.NewTask
-            Dim tTrigger As New DailyTrigger()
-            If tTask Is Nothing Then
-                tDefinition.RegistrationInfo.Description = "MigrateToGDrive - Daily Task"
-                tTrigger.StartBoundary = custDate
-                If repDayInt = 1 Then
-                    tTrigger.DaysInterval = custInt
-                End If
-                If repDurInt = 1 Then
-                    tTrigger.Repetition.Interval = TimeSpan.FromMinutes(custrepint)
-                ElseIf repDurInt = 2 Then
-                    tTrigger.Repetition.Interval = TimeSpan.FromHours(custrepint)
-                End If
-                If repDurVal = 1 Then
-                    tTrigger.Repetition.Duration = TimeSpan.FromMinutes(custrepdur)
-                ElseIf repDurVal = 2 Then
-                    tTrigger.Repetition.Duration = TimeSpan.FromHours(custrepdur)
-                ElseIf repDurVal = 3 Then
-                    tTrigger.Repetition.Duration = TimeSpan.FromDays(custrepdur)
-                End If
-                tDefinition.Triggers.Add(tTrigger)
-                tDefinition.Actions.Add(New ExecAction(appPath & "bat\MigrateToGDrive_Init.bat", "", appPath & "bat"))
-                tService.RootFolder.RegisterTaskDefinition("MigrateToGDrive", tDefinition)
-                FindTask("MigrateToGDrive")
-            Else
-                Dim validation As Integer
-                validation = MsgBox("Old scheduler already exist !, Create a new scheduler ?", vbExclamation + vbYesNo + vbDefaultButton2, "MigrateToGDrive")
-                If validation = vbYes Then
-                    tService.RootFolder.DeleteTask("MigrateToGDrive")
-                    tDefinition.RegistrationInfo.Description = "MigrateToGDrive - Daily Task"
-                    tTrigger.StartBoundary = custDate
-                    If repDayInt = 1 Then
-                        tTrigger.DaysInterval = custInt
-                    End If
-                    If repDurInt = 1 Then
-                        tTrigger.Repetition.Interval = TimeSpan.FromMinutes(custrepint)
-                    ElseIf repDurInt = 2 Then
-                        tTrigger.Repetition.Interval = TimeSpan.FromHours(custrepint)
-                    End If
-                    If repDurVal = 1 Then
-                        tTrigger.Repetition.Duration = TimeSpan.FromMinutes(custrepdur)
-                    ElseIf repDurVal = 2 Then
-                        tTrigger.Repetition.Duration = TimeSpan.FromHours(custrepdur)
-                    ElseIf repDurVal = 3 Then
-                        tTrigger.Repetition.Duration = TimeSpan.FromDays(custrepdur)
-                    End If
-                    tDefinition.Triggers.Add(tTrigger)
-                    tDefinition.Actions.Add(New ExecAction(appPath & "bat\MigrateToGDrive_Init.bat", "", appPath & "bat"))
-                    tService.RootFolder.RegisterTaskDefinition("MigrateToGDrive", tDefinition)
-                    FindTask("MigrateToGDrive")
-                Else
-                    MsgBox("Cancel To Created Scheduler !", MsgBoxStyle.Information, "MigrateToGDrive")
-                End If
-            End If
-        End Using
-    End Sub
-    Private Sub WeeklyTrigger(custdate As String, repDayInt As Integer, custInt As Integer, custrepdur As Integer, custrepint As Integer, cb1 As DaysOfTheWeek, cb2 As DaysOfTheWeek, cb3 As DaysOfTheWeek, cb4 As DaysOfTheWeek, cb5 As DaysOfTheWeek, cb6 As DaysOfTheWeek, cb7 As DaysOfTheWeek)
-        Dim appPath As String = Application.StartupPath()
-        Dim repDurVal As Integer = custRepDurValDecWeek()
-        Dim repDurInt As Integer = custRepDurIntDecWeek()
-        Using tService As New TaskService()
-            Dim tTask As Task = tService.GetTask("MigrateToGDrive")
-            Dim tDefinition As TaskDefinition = tService.NewTask
-            Dim tTrigger As New WeeklyTrigger()
-            If tTask Is Nothing Then
-                tDefinition.RegistrationInfo.Description = "MigrateToGDrive - Weekly Task"
-                tTrigger.StartBoundary = custdate
-                tTrigger.DaysOfWeek = cb1 Or cb2 Or cb3 Or cb4 Or cb5 Or cb6 Or cb7
-                If repDayInt = 1 Then
-                    tTrigger.WeeksInterval = custInt
-                End If
-                If repDurInt = 1 Then
-                    tTrigger.Repetition.Interval = TimeSpan.FromMinutes(custrepint)
-                ElseIf repDurInt = 2 Then
-                    tTrigger.Repetition.Interval = TimeSpan.FromHours(custrepint)
-                End If
-                If repDurVal = 1 Then
-                    tTrigger.Repetition.Duration = TimeSpan.FromMinutes(custrepdur)
-                ElseIf repDurVal = 2 Then
-                    tTrigger.Repetition.Duration = TimeSpan.FromHours(custrepdur)
-                ElseIf repDurVal = 3 Then
-                    tTrigger.Repetition.Duration = TimeSpan.FromDays(custrepdur)
-                End If
-                tDefinition.Triggers.Add(tTrigger)
-                tDefinition.Actions.Add(New ExecAction(appPath & "bat\MigrateToGDrive_Init.bat", "", appPath & "bat"))
-                tService.RootFolder.RegisterTaskDefinition("MigrateToGDrive", tDefinition)
-                FindTask("MigrateToGDrive")
-            Else
-                Dim validation As Integer
-                validation = MsgBox("Old scheduler already exist !, Create a new scheduler ?", vbExclamation + vbYesNo + vbDefaultButton2, "MigrateToGDrive")
-                If validation = vbYes Then
-                    tService.RootFolder.DeleteTask("MigrateToGDrive")
-                    tDefinition.RegistrationInfo.Description = "MigrateToGDrive - Weekly Task"
-                    tTrigger.StartBoundary = custdate
-                    tTrigger.DaysOfWeek = cb1 Or cb2 Or cb3 Or cb4 Or cb5 Or cb6 Or cb7
-                    If repDayInt = 1 Then
-                        tTrigger.WeeksInterval = custInt
-                    End If
-                    If repDurInt = 1 Then
-                        tTrigger.Repetition.Interval = TimeSpan.FromMinutes(custrepint)
-                    ElseIf repDurInt = 2 Then
-                        tTrigger.Repetition.Interval = TimeSpan.FromHours(custrepint)
-                    End If
-                    If repDurVal = 1 Then
-                        tTrigger.Repetition.Duration = TimeSpan.FromMinutes(custrepdur)
-                    ElseIf repDurVal = 2 Then
-                        tTrigger.Repetition.Duration = TimeSpan.FromHours(custrepdur)
-                    ElseIf repDurVal = 3 Then
-                        tTrigger.Repetition.Duration = TimeSpan.FromDays(custrepdur)
-                    End If
-                    tDefinition.Triggers.Add(tTrigger)
-                    tDefinition.Actions.Add(New ExecAction(appPath & "bat\MigrateToGDrive_Init.bat", "", appPath & "bat"))
-                    tService.RootFolder.RegisterTaskDefinition("MigrateToGDrive", tDefinition)
-                    FindTask("MigrateToGDrive")
-                Else
-                    MsgBox("Cancel created scheduler !", MsgBoxStyle.Information, "MigrateToGDrive")
-                End If
-            End If
-        End Using
-    End Sub
-    Private Function confVal(line As Integer) As String
-        Dim value As String
-        If New FileInfo(confPath).Length = 0 Then
-            value = "null"
-            Return value
-        Else
-            value = File.ReadAllLines(confPath).ElementAt(line).ToString
-            Return value
-        End If
-    End Function
-    Private Sub getSrcDriveSize(conf As Integer)
+    Private Sub GetSrcDriveSize(conf As Integer)
         Dim trimSrc As String
         If conf = 1 Then
             If File.Exists(confPath) Then
-                If confVal(1).Equals("null") Then
+                If ConfVal(1, confPath).Equals("null") Then
                     Label2.Text = ""
                 Else
-                    trimSrc = confVal(1).Replace("Source Directory: ", "")
+                    trimSrc = ConfVal(1, confPath).Replace("Source Directory: ", "")
                     If Directory.Exists(trimSrc) Then
                         Dim freeSpaceSrc As Double = (My.Computer.FileSystem.GetDriveInfo(trimSrc.Remove(3)).TotalFreeSpace / 1024 / 1024 / 1024)
                         Dim totalspaceSrc As Double = (My.Computer.FileSystem.GetDriveInfo(trimSrc.Remove(3)).TotalSize / 1024 / 1024 / 1024)
@@ -509,14 +368,14 @@ Public Class Settings
             End If
         End If
     End Sub
-    Private Sub getDestDriveSize(conf As Integer)
+    Private Sub GetDestDriveSize(conf As Integer)
         Dim trimDest As String
         If conf = 1 Then
             If File.Exists(confPath) Then
-                If confVal(2).Equals("null") Then
+                If ConfVal(2, confPath).Equals("null") Then
                     Label1.Text = ""
                 Else
-                    trimDest = confVal(2).Replace("Destination Directory: ", "")
+                    trimDest = ConfVal(2, confPath).Replace("Destination Directory: ", "")
                     If Directory.Exists(trimDest) Then
                         Dim freeSpaceDest As Double = (My.Computer.FileSystem.GetDriveInfo(trimDest.Remove(3)).TotalFreeSpace / 1024 / 1024 / 1024)
                         Dim totalspaceDest As Double = (My.Computer.FileSystem.GetDriveInfo(trimDest.Remove(3)).TotalSize / 1024 / 1024 / 1024)
@@ -544,115 +403,14 @@ Public Class Settings
             End If
         End If
     End Sub
-    Private Sub checkFileExist(path As String, trim As String)
-        If File.Exists(path) Then
-            GC.Collect()
-            GC.WaitForPendingFinalizers()
-            File.Delete(path)
-            File.Create(path).Dispose()
-            Dim writer As New StreamWriter(path, True)
-            writer.WriteLine(trim)
-            writer.Close()
-        Else
-            File.Create(path).Dispose()
-            Dim writer As New StreamWriter(path, True)
-            writer.WriteLine(trim)
-            writer.Close()
-        End If
-    End Sub
-    Private Sub getBackPref()
+    Private Sub GetBackPref()
         If File.Exists(confPath) Then
-            If confVal(3).Replace("Backup Preferences: ", "").Equals("Anytime") Then
+            If ConfVal(3, confPath).Replace("Backup Preferences: ", "").Equals("Anytime") Then
                 ComboBox1.SelectedIndex = 0
-            ElseIf confVal(3).Replace("Backup Preferences: ", "").Equals("Today") Then
+            ElseIf ConfVal(3, confPath).Replace("Backup Preferences: ", "").Equals("Today") Then
                 ComboBox1.SelectedIndex = 1
             End If
         End If
-    End Sub
-    Private Sub clearLog(log As String, log2 As String)
-        If File.Exists(log) Then
-            File.Delete(log)
-            File.Create(log).Dispose()
-            MsgBox(log2 & " file reset !", MsgBoxStyle.Information, "MigrateToGDrive")
-        Else
-            MsgBox(log2 & " file is not exist !", MsgBoxStyle.Critical, "MigrateToGDrive")
-        End If
-    End Sub
-    Private Sub writeForAutoBackup()
-        Dim trimSrc As String
-        Dim trimDest As String
-        Dim trimBak As String
-        trimSrc = confVal(1).Replace("Source Directory: ", "")
-        trimDest = confVal(2).Replace("Destination Directory: ", "")
-        trimBak = confVal(3).Replace("Backup Preferences: ", "")
-        checkFileExist(cliSrcPath, trimSrc)
-        checkFileExist(cliDestPath, trimDest)
-        If trimBak = "null" Then
-            MsgBox("Please select backup preferences first !", MsgBoxStyle.Critical, "MigrateToGDrive")
-        Else
-            If trimBak = "Today" Then
-                If File.Exists(cliDatePath) Then
-                    GC.Collect()
-                    GC.WaitForPendingFinalizers()
-                    File.Delete(cliDatePath)
-                    File.Create(cliDatePath).Dispose()
-                    Dim destWriter As New StreamWriter(cliDatePath, True)
-                    Dim dt As Date = Today
-                    destWriter.WriteLine(dt.ToString("MM-dd-yyyy"))
-                    destWriter.Close()
-                    If File.Exists(timePath) Then
-                        GC.Collect()
-                        GC.WaitForPendingFinalizers()
-                        File.Delete(timePath)
-                        File.Create(timePath).Dispose()
-                        Dim timeWriter As New StreamWriter(timePath, True)
-                        timeWriter.WriteLine("Today")
-                        timeWriter.Close()
-                    Else
-                        GC.Collect()
-                        GC.WaitForPendingFinalizers()
-                        File.Delete(timePath)
-                        File.Create(timePath).Dispose()
-                        Dim timeWriter As New StreamWriter(timePath, True)
-                        timeWriter.WriteLine("null")
-                        timeWriter.Close()
-                    End If
-                End If
-            Else
-                File.Create(cliDatePath).Dispose()
-                Dim destWriter As New StreamWriter(cliDatePath, True)
-                Dim dt As Date = Today
-                destWriter.WriteLine("Anytime")
-                destWriter.Close()
-                If File.Exists(timePath) Then
-                    GC.Collect()
-                    GC.WaitForPendingFinalizers()
-                    File.Delete(timePath)
-                    File.Create(timePath).Dispose()
-                    Dim timeWriter As New StreamWriter(timePath, True)
-                    timeWriter.WriteLine("Anytime")
-                    timeWriter.Close()
-                Else
-                    GC.Collect()
-                    GC.WaitForPendingFinalizers()
-                    File.Delete(timePath)
-                    File.Create(timePath).Dispose()
-                    Dim timeWriter As New StreamWriter(timePath, True)
-                    timeWriter.WriteLine("null")
-                    timeWriter.Close()
-                End If
-            End If
-        End If
-    End Sub
-    Private Sub FindTask(strTaskName As String)
-        Using tService As New TaskService()
-            Dim tTask As Task = tService.GetTask(strTaskName)
-            If tTask Is Nothing Then
-                MsgBox("Scheduler failed to create !", MsgBoxStyle.Critical, "MigrateToGDrive")
-            Else
-                MsgBox("Scheduler successfully created !", MsgBoxStyle.Information, "MigrateToGDrive")
-            End If
-        End Using
     End Sub
     Private Sub ShowTask(taskName As String)
         Using tService As New TaskService()
@@ -671,7 +429,7 @@ Public Class Settings
             End If
         End Using
     End Sub
-    Private Sub showLog(log As String, path As String)
+    Private Sub ShowLog(log As String, path As String)
         RichTextBox1.Text = ""
         If File.Exists(path) Then
             If New FileInfo(path).Length.Equals(0) Then
@@ -683,208 +441,7 @@ Public Class Settings
             MsgBox(log & " file does not exist !", MsgBoxStyle.Critical, "MigrateToGDrive")
         End If
     End Sub
-    Private Function custRepDurIntDaily() As Integer
-        Dim task As Integer
-        If ComboBox4.Text = "Disabled" Then
-            task = 0
-            Return task
-        ElseIf ComboBox4.Text = "5 Minutes" Then
-            task = 5
-            Return task
-        ElseIf ComboBox4.Text = "10 Minutes" Then
-            task = 10
-            Return task
-        ElseIf ComboBox4.Text = "15 Minutes" Then
-            task = 15
-            Return task
-        ElseIf ComboBox4.Text = "30 Minutes" Then
-            task = 30
-            Return task
-        ElseIf ComboBox4.Text = "1 Hours" Then
-            task = 1
-            Return task
-        Else
-            task = 0
-            Return task
-        End If
-    End Function
-    Private Function custRepDurValDaily() As Integer
-        Dim repDurValue As Integer
-        If ComboBox5.Text = "Disabled" Then
-            repDurValue = 0
-            Return repDurValue = 0
-        ElseIf ComboBox5.Text = "15 Minutes" Then
-            repDurValue = 15
-            Return repDurValue
-        ElseIf ComboBox5.Text = "30 Minutes" Then
-            repDurValue = 30
-            Return repDurValue
-        ElseIf ComboBox5.Text = "1 Hours" Then
-            repDurValue = 1
-            Return repDurValue
-        ElseIf ComboBox5.Text = "12 Hours" Then
-            repDurValue = 12
-            Return repDurValue
-        ElseIf ComboBox5.Text = "1 Day" Then
-            repDurValue = 1
-            Return repDurValue
-        Else
-            repDurValue = 0
-            Return repDurValue
-        End If
-    End Function
-    Private Function custRepDurIntDecDaily() As Integer
-        Dim repDurIntDec As Integer
-        If ComboBox4.Text = "Disabled" Then
-            repDurIntDec = 0
-            Return repDurIntDec
-        ElseIf ComboBox4.Text = "5 Minutes" Then
-            repDurIntDec = 1
-            Return repDurIntDec
-        ElseIf ComboBox4.Text = "10 Minutes" Then
-            repDurIntDec = 1
-            Return repDurIntDec
-        ElseIf ComboBox4.Text = "15 Minutes" Then
-            repDurIntDec = 1
-            Return repDurIntDec
-        ElseIf ComboBox4.Text = "30 Minutes" Then
-            repDurIntDec = 1
-            Return repDurIntDec
-        ElseIf ComboBox4.Text = "1 Hours" Then
-            repDurIntDec = 2
-            Return repDurIntDec
-        Else
-            repDurIntDec = 0
-            Return repDurIntDec
-        End If
-    End Function
-    Private Function custRepDurValDecDaily() As Integer
-        Dim repDurValDec As Integer
-        If ComboBox5.Text = "Disabled" Then
-            repDurValDec = 0
-            Return repDurValDec
-        ElseIf ComboBox5.Text = "15 Minutes" Then
-            repDurValDec = 1
-            Return repDurValDec
-        ElseIf ComboBox5.Text = "30 Minutes" Then
-            repDurValDec = 1
-            Return repDurValDec
-        ElseIf ComboBox5.Text = "1 Hours" Then
-            repDurValDec = 2
-            Return repDurValDec
-        ElseIf ComboBox5.Text = "12 Hours" Then
-            repDurValDec = 2
-            Return repDurValDec
-        ElseIf ComboBox5.Text = "1 Day" Then
-            repDurValDec = 3
-            Return repDurValDec
-        Else
-            repDurValDec = 0
-            Return repDurValDec
-        End If
-    End Function
-
-    Private Function custRepDurIntWeek() As Integer
-        Dim task As Integer
-        If ComboBox7.Text = "Disabled" Then
-            task = 0
-            Return task
-        ElseIf ComboBox7.Text = "5 Minutes" Then
-            task = 5
-            Return task
-        ElseIf ComboBox7.Text = "10 Minutes" Then
-            task = 10
-            Return task
-        ElseIf ComboBox7.Text = "15 Minutes" Then
-            task = 15
-            Return task
-        ElseIf ComboBox7.Text = "30 Minutes" Then
-            task = 30
-            Return task
-        ElseIf ComboBox7.Text = "1 Hours" Then
-            task = 1
-            Return task
-        Else
-            task = 0
-            Return task
-        End If
-    End Function
-    Private Function custRepDurValWeek() As Integer
-        Dim repDurValue As Integer
-        If ComboBox6.Text = "Disabled" Then
-            repDurValue = 0
-            Return repDurValue = 0
-        ElseIf ComboBox6.Text = "15 Minutes" Then
-            repDurValue = 15
-            Return repDurValue
-        ElseIf ComboBox6.Text = "30 Minutes" Then
-            repDurValue = 30
-            Return repDurValue
-        ElseIf ComboBox6.Text = "1 Hours" Then
-            repDurValue = 1
-            Return repDurValue
-        ElseIf ComboBox6.Text = "12 Hours" Then
-            repDurValue = 12
-            Return repDurValue
-        ElseIf ComboBox6.Text = "1 Day" Then
-            repDurValue = 1
-            Return repDurValue
-        Else
-            repDurValue = 0
-            Return repDurValue
-        End If
-    End Function
-    Private Function custRepDurIntDecWeek() As Integer
-        Dim repDurIntDec As Integer
-        If ComboBox7.Text = "Disabled" Then
-            repDurIntDec = 0
-            Return repDurIntDec
-        ElseIf ComboBox7.Text = "5 Minutes" Then
-            repDurIntDec = 1
-            Return repDurIntDec
-        ElseIf ComboBox7.Text = "10 Minutes" Then
-            repDurIntDec = 1
-            Return repDurIntDec
-        ElseIf ComboBox7.Text = "15 Minutes" Then
-            repDurIntDec = 1
-            Return repDurIntDec
-        ElseIf ComboBox7.Text = "30 Minutes" Then
-            repDurIntDec = 1
-            Return repDurIntDec
-        ElseIf ComboBox7.Text = "1 Hours" Then
-            repDurIntDec = 2
-            Return repDurIntDec
-        Else
-            repDurIntDec = 0
-            Return repDurIntDec
-        End If
-    End Function
-    Private Function custRepDurValDecWeek() As Integer
-        Dim repDurValDec As Integer
-        If ComboBox6.Text = "Disabled" Then
-            repDurValDec = 0
-            Return repDurValDec
-        ElseIf ComboBox6.Text = "15 Minutes" Then
-            repDurValDec = 1
-            Return repDurValDec
-        ElseIf ComboBox6.Text = "30 Minutes" Then
-            repDurValDec = 1
-            Return repDurValDec
-        ElseIf ComboBox6.Text = "1 Hours" Then
-            repDurValDec = 2
-            Return repDurValDec
-        ElseIf ComboBox6.Text = "12 Hours" Then
-            repDurValDec = 2
-            Return repDurValDec
-        ElseIf ComboBox6.Text = "1 Day" Then
-            repDurValDec = 3
-            Return repDurValDec
-        Else
-            repDurValDec = 0
-            Return repDurValDec
-        End If
-    End Function
-    Private Function cb1() As DaysOfTheWeek
+    Private Function Cb1() As DaysOfTheWeek
         Dim monday As DaysOfTheWeek
         If CheckBox1.Checked Then
             monday = DaysOfTheWeek.Monday
@@ -894,7 +451,7 @@ Public Class Settings
             Return monday
         End If
     End Function
-    Private Function cb2() As DaysOfTheWeek
+    Private Function Cb2() As DaysOfTheWeek
         Dim tuesday As DaysOfTheWeek
         If CheckBox2.Checked Then
             tuesday = DaysOfTheWeek.Tuesday
@@ -904,7 +461,7 @@ Public Class Settings
             Return tuesday
         End If
     End Function
-    Private Function cb3() As DaysOfTheWeek
+    Private Function Cb3() As DaysOfTheWeek
         Dim wednesday As DaysOfTheWeek
         If CheckBox3.Checked Then
             wednesday = DaysOfTheWeek.Wednesday
@@ -914,7 +471,7 @@ Public Class Settings
             Return wednesday
         End If
     End Function
-    Private Function cb4() As DaysOfTheWeek
+    Private Function Cb4() As DaysOfTheWeek
         Dim thursday As DaysOfTheWeek
         If CheckBox4.Checked Then
             thursday = DaysOfTheWeek.Thursday
@@ -924,7 +481,7 @@ Public Class Settings
             Return thursday
         End If
     End Function
-    Private Function cb5() As DaysOfTheWeek
+    Private Function Cb5() As DaysOfTheWeek
         Dim friday As DaysOfTheWeek
         If CheckBox5.Checked Then
             friday = DaysOfTheWeek.Friday
@@ -934,7 +491,7 @@ Public Class Settings
             Return friday
         End If
     End Function
-    Private Function cb6() As DaysOfTheWeek
+    Private Function Cb6() As DaysOfTheWeek
         Dim saturday As DaysOfTheWeek
         If CheckBox6.Checked Then
             saturday = DaysOfTheWeek.Saturday
@@ -944,7 +501,7 @@ Public Class Settings
             Return saturday
         End If
     End Function
-    Private Function cb7() As DaysOfTheWeek
+    Private Function Cb7() As DaysOfTheWeek
         Dim sunday As DaysOfTheWeek
         If CheckBox7.Checked Then
             sunday = DaysOfTheWeek.Sunday
