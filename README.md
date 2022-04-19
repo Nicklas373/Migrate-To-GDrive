@@ -8,6 +8,14 @@ by users with several time frame options and include with scheduler management t
   * Source Folder
   * Destination Folder
   * Time Range: Anytime, Recent Date, Custom Date to Recent Date
+
+- Archive Backup
+  * Source Folder
+  * Destination Folder
+  * Backup Type (Archive & Archive with password)
+  * Compress level (Using 7-ZIP default compression level)
+  * Compress type (.7z & .zip)
+  * Password type (No encrypt, SHA-256, HMAC SHA-256) | (Decryption still work in progress)
   
 - Auto Backup
   * Source Folder
@@ -36,6 +44,7 @@ by users with several time frame options and include with scheduler management t
 # App Screenshoot
 <p align="left">
 <img width="480" height="240" src="https://github.com/Nicklas373/Migrate-To-GDrive/raw/master/MigrateToGDrive/Screenshots/Main%20Menu.png">&nbsp;&nbsp;&nbsp;
+<img width="480" height="240" src="https://github.com/Nicklas373/Migrate-To-GDrive/raw/master/MigrateToGDrive/Screenshots/Advanced%20Backup%20Menu.png">&nbsp;&nbsp;&nbsp;
 <img width="480" height="240" src="https://github.com/Nicklas373/Migrate-To-GDrive/raw/master/MigrateToGDrive/Screenshots/Log%20Menu.png">&nbsp;&nbsp;&nbsp;
 <img width="480" height="240" src="https://github.com/Nicklas373/Migrate-To-GDrive/raw/master/MigrateToGDrive/Screenshots/Settings%20Menu.png">&nbsp;&nbsp;&nbsp;
 <img width="480" height="240" src="https://github.com/Nicklas373/Migrate-To-GDrive/raw/master/MigrateToGDrive/Screenshots/About%20Menu.png">&nbsp;&nbsp;&nbsp;
@@ -52,7 +61,13 @@ by users with several time frame options and include with scheduler management t
   name and logo was taken to make "familiar in case" in term of introduction to the app and function, nothing more than that.
 - And also this is only for my personal usage, if anyone want to use. Just use it at your own risk !
 
-# Credits
+# 7-Zip
+- [7-ZIP](https://www.7-zip.org/)
+
+# 7-Zip Library
+- 7za.exe
+
+# Image Source
 - <a href="https://www.flaticon.com/free-icons/history" title="history icons">History icons created by Izwar Muis - Flaticon</a>
 - <a href="https://www.flaticon.com/free-icons/backup" title="backup icons">Backup icons created by Smashicons - Flaticon</a>
 - <a href="https://www.flaticon.com/free-icons/backup" title="backup icons">Backup icons created by Freepik - Flaticon</a>
