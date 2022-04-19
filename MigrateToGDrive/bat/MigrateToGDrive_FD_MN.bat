@@ -1,7 +1,7 @@
 @echo off
-set /p TsrcPath=<conf/uiSrcPath
-set /p TdestPath=<conf/uiDestPath
-set /p TdatePath=<conf/uiDatePath
+set /p TsrcPath=<conf/nrm_backup/nrmSrcPath
+set /p TdestPath=<conf/nrm_backup/nrmDestPath
+set /p TdatePath=<conf/nrm_backup/nrmDatePath
 for /f "skip=1" %%x in ('wmic os get localdatetime') do if not defined MyDate set MyDate=%%x
 for /f %%x in ('wmic path win32_localtime get /format:list ^| findstr "="') do set %%x
 set fmonth=00%Month%

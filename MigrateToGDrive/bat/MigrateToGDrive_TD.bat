@@ -1,7 +1,7 @@
 @echo off
 cd ..
-set /p TsrcPath=<conf/srcPath
-set /p TdestPath=<conf/destPath
+set /p TsrcPath=<conf/cli_backup/cliSrcPath
+set /p TdestPath=<conf/cli_backup/cliDestPath
 for /f "skip=1" %%x in ('wmic os get localdatetime') do if not defined MyDate set MyDate=%%x
 for /f %%x in ('wmic path win32_localtime get /format:list ^| findstr "="') do set %%x
 set fmonth=00%Month%

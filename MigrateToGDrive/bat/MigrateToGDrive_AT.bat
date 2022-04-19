@@ -1,7 +1,7 @@
 @echo off
 cd ..
-set /p TsrcPath=<conf/srcPath
-set /p TdestPath=<conf/destPath
+set /p TsrcPath=<conf/cli_backup/cliSrcPath
+set /p TdestPath=<conf/cli_backup/cliDestPath
 if exist "%TsrcPath%" (
 	if exist "%TdestPath%" (
 		call xcopy "%TsrcPath%" "%TdestPath%" /e /f /i /k /v /y >> "log/log"

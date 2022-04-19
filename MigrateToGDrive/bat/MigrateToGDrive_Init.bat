@@ -1,6 +1,6 @@
 @echo off
 cd ..
-set /p TtimePath=<conf/timeInit
+set /p TtimePath=<conf/cli_backup/cliTimeInit
 if %TtimePath% == Anytime goto :anytime
 if %TtimePath% == Today goto :today
 if %TtimePath% == null goto :error

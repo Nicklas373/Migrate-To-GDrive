@@ -1,6 +1,6 @@
 @echo off
-set /p TsrcPath=<conf/uiSrcPath
-set /p TdestPath=<conf/uiDestPath
+set /p TsrcPath=<conf/nrm_backup/nrmSrcPath
+set /p TdestPath=<conf/nrm_backup/nrmDestPath
 if exist "%TsrcPath%" (
 	if exist "%TdestPath%" (
 		call xcopy "%TsrcPath%" "%TdestPath%" /e /f /i /k /v /y >> "log/log"
