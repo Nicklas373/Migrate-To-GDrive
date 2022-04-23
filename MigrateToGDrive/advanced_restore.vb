@@ -80,10 +80,10 @@
     End Sub
     Private Sub Button4_Click(sender As Object, e As EventArgs) Handles Button4.Click
         If TextBox4.Text = "" Then
-            MsgBox("Please fill your password !")
+            MsgBox("Please fill your password !", vbExclamation, "MigrateToGDrive")
         Else
             If TextBox5.Text = "" Then
-                MsgBox("Please fill your password !")
+                MsgBox("Please fill your password !", vbExclamation, "MigrateToGDrive")
             Else
                 If TextBox4.Text = TextBox5.Text Then
                     TextBox1.ReadOnly = True
@@ -93,9 +93,9 @@
                     TextBox5.ReadOnly = True
                     ComboBox1.Enabled = False
                     Button4.Enabled = False
-                    MsgBox("Password locked !")
+                    MsgBox("Password locked !", vbInformation, "MigrateToGDrive")
                 Else
-                    MsgBox("Password not match !")
+                    MsgBox("Password not match !", vbCritical, "MigrateToGDrive")
                 End If
             End If
         End If
