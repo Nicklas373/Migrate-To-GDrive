@@ -17,29 +17,60 @@
     Dim compressType As String
     Dim compressExt As String
     Dim key As String = RandomString(10)
-    Dim MyKey As String = "YOUR_KEY_HERE"
-    Private Sub advanced_backup_Load(sender As Object, e As EventArgs) Handles MyBase.Load
+    Dim MyKey As String = "YOUR KEY HERE"
+    Private Sub Advanced_backup_Load(sender As Object, e As EventArgs) Handles MyBase.Load
         Dim dt As Date = Today
         TextBox1.ReadOnly = True
         TextBox2.ReadOnly = True
-        GroupBox1.Enabled = False
-        Me.AllowTransparency = False
+        AllowTransparency = False
     End Sub
     Private Sub Button1_Click(sender As Object, e As EventArgs) Handles Button1.Click
-        filedialog.InitialDirectory = Environment.SpecialFolder.UserProfile
-        filedialog.ShowDialog()
+        If ComboBox2.SelectedIndex = 0 Then
+            filedialog.InitialDirectory = Environment.SpecialFolder.UserProfile
+            filedialog.ShowDialog()
+        Else
+            If Button4.Enabled = False Then
+                MsgBox("Password has been set, please cancel to change this option !", vbExclamation, "MigrateToGDrive")
+            Else
+                filedialog.InitialDirectory = Environment.SpecialFolder.UserProfile
+                filedialog.ShowDialog()
+            End If
+        End If
     End Sub
     Private Sub FolderBrowserDialog1_Disposed(sender As Object, e As EventArgs) Handles Button1.Click
-        TextBox1.Text = filedialog.SelectedPath.ToString
-        Label3.Text = GlobalModul.getSrcDriveSize(TextBox1.Text)
+        If ComboBox2.SelectedIndex = 0 Then
+            TextBox1.Text = filedialog.SelectedPath.ToString
+            Label3.Text = GetSrcDriveSize(TextBox1.Text)
+        Else
+            If Button4.Enabled = True Then
+                TextBox1.Text = filedialog.SelectedPath.ToString
+                Label3.Text = GetSrcDriveSize(TextBox1.Text)
+            End If
+        End If
     End Sub
     Private Sub Button3_Click(sender As Object, e As EventArgs) Handles Button3.Click
-        filedialog.InitialDirectory = Environment.SpecialFolder.UserProfile
-        filedialog.ShowDialog()
+        If ComboBox2.SelectedIndex = 0 Then
+            filedialog.InitialDirectory = Environment.SpecialFolder.UserProfile
+            filedialog.ShowDialog()
+        Else
+            If Button4.Enabled = False Then
+                MsgBox("Password has been set, please cancel to change this option !", vbExclamation, "MigrateToGDrive")
+            Else
+                filedialog.InitialDirectory = Environment.SpecialFolder.UserProfile
+                filedialog.ShowDialog()
+            End If
+        End If
     End Sub
     Private Sub FolderBrowserDialog2_Disposed(sender As Object, e As EventArgs) Handles Button3.Click
-        TextBox2.Text = filedialog.SelectedPath.ToString
-        Label1.Text = GlobalModul.getDestDriveSize(TextBox2.Text)
+        If ComboBox2.SelectedIndex = 0 Then
+            TextBox2.Text = filedialog.SelectedPath.ToString
+            Label1.Text = GetDestDriveSize(TextBox2.Text)
+        Else
+            If Button4.Enabled = True Then
+                TextBox2.Text = filedialog.SelectedPath.ToString
+                Label1.Text = GetDestDriveSize(TextBox2.Text)
+            End If
+        End If
     End Sub
     Private Sub ComboBox2_SelectedIndexChanged(sender As Object, e As EventArgs) Handles ComboBox2.SelectedIndexChanged
         If ComboBox2.Text = "Archive" Then
@@ -57,12 +88,18 @@
             MsgBox("Please fill your password !")
         Else
             If TextBox5.Text = "" Then
-                MsgBox("Please fill your password !")
+                MsgBox("Please complete your password !")
             Else
                 If TextBox4.Text = TextBox5.Text Then
+                    TextBox1.ReadOnly = True
+                    TextBox2.ReadOnly = True
                     TextBox4.ReadOnly = True
                     TextBox5.ReadOnly = True
                     Button4.Enabled = False
+                    ComboBox2.Enabled = False
+                    ComboBox3.Enabled = False
+                    ComboBox4.Enabled = False
+                    ComboBox5.Enabled = False
                     MsgBox("Password locked !")
                 Else
                     MsgBox("Password not match !")
@@ -71,10 +108,14 @@
         End If
     End Sub
     Private Sub Button5_Click(sender As Object, e As EventArgs) Handles Button5.Click
-        TextBox4.Text = ""
-        TextBox4.ReadOnly = True
-        TextBox5.ReadOnly = True
-        TextBox5.Text = ""
+        TextBox1.ReadOnly = False
+        TextBox2.ReadOnly = False
+        TextBox4.ReadOnly = False
+        TextBox5.ReadOnly = False
+        ComboBox2.Enabled = True
+        ComboBox3.Enabled = True
+        ComboBox4.Enabled = True
+        ComboBox5.Enabled = True
         Button4.Enabled = True
     End Sub
     Private Sub Button2_Click(sender As Object, e As EventArgs) Handles Button2.Click
@@ -96,8 +137,7 @@
                     If ComboBox3.Text = "" Then
                         MsgBox("Compression level is empty, please select compression type !", MsgBoxStyle.Critical, "MigrateToGDrive")
                     Else
-                        compressLevel = CompLevel(ComboBox3.Text)
-                        CheckFileExist(advCompLevel, compressLevel)
+                        InitComp()
                         If ComboBox4.Text = "" Then
                             MsgBox("Compression type is empty, please select compression type !", MsgBoxStyle.Critical, "MigrateToGDrive")
                         Else
@@ -105,14 +145,17 @@
                             uiTrimDest = TextBox2.Text
                             compressType = CompType(ComboBox4.Text)
                             compressExt = CompExt(ComboBox4.Text)
-                            CheckFileExist(advCompType, compressType)
+                            compressLevel = CompLevel(ComboBox3.Text)
                             If Directory.Exists(uiTrimSrc) Then
                                 Dim key As String = RandomString(10)
+                                CheckFileExist(advEncType, "No Password")
                                 CheckFileExist(advSrcPath, uiTrimSrc)
                                 CheckFileExist(advDestPath, uiTrimDest)
                                 CheckFileExist(advInstPath, My.Application.Info.DirectoryPath.ToString)
                                 CheckFileExist(advRanStrg, key)
                                 CheckFileExist(advCompExt, compressExt)
+                                CheckFileExist(advCompType, compressType)
+                                CheckFileExist(advCompLevel, compressLevel)
                                 PrepareNotif(lastResult)
                                 PrepareNotif(lastErr)
                                 ManualBackup("bat\MigrateToGDrive_AR_NP.bat")
@@ -120,14 +163,13 @@
                                 CheckFileExist(lastResult, "err")
                                 CheckFileExist(lastErr, "Source drive not exist !")
                             End If
-                            ShowNotif()
                         End If
+                        ShowNotif()
                     End If
                 ElseIf ComboBox2.Text = "Archive + Password" Then
                     If ComboBox3.Text = "" Then
                         MsgBox("Compression level is empty, please select compression type !", MsgBoxStyle.Critical, "MigrateToGDrive")
                     Else
-                        compressLevel = CompLevel(ComboBox3.Text)
                         If ComboBox4.Text = "" Then
                             MsgBox("Compression type is empty, please select compression type !", MsgBoxStyle.Critical, "MigrateToGDrive")
                         Else
@@ -135,22 +177,24 @@
                             If ComboBox5.Text = "" Then
                                 MsgBox("Password type is empty, please select password type !", MsgBoxStyle.Critical, "MigrateToGDrive")
                             Else
-                                If ComboBox5.SelectedIndex = 0 Then
-                                    If Button4.Enabled = False Then
-                                        MsgBox("No Encrypt")
-                                        uiTrimSrc = TextBox1.Text
-                                        uiTrimDest = TextBox2.Text
-                                        compressType = CompType(ComboBox4.Text)
-                                        compressExt = CompExt(ComboBox4.Text)
-                                        CheckFileExist(advCompType, compressType)
-                                        CheckFileExist(advCompType, "No Encryption")
+                                If Button4.Enabled = False Then
+                                    InitComp()
+                                    uiTrimSrc = TextBox1.Text
+                                    uiTrimDest = TextBox2.Text
+                                    compressType = CompType(ComboBox4.Text)
+                                    compressExt = CompExt(ComboBox4.Text)
+                                    compressLevel = CompLevel(ComboBox3.Text)
+                                    Dim key As String = RandomString(10)
+                                    If ComboBox5.SelectedIndex = 0 Then
                                         If Directory.Exists(uiTrimSrc) Then
-                                            Dim key As String = RandomString(10)
+                                            CheckFileExist(advEncType, "Password + No Encryption")
                                             CheckFileExist(advSrcPath, uiTrimSrc)
                                             CheckFileExist(advDestPath, uiTrimDest)
                                             CheckFileExist(advInstPath, My.Application.Info.DirectoryPath.ToString)
                                             CheckFileExist(advRanStrg, key)
                                             CheckFileExist(advCompExt, compressExt)
+                                            CheckFileExist(advCompLevel, compressLevel)
+                                            CheckFileExist(advCompType, compressType)
                                             CheckFileExist(advTempPass, TextBox4.Text)
                                             PrepareNotif(lastResult)
                                             PrepareNotif(lastErr)
@@ -159,59 +203,35 @@
                                             CheckFileExist(lastResult, "err")
                                             CheckFileExist(lastErr, "Source drive not exist !")
                                         End If
-                                        ShowNotif()
                                         PrepareNotif(advTempPass)
-                                    End If
-                                ElseIf ComboBox5.SelectedIndex = 1 Then
-                                    If Button4.Enabled = False Then
-                                        uiTrimSrc = TextBox1.Text
-                                        uiTrimDest = TextBox2.Text
-                                        compressType = CompType(ComboBox4.Text)
-                                        compressExt = CompExt(ComboBox4.Text)
-                                        CheckFileExist(advCompType, compressType)
-                                        CheckFileExist(advEncType, "SHA-256")
+                                    ElseIf ComboBox5.SelectedIndex = 1 Then
                                         If Directory.Exists(uiTrimSrc) Then
+                                            Dim sha_pass1 As String = AESEncryptStringToBase64(TextBox4.Text, MyKey)
+                                            Dim sha_pass2 As String = AESEncryptStringToBase64(sha_pass1, MyKey)
+                                            CheckFileExist(advEncType, "Password + SHA-256")
                                             CheckFileExist(advSrcPath, uiTrimSrc)
                                             CheckFileExist(advDestPath, uiTrimDest)
                                             CheckFileExist(advInstPath, My.Application.Info.DirectoryPath.ToString)
                                             CheckFileExist(advRanStrg, key)
                                             CheckFileExist(advCompExt, compressExt)
+                                            CheckFileExist(advCompLevel, compressLevel)
+                                            CheckFileExist(advCompType, compressType)
+                                            CheckFileExist(advTempPass, sha_pass1)
                                             PrepareNotif(lastResult)
                                             PrepareNotif(lastErr)
-                                            ManualBackup("bat\MigrateToGDrive_AR_P.bat")
-                                            EncryptFile(TextBox4.Text, advTempPass, TextBox2.Text & "\MigrateToGDrive_" & key & "_KEY.enc")
+                                            ManualBackup("bat\MigrateToGDrive_AR_PE.bat")
+                                            CheckFileExist(advTempPass, sha_pass2)
+                                            EncryptFile(TextBox4.Text, advTempPass, TextBox2.Text & "\MigrateToGDrive_" & key & "_KEY.mtg")
                                         Else
                                             CheckFileExist(lastResult, "err")
                                             CheckFileExist(lastErr, "Source drive not exist !")
                                         End If
-                                        ShowNotif()
                                         PrepareNotif(advTempPass)
                                     End If
+                                    ShowNotif()
                                 Else
-                                    If Button4.Enabled = False Then
-                                        uiTrimSrc = TextBox1.Text
-                                        uiTrimDest = TextBox2.Text
-                                        compressType = CompType(ComboBox4.Text)
-                                        compressExt = CompExt(ComboBox4.Text)
-                                        CheckFileExist(advCompType, compressType)
-                                        CheckFileExist(advEncType, "HMAC SHA-256")
-                                        If Directory.Exists(uiTrimSrc) Then
-                                            CheckFileExist(advSrcPath, uiTrimSrc)
-                                            CheckFileExist(advDestPath, uiTrimDest)
-                                            CheckFileExist(advInstPath, My.Application.Info.DirectoryPath.ToString)
-                                            CheckFileExist(advRanStrg, key)
-                                            CheckFileExist(advCompExt, compressExt)
-                                            PrepareNotif(lastResult)
-                                            PrepareNotif(lastErr)
-                                            ManualBackup("bat\MigrateToGDrive_AR_P.bat")
-                                            EncryptFile(TextBox4.Text, advTempPass, TextBox2.Text & "\MigrateToGDrive_" & key & "_KEY.enc")
-                                        Else
-                                            CheckFileExist(lastResult, "err")
-                                            CheckFileExist(lastErr, "Source drive not exist !")
-                                        End If
-                                        ShowNotif()
-                                        PrepareNotif(advTempPass)
-                                    End If
+                                    MsgBox("Please save the password to proceed backup !", vbInformation, "MigrateToGDrive")
+                                    RichTextBox1.Text = "Backup history will show here..."
                                 End If
                             End If
                         End If
@@ -220,12 +240,22 @@
             End If
         End If
     End Sub
+    Private Sub InitComp()
+        PrepareNotif(advCompExt)
+        PrepareNotif(advCompLevel)
+        PrepareNotif(advCompType)
+        PrepareNotif(advDestPath)
+        PrepareNotif(advEncType)
+        PrepareNotif(advRanStrg)
+        PrepareNotif(advSrcPath)
+        PrepareNotif(advTempPass)
+    End Sub
     Private Sub ShowNotif()
         If File.Exists(lastResult) Then
             Dim lastRest As String = PathVal(lastResult, 0)
             If PathVal(lastResult, 0).Equals("success") Then
                 MsgBox("Backup success !", MsgBoxStyle.Information, "MigrateToGDrive")
-                showLog("Backup", logPath)
+                ShowLog("Backup", logPath)
             ElseIf PathVal(lastResult, 0).Equals("err") Then
                 MsgBox("Backup error !", MsgBoxStyle.Critical, "MigrateToGDrive")
                 RichTextBox1.Text = ""
@@ -240,6 +270,7 @@
                     MsgBox("Error file not found !", MsgBoxStyle.Critical, "MigrateToGDrive")
                     RichTextBox1.Text = ""
                 End If
+                ShowLog("Error", errPath)
             Else
                 MsgBox("Unknown result status !", MsgBoxStyle.Critical, "MigrateToGDrive")
                 RichTextBox1.Text = ""
@@ -249,7 +280,7 @@
             RichTextBox1.Text = ""
         End If
     End Sub
-    Private Sub showLog(log As String, path As String)
+    Private Sub ShowLog(log As String, path As String)
         RichTextBox1.Text = ""
         If File.Exists(path) Then
             If New FileInfo(path).Length.Equals(0) Then
