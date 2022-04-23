@@ -37,6 +37,7 @@ if exist "%TsrcPath%" (
 		echo Compress Result				: Success >> "log/advlog"
 		echo Compress Time				: %date% - %time% >> "log/advlog"
 		echo Compress Filename			: MigrateToGDrive_%today%_%TrndmStrg%.%TcompExt% >> "log/advlog"
+		echo Key File					: MigrateToGDrive_%TrndmStrg%_KEY.mtg >> "log/advlog"
 		echo Compress Location			: %TdestPath% >> "log/advlog"
 		echo Encryption Method			: %TencType% >> "log/advlog"
 		echo. >> "log/advlog"

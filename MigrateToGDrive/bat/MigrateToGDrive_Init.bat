@@ -13,7 +13,7 @@ if %ERRORLEVEL% == 1 goto :err1
 if %ERRORLEVEL% == 2 goto :err2
 if %ERRORLEVEL% == 4 goto :err4
 if %ERRORLEVEL% == 5 goto :err5
-echo # MigrateToGDrive v1.0 >> "log/err"
+echo # MigrateToGDrive v1.1 >> "log/err"
 echo Init Result				: Error >> "log/err"
 echo Reason				: Unspecified Error: %errorlevel% >> "log/err"
 echo Backup Type				: Init >> "log/err"
@@ -32,10 +32,10 @@ if %ERRORLEVEL% == 1 goto :err1
 if %ERRORLEVEL% == 2 goto :err2
 if %ERRORLEVEL% == 4 goto :err4
 if %ERRORLEVEL% == 5 goto :err5
-echo # MigrateToGDrive v1.0 >> "log/err"
-echo Init Result				: Error >> "log/err"
-echo Reason				: Unspecified Error: %errorlevel% >> "log/err"
-echo Backup Type				: Init >> "log/err"
+echo # MigrateToGDrive v1.1 >> "log/err"
+echo Init Result			: Error >> "log/err"
+echo Reason			: Unspecified Error: %errorlevel% >> "log/err"
+echo Backup Type			: Init >> "log/err"
 echo. >> "log/err"
 goto :endofline
 
@@ -44,42 +44,42 @@ echo "Backup with Today is Success!"
 goto :endofline
 
 :error
-echo # MigrateToGDrive v1.0 >> "log/err"
-echo Init Result				: Error >> "log/err"
-echo Reason				: Configuration file not found >> "log/err"
-echo Backup Type				: Init >> "log/err"
+echo # MigrateToGDrive v1.1 >> "log/err"
+echo Init Result			: Error >> "log/err"
+echo Reason			: Configuration file not found >> "log/err"
+echo Backup Type			: Init >> "log/err"
 echo. >> "log/err"
 goto :endofline
 
 :err1
-echo # MigrateToGDrive v1.0 >> "log/err" 
-echo Init Result				: Error >> "log/err"
-echo Reason				: Necessary files not found >> "log/err"
-echo Backup Type				: Init >> "log/err"
+echo # MigrateToGDrive v1.1 >> "log/err" 
+echo Init Result			: Error >> "log/err"
+echo Reason			: Necessary files not found >> "log/err"
+echo Backup Type			: Init >> "log/err"
 echo. >> "log/err"
 goto :endofline
 
 :err2
-echo # MigrateToGDrive v1.0 >> "log/err" 
-echo Init Result				: Error >> "log/err"
-echo Reason				: Terminate by users >> "log/err"
-echo Backup Type				: Init >> "log/err"
+echo # MigrateToGDrive v1.1 >> "log/err" 
+echo Init Result			: Error >> "log/err"
+echo Reason			: Terminate by users >> "log/err"
+echo Backup Type			: Init >> "log/err"
 echo. >> "log/err"
 goto :endofline
 
 :err4
-echo # MigrateToGDrive v1.0 >> "log/err"
-echo Init Result				: Error >> "log/err"
-echo Reason				: Insufficient permissions >> "log/err"
-echo Backup Type				: Init >> "log/err"
+echo # MigrateToGDrive v1.1 >> "log/err"
+echo Init Result			: Error >> "log/err"
+echo Reason			: Insufficient permissions >> "log/err"
+echo Backup Type			: Init >> "log/err"
 echo. >> "log/err"
 goto :endofline
 
 :err5
-echo # MigrateToGDrive v1.0 >> "log/err" 
-echo Init Result				: Error >> "log/err"
-echo Reason				: Disk write error >> "log/err"
-echo Backup Type				: Init >> "log/err"
+echo # MigrateToGDrive v1.1 >> "log/err" 
+echo Init Result			: Error >> "log/err"
+echo Reason			: Disk write error >> "log/err"
+echo Backup Type			: Init >> "log/err"
 echo. >> "log/err"
 goto :endofline
 
