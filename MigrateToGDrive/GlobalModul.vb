@@ -36,8 +36,8 @@
     End Sub
     Public Sub ManualBackup(bat As String)
         Dim psi As New ProcessStartInfo(bat)
-        psi.RedirectStandardError = True
-        psi.RedirectStandardOutput = True
+        psi.RedirectStandardError = False
+        psi.RedirectStandardOutput = False
         psi.CreateNoWindow = False
         psi.WindowStyle = ProcessWindowStyle.Hidden
         psi.UseShellExecute = False
@@ -64,7 +64,7 @@
             Return value
         End If
     End Function
-    Public Function getSrcDriveSize(dir As String) As String
+    Public Function GetSrcDriveSize(dir As String) As String
         Dim srcDir As String
         If dir = "" Then
             srcDir = ""
@@ -76,7 +76,7 @@
             Return srcDir
         End If
     End Function
-    Public Function getDestDriveSize(dir As String) As String
+    Public Function GetDestDriveSize(dir As String) As String
         Dim destDir As String
         If dir = "" Then
             destDir = ""
