@@ -1,3 +1,13 @@
+v1.1.2.0 (20220423):
+- Code cleanup
+- Drop HMAC Encryption & Decryption method (Issue with SHA-256 Decryption in some cases)
+- Support decryption for archive backup with several extensions (.7z & .zip)
+
+v1.1.1.0 (20220420):
+- Code cleanup
+- Support vertical scrollbar on settings menu for unsupported display resolution
+- Support decryption for archive backup (SHA-256 or HMAC SHA-256)
+
 v1.1.0.0 (20220419):
 - Add more log for archive backup (success and error log)
 - Re-design several layout
@@ -5,7 +15,7 @@ v1.1.0.0 (20220419):
 - Support backup method to archive using 7zip command line (www.7-zip.org)
   * Support extensions (.7z & .zip)
   * Support archive compression level (Native from 7za library)
-  * Support password encryption on archive backup (SHA256 or HMAC SHA256) 
+  * Support password encryption on archive backup (SHA-256 or HMAC SHA-256) 
   * Decryption still work in progress
 
 v1.0.0.0 (20220416):

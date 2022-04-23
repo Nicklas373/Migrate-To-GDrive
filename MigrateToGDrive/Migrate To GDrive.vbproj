@@ -33,7 +33,7 @@ v1.1.0.0 (20220419):
 v1.0.0.0 (20220416):
 - INITIAL RELEASE</PackageReleaseNotes>
     <ApplicationManifest>My Project\app.manifest</ApplicationManifest>
-    <Version>1.1.1</Version>
+    <Version>1.1.2</Version>
     <Description>Special purpose application that only have aim to backup data from directory to directory that was specified by users with several time frame options and include with scheduler management that can do backup automatically (Based on Windows Task Scheduler Library)</Description>
     <PackageProjectUrl>https://github.com/Nicklas373/Migrate-To-GDrive</PackageProjectUrl>
     <RepositoryUrl>https://github.com/Nicklas373/Migrate-To-GDrive</RepositoryUrl>
