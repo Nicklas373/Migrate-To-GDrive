@@ -4,18 +4,24 @@ MigrateToGDrive is a special purpose application that only have aim to backup da
 by users with several time frame options and include with scheduler management that can do backup automatically (Based on Windows Task Scheduler Library).
 
 # App Function
-- Manual Backup
+- Normal Backup
   * Source Folder
   * Destination Folder
   * Time Range: Anytime, Recent Date, Custom Date to Recent Date
 
-- Archive Backup
+- Advanced Backup
   * Source Folder
   * Destination Folder
   * Backup Type (Archive & Archive with password)
   * Compress level (Using 7-ZIP default compression level)
   * Compress type (.7z & .zip)
-  * Password type (No encrypt, SHA-256, HMAC SHA-256) | (Decryption still work in progress)
+  * Password type (No encrypt, SHA-256)
+
+- Restore Backup
+  * Archive file
+  * Destination Folder
+  * Encryption Key (If archive was backup by using SHA-256)
+  * Encryption Method (No Encrypt or SHA-256)
   
 - Auto Backup
   * Source Folder
@@ -34,6 +40,8 @@ by users with several time frame options and include with scheduler management t
  
 - History Info
   * Check Backup History
+  * Check Archive History
+  * Check Restore History
   * Check Error History
   * Clear History
   * Export History
@@ -44,7 +52,9 @@ by users with several time frame options and include with scheduler management t
 # App Screenshoot
 <p align="left">
 <img width="480" height="240" src="https://github.com/Nicklas373/Migrate-To-GDrive/raw/master/MigrateToGDrive/Screenshots/Main%20Menu.png">&nbsp;&nbsp;&nbsp;
+<img width="480" height="240" src="https://github.com/Nicklas373/Migrate-To-GDrive/raw/master/MigrateToGDrive/Screenshots/Normal%20Backup%20Menu.png">&nbsp;&nbsp;&nbsp;
 <img width="480" height="240" src="https://github.com/Nicklas373/Migrate-To-GDrive/raw/master/MigrateToGDrive/Screenshots/Advanced%20Backup%20Menu.png">&nbsp;&nbsp;&nbsp;
+<img width="480" height="240" src="https://github.com/Nicklas373/Migrate-To-GDrive/raw/master/MigrateToGDrive/Screenshots/Restore%20Backup%20Menu.png">&nbsp;&nbsp;&nbsp;
 <img width="480" height="240" src="https://github.com/Nicklas373/Migrate-To-GDrive/raw/master/MigrateToGDrive/Screenshots/Log%20Menu.png">&nbsp;&nbsp;&nbsp;
 <img width="480" height="240" src="https://github.com/Nicklas373/Migrate-To-GDrive/raw/master/MigrateToGDrive/Screenshots/Settings%20Menu.png">&nbsp;&nbsp;&nbsp;
 <img width="480" height="240" src="https://github.com/Nicklas373/Migrate-To-GDrive/raw/master/MigrateToGDrive/Screenshots/About%20Menu.png">&nbsp;&nbsp;&nbsp;
