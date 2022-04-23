@@ -119,4 +119,4 @@ if exist "%TsrcPath%" (
 )
 
 :endofscript
-pause
+exit
