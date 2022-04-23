@@ -27,6 +27,18 @@
         }
         "Entry"
         {
+        "MsmKey" = "8:_0266BD5570564AC3B34C2BE129748B5D"
+        "OwnerKey" = "8:_UNDEFINED"
+        "MsmSig" = "8:_UNDEFINED"
+        }
+        "Entry"
+        {
+        "MsmKey" = "8:_0E50ED5D87044EF09D701170779A7A36"
+        "OwnerKey" = "8:_UNDEFINED"
+        "MsmSig" = "8:_UNDEFINED"
+        }
+        "Entry"
+        {
         "MsmKey" = "8:_110EBECF99D140038D346A1CF5FC2134"
         "OwnerKey" = "8:_UNDEFINED"
         "MsmSig" = "8:_UNDEFINED"
@@ -111,12 +123,6 @@
         }
         "Entry"
         {
-        "MsmKey" = "8:_62AC2239F95E4F58B8C40241124BAB1E"
-        "OwnerKey" = "8:_UNDEFINED"
-        "MsmSig" = "8:_UNDEFINED"
-        }
-        "Entry"
-        {
         "MsmKey" = "8:_63925DA5A030455684E8F8F77FAC9642"
         "OwnerKey" = "8:_UNDEFINED"
         "MsmSig" = "8:_UNDEFINED"
@@ -130,6 +136,12 @@
         "Entry"
         {
         "MsmKey" = "8:_6F6E23789D3241C580659F60B26CCD82"
+        "OwnerKey" = "8:_UNDEFINED"
+        "MsmSig" = "8:_UNDEFINED"
+        }
+        "Entry"
+        {
+        "MsmKey" = "8:_7DE343F0BA9540EC9BC0EFDF78601EF9"
         "OwnerKey" = "8:_UNDEFINED"
         "MsmSig" = "8:_UNDEFINED"
         }
@@ -153,13 +165,31 @@
         }
         "Entry"
         {
+        "MsmKey" = "8:_9876D1D7B7054741B847FE0713AB40F1"
+        "OwnerKey" = "8:_UNDEFINED"
+        "MsmSig" = "8:_UNDEFINED"
+        }
+        "Entry"
+        {
         "MsmKey" = "8:_A7336B6207DC4CFCA1FE9B99A78A8B94"
         "OwnerKey" = "8:_UNDEFINED"
         "MsmSig" = "8:_UNDEFINED"
         }
         "Entry"
         {
+        "MsmKey" = "8:_A81761B625F04C8DA77D86C7AE39AD26"
+        "OwnerKey" = "8:_UNDEFINED"
+        "MsmSig" = "8:_UNDEFINED"
+        }
+        "Entry"
+        {
         "MsmKey" = "8:_B0FB6C3163C342E0B7DF5BB819895AC3"
+        "OwnerKey" = "8:_UNDEFINED"
+        "MsmSig" = "8:_UNDEFINED"
+        }
+        "Entry"
+        {
+        "MsmKey" = "8:_B1F075EAA2CF4192A153E31945084460"
         "OwnerKey" = "8:_UNDEFINED"
         "MsmSig" = "8:_UNDEFINED"
         }
@@ -274,6 +304,12 @@
         "Entry"
         {
         "MsmKey" = "8:_EBC389A38707436695DC4E844FB0B16C"
+        "OwnerKey" = "8:_UNDEFINED"
+        "MsmSig" = "8:_UNDEFINED"
+        }
+        "Entry"
+        {
+        "MsmKey" = "8:_ECBE04BCA1864CD69ACDFD9B7B17AD02"
         "OwnerKey" = "8:_UNDEFINED"
         "MsmSig" = "8:_UNDEFINED"
         }
@@ -418,6 +454,46 @@
             "TargetName" = "8:config"
             "Tag" = "8:"
             "Folder" = "8:_C2D62122F35F4FE2A8AD2AA2FEF73F2F"
+            "Condition" = "8:"
+            "Transitive" = "11:FALSE"
+            "Vital" = "11:TRUE"
+            "ReadOnly" = "11:FALSE"
+            "Hidden" = "11:FALSE"
+            "System" = "11:FALSE"
+            "Permanent" = "11:FALSE"
+            "SharedLegacy" = "11:FALSE"
+            "PackageAs" = "3:1"
+            "Register" = "3:1"
+            "Exclude" = "11:FALSE"
+            "IsDependency" = "11:FALSE"
+            "IsolateTo" = "8:"
+            }
+            "{1FB2D0AE-D3B9-43D4-B9DD-F88EC61E35DE}:_0266BD5570564AC3B34C2BE129748B5D"
+            {
+            "SourcePath" = "8:..\\MigrateToGDrive\\7z\\readme.txt"
+            "TargetName" = "8:readme.txt"
+            "Tag" = "8:"
+            "Folder" = "8:_2F268D2D6BC14454B35FF044118AD7B6"
+            "Condition" = "8:"
+            "Transitive" = "11:FALSE"
+            "Vital" = "11:TRUE"
+            "ReadOnly" = "11:FALSE"
+            "Hidden" = "11:FALSE"
+            "System" = "11:FALSE"
+            "Permanent" = "11:FALSE"
+            "SharedLegacy" = "11:FALSE"
+            "PackageAs" = "3:1"
+            "Register" = "3:1"
+            "Exclude" = "11:FALSE"
+            "IsDependency" = "11:FALSE"
+            "IsolateTo" = "8:"
+            }
+            "{1FB2D0AE-D3B9-43D4-B9DD-F88EC61E35DE}:_0E50ED5D87044EF09D701170779A7A36"
+            {
+            "SourcePath" = "8:..\\MigrateToGDrive\\7z\\history.txt"
+            "TargetName" = "8:history.txt"
+            "Tag" = "8:"
+            "Folder" = "8:_2F268D2D6BC14454B35FF044118AD7B6"
             "Condition" = "8:"
             "Transitive" = "11:FALSE"
             "Vital" = "11:TRUE"
@@ -692,26 +768,6 @@
             "IsDependency" = "11:FALSE"
             "IsolateTo" = "8:"
             }
-            "{1FB2D0AE-D3B9-43D4-B9DD-F88EC61E35DE}:_62AC2239F95E4F58B8C40241124BAB1E"
-            {
-            "SourcePath" = "8:..\\MigrateToGDrive\\bin\\Debug\\net6.0-windows\\bat\\MigrateToGDrive_AT_MN.bat"
-            "TargetName" = "8:MigrateToGDrive_AT_MN.bat"
-            "Tag" = "8:"
-            "Folder" = "8:_7F7ECFA955694F9AB5826011554655BD"
-            "Condition" = "8:"
-            "Transitive" = "11:FALSE"
-            "Vital" = "11:TRUE"
-            "ReadOnly" = "11:FALSE"
-            "Hidden" = "11:FALSE"
-            "System" = "11:FALSE"
-            "Permanent" = "11:FALSE"
-            "SharedLegacy" = "11:FALSE"
-            "PackageAs" = "3:1"
-            "Register" = "3:1"
-            "Exclude" = "11:FALSE"
-            "IsDependency" = "11:FALSE"
-            "IsolateTo" = "8:"
-            }
             "{1FB2D0AE-D3B9-43D4-B9DD-F88EC61E35DE}:_63925DA5A030455684E8F8F77FAC9642"
             {
             "SourcePath" = "8:..\\MigrateToGDrive\\conf\\cli_backup\\cliTimeInit"
@@ -758,6 +814,26 @@
             "TargetName" = "8:resZipLog"
             "Tag" = "8:"
             "Folder" = "8:_DDA75954B5664E80BC5066541BC70D96"
+            "Condition" = "8:"
+            "Transitive" = "11:FALSE"
+            "Vital" = "11:TRUE"
+            "ReadOnly" = "11:FALSE"
+            "Hidden" = "11:FALSE"
+            "System" = "11:FALSE"
+            "Permanent" = "11:FALSE"
+            "SharedLegacy" = "11:FALSE"
+            "PackageAs" = "3:1"
+            "Register" = "3:1"
+            "Exclude" = "11:FALSE"
+            "IsDependency" = "11:FALSE"
+            "IsolateTo" = "8:"
+            }
+            "{1FB2D0AE-D3B9-43D4-B9DD-F88EC61E35DE}:_7DE343F0BA9540EC9BC0EFDF78601EF9"
+            {
+            "SourcePath" = "8:..\\MigrateToGDrive\\7z\\7za.exe"
+            "TargetName" = "8:7za.exe"
+            "Tag" = "8:"
+            "Folder" = "8:_2F268D2D6BC14454B35FF044118AD7B6"
             "Condition" = "8:"
             "Transitive" = "11:FALSE"
             "Vital" = "11:TRUE"
@@ -832,6 +908,26 @@
             "IsDependency" = "11:FALSE"
             "IsolateTo" = "8:"
             }
+            "{1FB2D0AE-D3B9-43D4-B9DD-F88EC61E35DE}:_9876D1D7B7054741B847FE0713AB40F1"
+            {
+            "SourcePath" = "8:..\\MigrateToGDrive\\7z\\7za.dll"
+            "TargetName" = "8:7za.dll"
+            "Tag" = "8:"
+            "Folder" = "8:_2F268D2D6BC14454B35FF044118AD7B6"
+            "Condition" = "8:"
+            "Transitive" = "11:FALSE"
+            "Vital" = "11:TRUE"
+            "ReadOnly" = "11:FALSE"
+            "Hidden" = "11:FALSE"
+            "System" = "11:FALSE"
+            "Permanent" = "11:FALSE"
+            "SharedLegacy" = "11:FALSE"
+            "PackageAs" = "3:1"
+            "Register" = "3:1"
+            "Exclude" = "11:FALSE"
+            "IsDependency" = "11:FALSE"
+            "IsolateTo" = "8:"
+            }
             "{1FB2D0AE-D3B9-43D4-B9DD-F88EC61E35DE}:_A7336B6207DC4CFCA1FE9B99A78A8B94"
             {
             "SourcePath" = "8:..\\MigrateToGDrive\\bin\\Debug\\net6.0-windows\\bat\\MigrateToGDrive_RB.bat"
@@ -852,12 +948,52 @@
             "IsDependency" = "11:FALSE"
             "IsolateTo" = "8:"
             }
+            "{1FB2D0AE-D3B9-43D4-B9DD-F88EC61E35DE}:_A81761B625F04C8DA77D86C7AE39AD26"
+            {
+            "SourcePath" = "8:..\\MigrateToGDrive\\7z\\License.txt"
+            "TargetName" = "8:License.txt"
+            "Tag" = "8:"
+            "Folder" = "8:_2F268D2D6BC14454B35FF044118AD7B6"
+            "Condition" = "8:"
+            "Transitive" = "11:FALSE"
+            "Vital" = "11:TRUE"
+            "ReadOnly" = "11:FALSE"
+            "Hidden" = "11:FALSE"
+            "System" = "11:FALSE"
+            "Permanent" = "11:FALSE"
+            "SharedLegacy" = "11:FALSE"
+            "PackageAs" = "3:1"
+            "Register" = "3:1"
+            "Exclude" = "11:FALSE"
+            "IsDependency" = "11:FALSE"
+            "IsolateTo" = "8:"
+            }
             "{1FB2D0AE-D3B9-43D4-B9DD-F88EC61E35DE}:_B0FB6C3163C342E0B7DF5BB819895AC3"
             {
             "SourcePath" = "8:..\\MigrateToGDrive\\bin\\Debug\\net6.0-windows\\bat\\MigrateToGDrive_AR_NP.bat"
             "TargetName" = "8:MigrateToGDrive_AR_NP.bat"
             "Tag" = "8:"
             "Folder" = "8:_7F7ECFA955694F9AB5826011554655BD"
+            "Condition" = "8:"
+            "Transitive" = "11:FALSE"
+            "Vital" = "11:TRUE"
+            "ReadOnly" = "11:FALSE"
+            "Hidden" = "11:FALSE"
+            "System" = "11:FALSE"
+            "Permanent" = "11:FALSE"
+            "SharedLegacy" = "11:FALSE"
+            "PackageAs" = "3:1"
+            "Register" = "3:1"
+            "Exclude" = "11:FALSE"
+            "IsDependency" = "11:FALSE"
+            "IsolateTo" = "8:"
+            }
+            "{1FB2D0AE-D3B9-43D4-B9DD-F88EC61E35DE}:_B1F075EAA2CF4192A153E31945084460"
+            {
+            "SourcePath" = "8:..\\MigrateToGDrive\\7z\\7zxa.dll"
+            "TargetName" = "8:7zxa.dll"
+            "Tag" = "8:"
+            "Folder" = "8:_2F268D2D6BC14454B35FF044118AD7B6"
             "Condition" = "8:"
             "Transitive" = "11:FALSE"
             "Vital" = "11:TRUE"
@@ -1252,6 +1388,26 @@
             "IsDependency" = "11:FALSE"
             "IsolateTo" = "8:"
             }
+            "{1FB2D0AE-D3B9-43D4-B9DD-F88EC61E35DE}:_ECBE04BCA1864CD69ACDFD9B7B17AD02"
+            {
+            "SourcePath" = "8:..\\MigrateToGDrive\\bat\\MigrateToGDrive_AT_MN.bat"
+            "TargetName" = "8:MigrateToGDrive_AT_MN.bat"
+            "Tag" = "8:"
+            "Folder" = "8:_7F7ECFA955694F9AB5826011554655BD"
+            "Condition" = "8:"
+            "Transitive" = "11:FALSE"
+            "Vital" = "11:TRUE"
+            "ReadOnly" = "11:FALSE"
+            "Hidden" = "11:FALSE"
+            "System" = "11:FALSE"
+            "Permanent" = "11:FALSE"
+            "SharedLegacy" = "11:FALSE"
+            "PackageAs" = "3:1"
+            "Register" = "3:1"
+            "Exclude" = "11:FALSE"
+            "IsDependency" = "11:FALSE"
+            "IsolateTo" = "8:"
+            }
             "{1FB2D0AE-D3B9-43D4-B9DD-F88EC61E35DE}:_F3DA7DA15A0F4B9685D97A66DD2CE7FF"
             {
             "SourcePath" = "8:..\\MigrateToGDrive\\bin\\Debug\\net6.0-windows\\bat\\MigrateToGDrive_TD_MN.bat"
@@ -1328,6 +1484,17 @@
             "Property" = "8:TARGETDIR"
                 "Folders"
                 {
+                    "{9EF0B969-E518-4E46-987F-47570745A589}:_2F268D2D6BC14454B35FF044118AD7B6"
+                    {
+                    "Name" = "8:7z"
+                    "AlwaysCreate" = "11:FALSE"
+                    "Condition" = "8:"
+                    "Transitive" = "11:FALSE"
+                    "Property" = "8:_7DB96E30D1A446679D63DE8BCC4B3B54"
+                        "Folders"
+                        {
+                        }
+                    }
                     "{9EF0B969-E518-4E46-987F-47570745A589}:_7F7ECFA955694F9AB5826011554655BD"
                     {
                     "Name" = "8:bat"
@@ -1446,7 +1613,7 @@
         "Name" = "8:Microsoft Visual Studio"
         "ProductName" = "8:Migrate To GDrive"
         "ProductCode" = "8:{F182D289-6FA4-4866-B46F-ED64EAD105FF}"
-        "PackageCode" = "8:{30F20461-9F85-42E6-9193-71AFB4FEA3D6}"
+        "PackageCode" = "8:{5A3F009C-B690-4DA6-BBAF-87C40DBABDE8}"
         "UpgradeCode" = "8:{397E3C26-24CD-43A8-BBC8-868FE4193D0A}"
         "AspNetVersion" = "8:4.0.30319.0"
         "RestartWWWService" = "11:FALSE"
