@@ -132,7 +132,7 @@ Partial Class Settings
         Me.Label5.Font = New System.Drawing.Font("Segoe UI", 9.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point)
         Me.Label5.Location = New System.Drawing.Point(19, 44)
         Me.Label5.Name = "Label5"
-        Me.Label5.Size = New System.Drawing.Size(104, 20)
+        Me.Label5.Size = New System.Drawing.Size(84, 15)
         Me.Label5.TabIndex = 16
         Me.Label5.Text = "Source Folder"
         '
@@ -142,7 +142,7 @@ Partial Class Settings
         Me.Label4.Font = New System.Drawing.Font("Segoe UI", 9.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point)
         Me.Label4.Location = New System.Drawing.Point(18, 108)
         Me.Label4.Name = "Label4"
-        Me.Label4.Size = New System.Drawing.Size(138, 20)
+        Me.Label4.Size = New System.Drawing.Size(109, 15)
         Me.Label4.TabIndex = 15
         Me.Label4.Text = "Destination Folder"
         '
@@ -152,7 +152,7 @@ Partial Class Settings
         Me.Label7.Font = New System.Drawing.Font("Segoe UI", 9.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point)
         Me.Label7.Location = New System.Drawing.Point(19, 179)
         Me.Label7.Name = "Label7"
-        Me.Label7.Size = New System.Drawing.Size(146, 20)
+        Me.Label7.Size = New System.Drawing.Size(119, 15)
         Me.Label7.TabIndex = 14
         Me.Label7.Text = "Backup Preferences"
         Me.Label7.Visible = False
@@ -164,7 +164,7 @@ Partial Class Settings
         Me.ComboBox1.Items.AddRange(New Object() {"Anytime", "Today"})
         Me.ComboBox1.Location = New System.Drawing.Point(215, 179)
         Me.ComboBox1.Name = "ComboBox1"
-        Me.ComboBox1.Size = New System.Drawing.Size(165, 28)
+        Me.ComboBox1.Size = New System.Drawing.Size(165, 23)
         Me.ComboBox1.TabIndex = 13
         Me.ComboBox1.Visible = False
         '
@@ -174,7 +174,7 @@ Partial Class Settings
         Me.Label2.Font = New System.Drawing.Font("Segoe UI", 9.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point)
         Me.Label2.Location = New System.Drawing.Point(664, 79)
         Me.Label2.Name = "Label2"
-        Me.Label2.Size = New System.Drawing.Size(0, 20)
+        Me.Label2.Size = New System.Drawing.Size(0, 15)
         Me.Label2.TabIndex = 9
         '
         'Label1
@@ -183,7 +183,7 @@ Partial Class Settings
         Me.Label1.Font = New System.Drawing.Font("Segoe UI", 9.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point)
         Me.Label1.Location = New System.Drawing.Point(664, 143)
         Me.Label1.Name = "Label1"
-        Me.Label1.Size = New System.Drawing.Size(0, 20)
+        Me.Label1.Size = New System.Drawing.Size(0, 15)
         Me.Label1.TabIndex = 8
         '
         'Button5
@@ -236,7 +236,7 @@ Partial Class Settings
         Me.TextBox2.Margin = New System.Windows.Forms.Padding(3, 4, 3, 4)
         Me.TextBox2.Name = "TextBox2"
         Me.TextBox2.ReadOnly = True
-        Me.TextBox2.Size = New System.Drawing.Size(922, 27)
+        Me.TextBox2.Size = New System.Drawing.Size(922, 23)
         Me.TextBox2.TabIndex = 4
         '
         'TextBox1
@@ -245,7 +245,7 @@ Partial Class Settings
         Me.TextBox1.Margin = New System.Windows.Forms.Padding(3, 4, 3, 4)
         Me.TextBox1.Name = "TextBox1"
         Me.TextBox1.ReadOnly = True
-        Me.TextBox1.Size = New System.Drawing.Size(922, 27)
+        Me.TextBox1.Size = New System.Drawing.Size(922, 23)
         Me.TextBox1.TabIndex = 3
         '
         'Button2
@@ -266,7 +266,7 @@ Partial Class Settings
         Me.Label3.AutoSize = True
         Me.Label3.Location = New System.Drawing.Point(19, 49)
         Me.Label3.Name = "Label3"
-        Me.Label3.Size = New System.Drawing.Size(81, 20)
+        Me.Label3.Size = New System.Drawing.Size(62, 15)
         Me.Label3.TabIndex = 0
         Me.Label3.Text = "Set Trigger"
         '
@@ -277,7 +277,7 @@ Partial Class Settings
         Me.ComboBox2.Location = New System.Drawing.Point(152, 49)
         Me.ComboBox2.Margin = New System.Windows.Forms.Padding(3, 4, 3, 4)
         Me.ComboBox2.Name = "ComboBox2"
-        Me.ComboBox2.Size = New System.Drawing.Size(228, 28)
+        Me.ComboBox2.Size = New System.Drawing.Size(228, 23)
         Me.ComboBox2.TabIndex = 1
         '
         'GroupBox2
@@ -335,7 +335,7 @@ Partial Class Settings
         Me.ComboBox6.Location = New System.Drawing.Point(145, 247)
         Me.ComboBox6.Margin = New System.Windows.Forms.Padding(3, 4, 3, 4)
         Me.ComboBox6.Name = "ComboBox6"
-        Me.ComboBox6.Size = New System.Drawing.Size(228, 28)
+        Me.ComboBox6.Size = New System.Drawing.Size(228, 23)
         Me.ComboBox6.TabIndex = 33
         '
         'Label19
@@ -343,7 +343,7 @@ Partial Class Settings
         Me.Label19.AutoSize = True
         Me.Label19.Location = New System.Drawing.Point(13, 247)
         Me.Label19.Name = "Label19"
-        Me.Label19.Size = New System.Drawing.Size(126, 20)
+        Me.Label19.Size = New System.Drawing.Size(100, 15)
         Me.Label19.TabIndex = 32
         Me.Label19.Text = "For A Duration Of"
         '
@@ -354,7 +354,7 @@ Partial Class Settings
         Me.ComboBox7.Location = New System.Drawing.Point(145, 208)
         Me.ComboBox7.Margin = New System.Windows.Forms.Padding(3, 4, 3, 4)
         Me.ComboBox7.Name = "ComboBox7"
-        Me.ComboBox7.Size = New System.Drawing.Size(228, 28)
+        Me.ComboBox7.Size = New System.Drawing.Size(228, 23)
         Me.ComboBox7.TabIndex = 31
         '
         'Label20
@@ -362,7 +362,7 @@ Partial Class Settings
         Me.Label20.AutoSize = True
         Me.Label20.Location = New System.Drawing.Point(13, 208)
         Me.Label20.Name = "Label20"
-        Me.Label20.Size = New System.Drawing.Size(126, 20)
+        Me.Label20.Size = New System.Drawing.Size(99, 15)
         Me.Label20.TabIndex = 30
         Me.Label20.Text = "Repeat Task Every"
         '
@@ -371,7 +371,7 @@ Partial Class Settings
         Me.Label18.AutoSize = True
         Me.Label18.Location = New System.Drawing.Point(13, 141)
         Me.Label18.Name = "Label18"
-        Me.Label18.Size = New System.Drawing.Size(104, 20)
+        Me.Label18.Size = New System.Drawing.Size(83, 15)
         Me.Label18.TabIndex = 29
         Me.Label18.Text = "Recurs In Days"
         '
@@ -381,7 +381,7 @@ Partial Class Settings
         Me.CheckBox6.Location = New System.Drawing.Point(145, 175)
         Me.CheckBox6.Margin = New System.Windows.Forms.Padding(3, 4, 3, 4)
         Me.CheckBox6.Name = "CheckBox6"
-        Me.CheckBox6.Size = New System.Drawing.Size(89, 24)
+        Me.CheckBox6.Size = New System.Drawing.Size(72, 19)
         Me.CheckBox6.TabIndex = 28
         Me.CheckBox6.Text = "Saturday"
         Me.CheckBox6.UseVisualStyleBackColor = True
@@ -392,7 +392,7 @@ Partial Class Settings
         Me.CheckBox5.Location = New System.Drawing.Point(515, 141)
         Me.CheckBox5.Margin = New System.Windows.Forms.Padding(3, 4, 3, 4)
         Me.CheckBox5.Name = "CheckBox5"
-        Me.CheckBox5.Size = New System.Drawing.Size(71, 24)
+        Me.CheckBox5.Size = New System.Drawing.Size(58, 19)
         Me.CheckBox5.TabIndex = 27
         Me.CheckBox5.Text = "Friday"
         Me.CheckBox5.UseVisualStyleBackColor = True
@@ -403,7 +403,7 @@ Partial Class Settings
         Me.CheckBox4.Location = New System.Drawing.Point(424, 141)
         Me.CheckBox4.Margin = New System.Windows.Forms.Padding(3, 4, 3, 4)
         Me.CheckBox4.Name = "CheckBox4"
-        Me.CheckBox4.Size = New System.Drawing.Size(90, 24)
+        Me.CheckBox4.Size = New System.Drawing.Size(74, 19)
         Me.CheckBox4.TabIndex = 26
         Me.CheckBox4.Text = "Thursday"
         Me.CheckBox4.UseVisualStyleBackColor = True
@@ -414,7 +414,7 @@ Partial Class Settings
         Me.CheckBox3.Location = New System.Drawing.Point(318, 141)
         Me.CheckBox3.Margin = New System.Windows.Forms.Padding(3, 4, 3, 4)
         Me.CheckBox3.Name = "CheckBox3"
-        Me.CheckBox3.Size = New System.Drawing.Size(107, 24)
+        Me.CheckBox3.Size = New System.Drawing.Size(87, 19)
         Me.CheckBox3.TabIndex = 25
         Me.CheckBox3.Text = "Wednesday"
         Me.CheckBox3.UseVisualStyleBackColor = True
@@ -425,7 +425,7 @@ Partial Class Settings
         Me.CheckBox2.Location = New System.Drawing.Point(232, 141)
         Me.CheckBox2.Margin = New System.Windows.Forms.Padding(3, 4, 3, 4)
         Me.CheckBox2.Name = "CheckBox2"
-        Me.CheckBox2.Size = New System.Drawing.Size(85, 24)
+        Me.CheckBox2.Size = New System.Drawing.Size(69, 19)
         Me.CheckBox2.TabIndex = 24
         Me.CheckBox2.Text = "Tuesday"
         Me.CheckBox2.UseVisualStyleBackColor = True
@@ -436,7 +436,7 @@ Partial Class Settings
         Me.CheckBox1.Location = New System.Drawing.Point(145, 141)
         Me.CheckBox1.Margin = New System.Windows.Forms.Padding(3, 4, 3, 4)
         Me.CheckBox1.Name = "CheckBox1"
-        Me.CheckBox1.Size = New System.Drawing.Size(85, 24)
+        Me.CheckBox1.Size = New System.Drawing.Size(70, 19)
         Me.CheckBox1.TabIndex = 23
         Me.CheckBox1.Text = "Monday"
         Me.CheckBox1.UseVisualStyleBackColor = True
@@ -447,7 +447,7 @@ Partial Class Settings
         Me.CheckBox7.Location = New System.Drawing.Point(232, 175)
         Me.CheckBox7.Margin = New System.Windows.Forms.Padding(3, 4, 3, 4)
         Me.CheckBox7.Name = "CheckBox7"
-        Me.CheckBox7.Size = New System.Drawing.Size(79, 24)
+        Me.CheckBox7.Size = New System.Drawing.Size(65, 19)
         Me.CheckBox7.TabIndex = 22
         Me.CheckBox7.Text = "Sunday"
         Me.CheckBox7.UseVisualStyleBackColor = True
@@ -457,7 +457,7 @@ Partial Class Settings
         Me.Label16.AutoSize = True
         Me.Label16.Location = New System.Drawing.Point(200, 107)
         Me.Label16.Name = "Label16"
-        Me.Label16.Size = New System.Drawing.Size(51, 20)
+        Me.Label16.Size = New System.Drawing.Size(41, 15)
         Me.Label16.TabIndex = 21
         Me.Label16.Text = "Weeks"
         '
@@ -466,7 +466,7 @@ Partial Class Settings
         Me.TextBox4.Location = New System.Drawing.Point(145, 103)
         Me.TextBox4.Margin = New System.Windows.Forms.Padding(3, 4, 3, 4)
         Me.TextBox4.Name = "TextBox4"
-        Me.TextBox4.Size = New System.Drawing.Size(47, 27)
+        Me.TextBox4.Size = New System.Drawing.Size(47, 23)
         Me.TextBox4.TabIndex = 20
         '
         'Label17
@@ -474,7 +474,7 @@ Partial Class Settings
         Me.Label17.AutoSize = True
         Me.Label17.Location = New System.Drawing.Point(13, 103)
         Me.Label17.Name = "Label17"
-        Me.Label17.Size = New System.Drawing.Size(91, 20)
+        Me.Label17.Size = New System.Drawing.Size(73, 15)
         Me.Label17.TabIndex = 19
         Me.Label17.Text = "Recurs Every"
         '
@@ -483,7 +483,7 @@ Partial Class Settings
         Me.DateTimePicker5.Location = New System.Drawing.Point(145, 25)
         Me.DateTimePicker5.Margin = New System.Windows.Forms.Padding(3, 4, 3, 4)
         Me.DateTimePicker5.Name = "DateTimePicker5"
-        Me.DateTimePicker5.Size = New System.Drawing.Size(228, 27)
+        Me.DateTimePicker5.Size = New System.Drawing.Size(228, 23)
         Me.DateTimePicker5.TabIndex = 13
         '
         'DateTimePicker6
@@ -491,7 +491,7 @@ Partial Class Settings
         Me.DateTimePicker6.Location = New System.Drawing.Point(145, 64)
         Me.DateTimePicker6.Margin = New System.Windows.Forms.Padding(3, 4, 3, 4)
         Me.DateTimePicker6.Name = "DateTimePicker6"
-        Me.DateTimePicker6.Size = New System.Drawing.Size(228, 27)
+        Me.DateTimePicker6.Size = New System.Drawing.Size(228, 23)
         Me.DateTimePicker6.TabIndex = 15
         '
         'Label14
@@ -499,7 +499,7 @@ Partial Class Settings
         Me.Label14.AutoSize = True
         Me.Label14.Location = New System.Drawing.Point(13, 25)
         Me.Label14.Name = "Label14"
-        Me.Label14.Size = New System.Drawing.Size(60, 20)
+        Me.Label14.Size = New System.Drawing.Size(46, 15)
         Me.Label14.TabIndex = 12
         Me.Label14.Text = "Set Day"
         '
@@ -508,7 +508,7 @@ Partial Class Settings
         Me.Label15.AutoSize = True
         Me.Label15.Location = New System.Drawing.Point(13, 64)
         Me.Label15.Name = "Label15"
-        Me.Label15.Size = New System.Drawing.Size(67, 20)
+        Me.Label15.Size = New System.Drawing.Size(52, 15)
         Me.Label15.TabIndex = 14
         Me.Label15.Text = "Set Time"
         '
@@ -567,7 +567,7 @@ Partial Class Settings
         Me.Label13.AutoSize = True
         Me.Label13.Location = New System.Drawing.Point(199, 111)
         Me.Label13.Name = "Label13"
-        Me.Label13.Size = New System.Drawing.Size(41, 20)
+        Me.Label13.Size = New System.Drawing.Size(32, 15)
         Me.Label13.TabIndex = 18
         Me.Label13.Text = "Days"
         '
@@ -576,7 +576,7 @@ Partial Class Settings
         Me.TextBox3.Location = New System.Drawing.Point(144, 107)
         Me.TextBox3.Margin = New System.Windows.Forms.Padding(3, 4, 3, 4)
         Me.TextBox3.Name = "TextBox3"
-        Me.TextBox3.Size = New System.Drawing.Size(47, 27)
+        Me.TextBox3.Size = New System.Drawing.Size(47, 23)
         Me.TextBox3.TabIndex = 17
         '
         'Label12
@@ -584,7 +584,7 @@ Partial Class Settings
         Me.Label12.AutoSize = True
         Me.Label12.Location = New System.Drawing.Point(11, 107)
         Me.Label12.Name = "Label12"
-        Me.Label12.Size = New System.Drawing.Size(91, 20)
+        Me.Label12.Size = New System.Drawing.Size(73, 15)
         Me.Label12.TabIndex = 16
         Me.Label12.Text = "Recurs Every"
         '
@@ -595,7 +595,7 @@ Partial Class Settings
         Me.ComboBox5.Location = New System.Drawing.Point(144, 192)
         Me.ComboBox5.Margin = New System.Windows.Forms.Padding(3, 4, 3, 4)
         Me.ComboBox5.Name = "ComboBox5"
-        Me.ComboBox5.Size = New System.Drawing.Size(228, 28)
+        Me.ComboBox5.Size = New System.Drawing.Size(228, 23)
         Me.ComboBox5.TabIndex = 15
         '
         'Label11
@@ -603,7 +603,7 @@ Partial Class Settings
         Me.Label11.AutoSize = True
         Me.Label11.Location = New System.Drawing.Point(11, 196)
         Me.Label11.Name = "Label11"
-        Me.Label11.Size = New System.Drawing.Size(126, 20)
+        Me.Label11.Size = New System.Drawing.Size(100, 15)
         Me.Label11.TabIndex = 14
         Me.Label11.Text = "For A Duration Of"
         '
@@ -614,7 +614,7 @@ Partial Class Settings
         Me.ComboBox4.Location = New System.Drawing.Point(144, 147)
         Me.ComboBox4.Margin = New System.Windows.Forms.Padding(3, 4, 3, 4)
         Me.ComboBox4.Name = "ComboBox4"
-        Me.ComboBox4.Size = New System.Drawing.Size(228, 28)
+        Me.ComboBox4.Size = New System.Drawing.Size(228, 23)
         Me.ComboBox4.TabIndex = 13
         '
         'Label8
@@ -622,7 +622,7 @@ Partial Class Settings
         Me.Label8.AutoSize = True
         Me.Label8.Location = New System.Drawing.Point(11, 151)
         Me.Label8.Name = "Label8"
-        Me.Label8.Size = New System.Drawing.Size(126, 20)
+        Me.Label8.Size = New System.Drawing.Size(99, 15)
         Me.Label8.TabIndex = 12
         Me.Label8.Text = "Repeat Task Every"
         '
@@ -631,7 +631,7 @@ Partial Class Settings
         Me.DateTimePicker3.Location = New System.Drawing.Point(144, 29)
         Me.DateTimePicker3.Margin = New System.Windows.Forms.Padding(3, 4, 3, 4)
         Me.DateTimePicker3.Name = "DateTimePicker3"
-        Me.DateTimePicker3.Size = New System.Drawing.Size(228, 27)
+        Me.DateTimePicker3.Size = New System.Drawing.Size(228, 23)
         Me.DateTimePicker3.TabIndex = 9
         '
         'DateTimePicker4
@@ -639,7 +639,7 @@ Partial Class Settings
         Me.DateTimePicker4.Location = New System.Drawing.Point(144, 68)
         Me.DateTimePicker4.Margin = New System.Windows.Forms.Padding(3, 4, 3, 4)
         Me.DateTimePicker4.Name = "DateTimePicker4"
-        Me.DateTimePicker4.Size = New System.Drawing.Size(228, 27)
+        Me.DateTimePicker4.Size = New System.Drawing.Size(228, 23)
         Me.DateTimePicker4.TabIndex = 11
         '
         'Label9
@@ -647,7 +647,7 @@ Partial Class Settings
         Me.Label9.AutoSize = True
         Me.Label9.Location = New System.Drawing.Point(11, 29)
         Me.Label9.Name = "Label9"
-        Me.Label9.Size = New System.Drawing.Size(60, 20)
+        Me.Label9.Size = New System.Drawing.Size(46, 15)
         Me.Label9.TabIndex = 8
         Me.Label9.Text = "Set Day"
         '
@@ -656,7 +656,7 @@ Partial Class Settings
         Me.Label10.AutoSize = True
         Me.Label10.Location = New System.Drawing.Point(11, 65)
         Me.Label10.Name = "Label10"
-        Me.Label10.Size = New System.Drawing.Size(67, 20)
+        Me.Label10.Size = New System.Drawing.Size(52, 15)
         Me.Label10.TabIndex = 10
         Me.Label10.Text = "Set Time"
         '
@@ -774,7 +774,8 @@ Partial Class Settings
         '
         'Settings
         '
-        Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Inherit
+        Me.AutoScaleDimensions = New System.Drawing.SizeF(7.0!, 15.0!)
+        Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
         Me.AutoScroll = True
         Me.BackColor = System.Drawing.Color.LightSteelBlue
         Me.ClientSize = New System.Drawing.Size(1313, 1055)
