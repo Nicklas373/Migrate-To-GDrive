@@ -34,7 +34,7 @@
         ExportLog(advErrPath, "advErr", "Archive error history")
     End Sub
     Private Sub Log_Load(sender As Object, e As EventArgs) Handles MyBase.Load
-        Me.AllowTransparency = False
+        AllowTransparency = False
     End Sub
     Private Sub ShowLog(log As String, path As String)
         RichTextBox1.Text = ""

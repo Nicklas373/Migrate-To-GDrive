@@ -47,7 +47,7 @@ Partial Class Log
         Me.GroupBox1.Margin = New System.Windows.Forms.Padding(3, 4, 3, 4)
         Me.GroupBox1.Name = "GroupBox1"
         Me.GroupBox1.Padding = New System.Windows.Forms.Padding(3, 4, 3, 4)
-        Me.GroupBox1.Size = New System.Drawing.Size(874, 631)
+        Me.GroupBox1.Size = New System.Drawing.Size(909, 692)
         Me.GroupBox1.TabIndex = 0
         Me.GroupBox1.TabStop = False
         Me.GroupBox1.Text = "History"
@@ -59,7 +59,7 @@ Partial Class Log
         Me.RichTextBox1.Margin = New System.Windows.Forms.Padding(3, 4, 3, 4)
         Me.RichTextBox1.Name = "RichTextBox1"
         Me.RichTextBox1.ReadOnly = True
-        Me.RichTextBox1.Size = New System.Drawing.Size(837, 592)
+        Me.RichTextBox1.Size = New System.Drawing.Size(896, 655)
         Me.RichTextBox1.TabIndex = 0
         Me.RichTextBox1.Text = "Backup history will show here..."
         '
@@ -191,7 +191,7 @@ Partial Class Log
         Me.AutoSize = True
         Me.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink
         Me.BackColor = System.Drawing.Color.LightSteelBlue
-        Me.ClientSize = New System.Drawing.Size(1074, 663)
+        Me.ClientSize = New System.Drawing.Size(1107, 721)
         Me.Controls.Add(Me.GroupBox4)
         Me.Controls.Add(Me.GroupBox3)
         Me.Controls.Add(Me.GroupBox2)
