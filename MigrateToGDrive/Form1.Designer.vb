@@ -46,6 +46,7 @@ Partial Class Form1
         Me.TextBox1 = New System.Windows.Forms.TextBox()
         Me.TextBox2 = New System.Windows.Forms.TextBox()
         Me.GroupBox2 = New System.Windows.Forms.GroupBox()
+        Me.Label7 = New System.Windows.Forms.Label()
         Me.MenuStrip1.SuspendLayout()
         Me.GroupBox2.SuspendLayout()
         Me.SuspendLayout()
@@ -65,7 +66,7 @@ Partial Class Form1
         Me.Button3.FlatAppearance.BorderColor = System.Drawing.Color.LightSteelBlue
         Me.Button3.FlatStyle = System.Windows.Forms.FlatStyle.Flat
         Me.Button3.Image = Global.Migrate_To_GDrive.My.Resources.Resources.folder
-        Me.Button3.Location = New System.Drawing.Point(1061, 64)
+        Me.Button3.Location = New System.Drawing.Point(1021, 64)
         Me.Button3.Margin = New System.Windows.Forms.Padding(4, 2, 4, 2)
         Me.Button3.Name = "Button3"
         Me.Button3.Size = New System.Drawing.Size(52, 42)
@@ -75,11 +76,11 @@ Partial Class Form1
         'RichTextBox1
         '
         Me.RichTextBox1.BackColor = System.Drawing.Color.WhiteSmoke
-        Me.RichTextBox1.Location = New System.Drawing.Point(15, 292)
+        Me.RichTextBox1.Location = New System.Drawing.Point(13, 316)
         Me.RichTextBox1.Margin = New System.Windows.Forms.Padding(4, 2, 4, 2)
         Me.RichTextBox1.Name = "RichTextBox1"
         Me.RichTextBox1.ReadOnly = True
-        Me.RichTextBox1.Size = New System.Drawing.Size(1144, 356)
+        Me.RichTextBox1.Size = New System.Drawing.Size(1079, 394)
         Me.RichTextBox1.TabIndex = 18
         Me.RichTextBox1.Text = "Backup history will show here..."
         '
@@ -157,7 +158,7 @@ Partial Class Form1
         Me.Button5.Font = New System.Drawing.Font("Segoe UI Semibold", 9.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point)
         Me.Button5.Image = Global.Migrate_To_GDrive.My.Resources.Resources.data_copy_32
         Me.Button5.ImageAlign = System.Drawing.ContentAlignment.MiddleRight
-        Me.Button5.Location = New System.Drawing.Point(937, 130)
+        Me.Button5.Location = New System.Drawing.Point(837, 142)
         Me.Button5.Margin = New System.Windows.Forms.Padding(4, 2, 4, 2)
         Me.Button5.Name = "Button5"
         Me.Button5.Size = New System.Drawing.Size(176, 58)
@@ -186,7 +187,7 @@ Partial Class Form1
         Me.Button1.FlatAppearance.BorderColor = System.Drawing.Color.LightSteelBlue
         Me.Button1.FlatStyle = System.Windows.Forms.FlatStyle.Flat
         Me.Button1.Image = Global.Migrate_To_GDrive.My.Resources.Resources.folder
-        Me.Button1.Location = New System.Drawing.Point(1061, 15)
+        Me.Button1.Location = New System.Drawing.Point(1021, 16)
         Me.Button1.Margin = New System.Windows.Forms.Padding(4, 2, 4, 2)
         Me.Button1.Name = "Button1"
         Me.Button1.Size = New System.Drawing.Size(52, 42)
@@ -204,7 +205,7 @@ Partial Class Form1
         Me.MenuStrip1.Name = "MenuStrip1"
         Me.MenuStrip1.Padding = New System.Windows.Forms.Padding(4, 2, 0, 2)
         Me.MenuStrip1.RenderMode = System.Windows.Forms.ToolStripRenderMode.Professional
-        Me.MenuStrip1.Size = New System.Drawing.Size(1180, 32)
+        Me.MenuStrip1.Size = New System.Drawing.Size(1107, 32)
         Me.MenuStrip1.TabIndex = 20
         Me.MenuStrip1.Text = "MenuStrip1"
         '
@@ -282,7 +283,7 @@ Partial Class Form1
         Me.TextBox1.Margin = New System.Windows.Forms.Padding(4, 2, 4, 2)
         Me.TextBox1.Name = "TextBox1"
         Me.TextBox1.ScrollBars = System.Windows.Forms.ScrollBars.Horizontal
-        Me.TextBox1.Size = New System.Drawing.Size(869, 27)
+        Me.TextBox1.Size = New System.Drawing.Size(829, 27)
         Me.TextBox1.TabIndex = 1
         '
         'TextBox2
@@ -291,11 +292,12 @@ Partial Class Form1
         Me.TextBox2.Margin = New System.Windows.Forms.Padding(4, 2, 4, 2)
         Me.TextBox2.Name = "TextBox2"
         Me.TextBox2.ScrollBars = System.Windows.Forms.ScrollBars.Horizontal
-        Me.TextBox2.Size = New System.Drawing.Size(869, 27)
+        Me.TextBox2.Size = New System.Drawing.Size(829, 27)
         Me.TextBox2.TabIndex = 4
         '
         'GroupBox2
         '
+        Me.GroupBox2.Controls.Add(Me.Label7)
         Me.GroupBox2.Controls.Add(Me.Label6)
         Me.GroupBox2.Controls.Add(Me.Label5)
         Me.GroupBox2.Controls.Add(Me.Label4)
@@ -316,10 +318,19 @@ Partial Class Form1
         Me.GroupBox2.Margin = New System.Windows.Forms.Padding(4, 2, 4, 2)
         Me.GroupBox2.Name = "GroupBox2"
         Me.GroupBox2.Padding = New System.Windows.Forms.Padding(4, 2, 4, 2)
-        Me.GroupBox2.Size = New System.Drawing.Size(1145, 248)
+        Me.GroupBox2.Size = New System.Drawing.Size(1079, 248)
         Me.GroupBox2.TabIndex = 19
         Me.GroupBox2.TabStop = False
         Me.GroupBox2.Text = "Backup"
+        '
+        'Label7
+        '
+        Me.Label7.AutoSize = True
+        Me.Label7.Font = New System.Drawing.Font("Segoe UI", 9.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point)
+        Me.Label7.Location = New System.Drawing.Point(662, 108)
+        Me.Label7.Name = "Label7"
+        Me.Label7.Size = New System.Drawing.Size(0, 20)
+        Me.Label7.TabIndex = 19
         '
         'Form1
         '
@@ -328,7 +339,7 @@ Partial Class Form1
         Me.AutoSize = True
         Me.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink
         Me.BackColor = System.Drawing.Color.LightSteelBlue
-        Me.ClientSize = New System.Drawing.Size(1180, 664)
+        Me.ClientSize = New System.Drawing.Size(1107, 721)
         Me.Controls.Add(Me.RichTextBox1)
         Me.Controls.Add(Me.MenuStrip1)
         Me.Controls.Add(Me.GroupBox2)
@@ -370,4 +381,5 @@ Partial Class Form1
     Friend WithEvents AdvancedBackupToolStripMenuItem As ToolStripMenuItem
     Friend WithEvents RestoreBackupToolStripMenuItem As ToolStripMenuItem
     Friend WithEvents AboutToolStripMenuItem As ToolStripMenuItem
+    Friend WithEvents Label7 As Label
 End Class

@@ -1,8 +1,6 @@
 ﻿Public Class Form1
     Dim filedialog As New FolderBrowserDialog
-    Dim confPath As String = "conf/config"
     Dim logPath As String = "log/log"
-    Dim errPath As String = "log/err"
     Dim lastResult As String = "log/lastResult"
     Dim lastErr As String = "log/lastErr"
     Dim uiSrcPath As String = "conf/nrm_backup/nrmSrcPath"
@@ -22,7 +20,7 @@
     End Sub
     Private Sub FolderBrowserDialog2_Disposed(sender As Object, e As EventArgs) Handles Button3.Click
         TextBox2.Text = filedialog.SelectedPath.ToString
-        Label2.Text = getDestDriveSize(TextBox2.Text)
+        Label7.Text = getDestDriveSize(TextBox2.Text)
     End Sub
     Private Sub Button5_Click(sender As Object, e As EventArgs) Handles Button5.Click
         Dim uiTrimSrc As String
@@ -126,7 +124,7 @@
                         checkFileExist(lastErr, "Source drive not exist !")
                     End If
                 End If
-                showNotif()
+                ShowNotif()
             End If
         End If
     End Sub
@@ -141,7 +139,7 @@
         TextBox3.Visible = False
         TextBox1.ReadOnly = True
         TextBox2.ReadOnly = True
-        Me.AllowTransparency = False
+        AllowTransparency = False
     End Sub
     Private Sub ComboBox1_SelectedIndexChanged(sender As Object, e As EventArgs) Handles ComboBox1.SelectedIndexChanged
         If ComboBox1.Text = "From Date" Then
@@ -159,7 +157,8 @@
         menu_advbackup.Show()
     End Sub
     Private Sub RestoreBackupToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles RestoreBackupToolStripMenuItem.Click
-        MsgBox("Work in progress !", MsgBoxStyle.Information, "MigrateToGDrive")
+        Dim menu_resbackup = New advanced_restore()
+        menu_resbackup.Show()
     End Sub
     Private Sub SettingsToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles SettingsToolStripMenuItem.Click
         Dim menu_settings = New Settings()
@@ -173,21 +172,21 @@
         Dim menu_about = New About
         menu_about.Show()
     End Sub
-    Private Sub showNotif()
+    Private Sub ShowNotif()
         If File.Exists(lastResult) Then
-            Dim lastRest As String = pathVal(lastResult, 0)
-            If pathVal(lastResult, 0).Equals("success") Then
+            Dim lastRest As String = PathVal(lastResult, 0)
+            If PathVal(lastResult, 0).Equals("success") Then
                 MsgBox("Backup success !", MsgBoxStyle.Information, "MigrateToGDrive")
-                showLog("Backup", logPath)
-            ElseIf pathVal(lastResult, 0).Equals("err") Then
+                ShowLog("Backup", logPath)
+            ElseIf PathVal(lastResult, 0).Equals("err") Then
                 MsgBox("Backup error !", MsgBoxStyle.Critical, "MigrateToGDrive")
                 RichTextBox1.Text = ""
                 If File.Exists(lastErr) Then
-                    If pathVal(lastErr, 0).Equals("") Then
+                    If PathVal(lastErr, 0).Equals("") Then
                         MsgBox("Unknown error reason !", MsgBoxStyle.Critical, "MigrateToGDrive")
                         RichTextBox1.Text = ""
                     Else
-                        MsgBox(pathVal(lastErr, 0), MsgBoxStyle.Critical, "MigrateToGDrive")
+                        MsgBox(PathVal(lastErr, 0), MsgBoxStyle.Critical, "MigrateToGDrive")
                     End If
                 Else
                     MsgBox("Error file not found !", MsgBoxStyle.Critical, "MigrateToGDrive")
@@ -202,7 +201,7 @@
             RichTextBox1.Text = ""
         End If
     End Sub
-    Private Sub showLog(log As String, path As String)
+    Private Sub ShowLog(log As String, path As String)
         RichTextBox1.Text = ""
         If File.Exists(path) Then
             If New FileInfo(path).Length.Equals(0) Then
