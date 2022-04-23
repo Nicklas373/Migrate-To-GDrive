@@ -1,8 +1,10 @@
 ﻿Public Class Log
     Dim logPath As String = "log/log"
     Dim advLogPath As String = "log/advlog"
+    Dim resLogPath As String = "log/reslog"
     Dim errPath As String = "log/err"
     Dim advErrPath As String = "log/adverr"
+    Dim resErrPath As String = "log/reserr"
     Private Sub Button1_Click(sender As Object, e As EventArgs) Handles Button1.Click
         showLog("Backup history", logPath)
     End Sub
@@ -15,6 +17,12 @@
     Private Sub Button6_Click(sender As Object, e As EventArgs) Handles Button6.Click
         showLog("Archive error history", advErrPath)
     End Sub
+    Private Sub Button7_Click(sender As Object, e As EventArgs) Handles Button7.Click
+        ShowLog("Restore history", resLogPath)
+    End Sub
+    Private Sub Button8_Click(sender As Object, e As EventArgs) Handles Button8.Click
+        ShowLog("Restore error history", resErrPath)
+    End Sub
     Private Sub Button3_Click(sender As Object, e As EventArgs) Handles Button3.Click
         Dim validation As Integer
         validation = MsgBox("This will remove all history !", vbExclamation + vbYesNo + vbDefaultButton2, "MigrateToGDrive")
@@ -22,7 +30,9 @@
             clearLog(logPath, "Backup history")
             clearLog(advLogPath, "Archive history")
             clearLog(errPath, "Backup error history")
-            clearLog(advErrPath, "Archive error history")
+            ClearLog(advErrPath, "Archive error history")
+            ClearLog(resLogPath, "Restore history")
+            ClearLog(resErrPath, "Restore error history")
         Else
             MsgBox("Cancel remove history !", MsgBoxStyle.Information, "MigrateToGDrive")
         End If
@@ -32,6 +42,8 @@
         ExportLog(advLogPath, "advLog", "Archive history")
         ExportLog(errPath, "err", "Backup error history")
         ExportLog(advErrPath, "advErr", "Archive error history")
+        ExportLog(resLogPath, "resLog", "Restore history")
+        ExportLog(resErrPath, "resErr", "Restore error history")
     End Sub
     Private Sub Log_Load(sender As Object, e As EventArgs) Handles MyBase.Load
         AllowTransparency = False
