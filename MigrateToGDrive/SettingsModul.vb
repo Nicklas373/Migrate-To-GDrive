@@ -176,7 +176,7 @@ Module SettingsModul
             Return repDurValDec
         End If
     End Function
-    Public Function custRepDurIntWeek(cmbx7 As String) As Integer
+    Public Function CustRepDurIntWeek(cmbx7 As String) As Integer
         Dim task As Integer
         If cmbx7 = "Disabled" Then
             task = 0

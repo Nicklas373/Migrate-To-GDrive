@@ -169,7 +169,7 @@ Public Class Settings
                             ComboBox6.SelectedIndex = 0
                             MsgBox("If repeat duration is disabled, then repeat task will be disable", vbExclamation, "MigrateToGDrive")
                         End If
-                        WeeklyTrigger(custdate, 1, CInt(TextBox4.Text), CustRepDurValWeek(ComboBox6.Text), custRepDurIntWeek(ComboBox7.Text), Cb1, Cb2, Cb3, Cb4, Cb5, Cb6, Cb7, ComboBox6.Text, ComboBox7.Text)
+                        WeeklyTrigger(custdate, 1, CInt(TextBox4.Text), CustRepDurValWeek(ComboBox6.Text), CustRepDurIntWeek(ComboBox7.Text), Cb1, Cb2, Cb3, Cb4, Cb5, Cb6, Cb7, ComboBox6.Text, ComboBox7.Text)
                         ComboBox2.Enabled = False
                         GroupBox5.Enabled = False
                         Button6.Visible = False
@@ -319,7 +319,7 @@ Public Class Settings
         End If
     End Sub
     Private Sub Settings_Load(sender As Object, e As EventArgs) Handles MyBase.Load
-        Me.AllowTransparency = False
+        AllowTransparency = False
         GroupBox4.Enabled = False
         GroupBox5.Enabled = False
         Button6.Visible = False

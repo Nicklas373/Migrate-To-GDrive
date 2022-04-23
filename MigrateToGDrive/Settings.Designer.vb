@@ -774,12 +774,10 @@ Partial Class Settings
         '
         'Settings
         '
-        Me.AutoScaleDimensions = New System.Drawing.SizeF(8.0!, 20.0!)
-        Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
-        Me.AutoSize = True
-        Me.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink
+        Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Inherit
+        Me.AutoScroll = True
         Me.BackColor = System.Drawing.Color.LightSteelBlue
-        Me.ClientSize = New System.Drawing.Size(1287, 1055)
+        Me.ClientSize = New System.Drawing.Size(1313, 1055)
         Me.Controls.Add(Me.GroupBox3)
         Me.Controls.Add(Me.GroupBox2)
         Me.Controls.Add(Me.GroupBox1)
