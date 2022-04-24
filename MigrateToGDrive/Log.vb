@@ -33,8 +33,12 @@
             ClearLog(advErrPath, "Archive error history")
             ClearLog(resLogPath, "Restore history")
             ClearLog(resErrPath, "Restore error history")
+            If New FileInfo(logPath).Length.Equals(0) Or New FileInfo(advLogPath).Length.Equals(0) Or New FileInfo(resLogPath).Length.Equals(0) Or New FileInfo(errPath).Length.Equals(0) Or New FileInfo(advErrPath).Length.Equals(0) Or New FileInfo(resErrPath).Length.Equals(0) Then
+                MsgBox("All history cleared !", MsgBoxStyle.Information, "MigrateToGDrive")
+                RichTextBox1.Text = ""
+            End If
         Else
-            MsgBox("Cancel remove history !", MsgBoxStyle.Information, "MigrateToGDrive")
+                MsgBox("Cancel remove history !", MsgBoxStyle.Information, "MigrateToGDrive")
         End If
     End Sub
     Private Sub Button4_Click(sender As Object, e As EventArgs) Handles Button4.Click
@@ -64,11 +68,6 @@
         If File.Exists(log) Then
             File.Delete(log)
             File.Create(log).Dispose()
-            MsgBox(log2 & " cleared !", MsgBoxStyle.Information, "MigrateToGDrive")
-            RichTextBox1.Text = ""
-        Else
-            MsgBox(log2 & " is not exist !", MsgBoxStyle.Critical, "MigrateToGDrive")
-            RichTextBox1.Text = ""
         End If
     End Sub
     Private Sub ExportLog(logpath As String, filename As String, logname As String)
