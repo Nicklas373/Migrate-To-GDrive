@@ -88,4 +88,20 @@
             Return destDir
         End If
     End Function
+    Public Sub WriteLogicalCount(proc As String)
+        If File.Exists(proc) Then
+            GC.Collect()
+            GC.WaitForPendingFinalizers()
+            File.Delete(proc)
+            File.Create(proc).Dispose()
+            Dim destWriter As New StreamWriter(proc, True)
+            destWriter.WriteLine(Environment.ProcessorCount.ToString)
+            destWriter.Close()
+        Else
+            File.Create(proc).Dispose()
+            Dim destWriter As New StreamWriter(proc, True)
+            destWriter.WriteLine(Environment.ProcessorCount.ToString)
+            destWriter.Close()
+        End If
+    End Sub
 End Module
