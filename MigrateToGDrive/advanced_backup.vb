@@ -116,6 +116,10 @@
         ComboBox3.Enabled = True
         ComboBox4.Enabled = True
         ComboBox5.Enabled = True
+        ComboBox2.ResetText()
+        ComboBox3.ResetText()
+        ComboBox4.ResetText()
+        ComboBox5.ResetText()
         Button4.Enabled = True
     End Sub
     Private Sub Button2_Click(sender As Object, e As EventArgs) Handles Button2.Click
