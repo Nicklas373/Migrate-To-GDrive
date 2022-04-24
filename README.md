@@ -1,7 +1,13 @@
 # MigrateToGDrive
 
-MigrateToGDrive is a special purpose application that only have aim to backup data from directory to directory that was specified 
-by users with several time frame options and include with scheduler management that can do backup automatically (Based on Windows Task Scheduler Library).
+MigrateToGDrive is a simple application that primary have aim to backup data from directory to directory that was specified from users
+with several time frame options and include with scheduler management that can do backup automatically. And also support some essentials
+features like backup as archive with or without encryption for security (Only for password).
+
+# Additional library:
+- 7-Zip
+- SHA-256 (Encryption / Decryption)
+- Windows Task Scheduler
 
 # App Function
 - Normal Backup

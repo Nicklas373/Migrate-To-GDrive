@@ -4,7 +4,7 @@
         AllowTransparency = False
         TextBox1.Text = My.Application.Info.ProductName
         TextBox2.Text = My.Application.Info.Version.ToString
-        TextBox3.Text = "April, 23 2022"
+        TextBox3.Text = "April, 24 2022"
         TextBox4.Text = My.Application.Info.Copyright
         TextBox5.Text = My.Application.Info.DirectoryPath
         RichTextBox1.Text = "Description: " & vbCrLf & vbCrLf & "Migrate To GDrive is a " & My.Application.Info.Description

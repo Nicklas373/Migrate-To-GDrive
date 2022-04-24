@@ -1,3 +1,9 @@
+v1.1.2.1 (20220424):
+- Other misc changes
+- Re-design settings menu
+- Switch from xcopy library to robocopy library
+- Support new backup method with specific from & to date
+
 v1.1.2.0 (20220423):
 - Code cleanup
 - Drop HMAC Encryption & Decryption method (Issue with SHA-256 Decryption in some cases)

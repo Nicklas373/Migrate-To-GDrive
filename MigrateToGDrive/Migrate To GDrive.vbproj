@@ -15,7 +15,19 @@
     <Copyright>HANA-CI Build Project 2016-2022</Copyright>
     <PackageIcon>drive.ico</PackageIcon>
     <PackageIconUrl />
-    <PackageReleaseNotes>v1.1.1.0 (20220420):
+    <PackageReleaseNotes>v1.1.2.1 (20220424):
+- Other misc changes
+- Re-design settings menu
+- Switch from xcopy library to robocopy library
+- Support new backup method with specific from &amp; to date
+
+v1.1.2.0 (20220423):
+- Code cleanup
+- Drop HMAC Encryption &amp; Decryption method (Issue with SHA-256 Decryption in some cases)
+- Re-design and use MdiParent layout
+- Support decryption for archive backup with several extensions (.7z &amp; .zip)
+
+v1.1.1.0 (20220420):
 - Code cleanup
 - Support vertical scrollbar on settings menu for unsupported display resolution
 - Support decryption for archive backup (SHA-256 or HMAC SHA-256)
@@ -33,8 +45,13 @@ v1.1.0.0 (20220419):
 v1.0.0.0 (20220416):
 - INITIAL RELEASE</PackageReleaseNotes>
     <ApplicationManifest>My Project\app.manifest</ApplicationManifest>
-    <Version>1.1.2</Version>
-    <Description>Special purpose application that only have aim to backup data from directory to directory that was specified by users with several time frame options and include with scheduler management that can do backup automatically (Based on Windows Task Scheduler Library)</Description>
+    <Version>1.1.2.1</Version>
+    <Description>simple application that primary have aim to backup data from directory to directory that was specified from users with several time frame options and include with scheduler management that can do backup automatically. And also support some essentials features like backup as archive with or without encryption for security (Only for password).
+
+Additional library:
+- 7-Zip
+- SHA-256 (Encryption / Decryption)
+- Windows Task Scheduler</Description>
     <PackageProjectUrl>https://github.com/Nicklas373/Migrate-To-GDrive</PackageProjectUrl>
     <RepositoryUrl>https://github.com/Nicklas373/Migrate-To-GDrive</RepositoryUrl>
     <RepositoryType>public</RepositoryType>
