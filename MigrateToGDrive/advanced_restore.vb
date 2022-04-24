@@ -109,6 +109,7 @@
         TextBox5.ReadOnly = False
         TextBox5.Text = ""
         ComboBox1.Enabled = True
+        ComboBox1.ResetText()
         Button4.Enabled = True
     End Sub
     Private Sub Button6_Click(sender As Object, e As EventArgs) Handles Button6.Click
