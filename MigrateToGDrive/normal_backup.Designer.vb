@@ -25,11 +25,11 @@ Partial Class normal_backup
         Dim resources As System.ComponentModel.ComponentResourceManager = New System.ComponentModel.ComponentResourceManager(GetType(normal_backup))
         Me.RichTextBox1 = New System.Windows.Forms.RichTextBox()
         Me.GroupBox2 = New System.Windows.Forms.GroupBox()
+        Me.DateTimePicker2 = New System.Windows.Forms.DateTimePicker()
         Me.Label7 = New System.Windows.Forms.Label()
         Me.Label6 = New System.Windows.Forms.Label()
         Me.Label5 = New System.Windows.Forms.Label()
         Me.Label4 = New System.Windows.Forms.Label()
-        Me.TextBox3 = New System.Windows.Forms.TextBox()
         Me.DateTimePicker1 = New System.Windows.Forms.DateTimePicker()
         Me.Label3 = New System.Windows.Forms.Label()
         Me.Label2 = New System.Windows.Forms.Label()
@@ -56,11 +56,11 @@ Partial Class normal_backup
         '
         'GroupBox2
         '
+        Me.GroupBox2.Controls.Add(Me.DateTimePicker2)
         Me.GroupBox2.Controls.Add(Me.Label7)
         Me.GroupBox2.Controls.Add(Me.Label6)
         Me.GroupBox2.Controls.Add(Me.Label5)
         Me.GroupBox2.Controls.Add(Me.Label4)
-        Me.GroupBox2.Controls.Add(Me.TextBox3)
         Me.GroupBox2.Controls.Add(Me.DateTimePicker1)
         Me.GroupBox2.Controls.Add(Me.Label3)
         Me.GroupBox2.Controls.Add(Me.Label2)
@@ -82,14 +82,22 @@ Partial Class normal_backup
         Me.GroupBox2.TabStop = False
         Me.GroupBox2.Text = "Backup"
         '
+        'DateTimePicker2
+        '
+        Me.DateTimePicker2.CustomFormat = ""
+        Me.DateTimePicker2.Location = New System.Drawing.Point(530, 115)
+        Me.DateTimePicker2.Name = "DateTimePicker2"
+        Me.DateTimePicker2.Size = New System.Drawing.Size(200, 23)
+        Me.DateTimePicker2.TabIndex = 21
+        '
         'Label7
         '
         Me.Label7.AutoSize = True
         Me.Label7.Font = New System.Drawing.Font("Segoe UI", 9.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point)
-        Me.Label7.Location = New System.Drawing.Point(530, 85)
+        Me.Label7.Location = New System.Drawing.Point(530, 88)
         Me.Label7.Margin = New System.Windows.Forms.Padding(2, 0, 2, 0)
         Me.Label7.Name = "Label7"
-        Me.Label7.Size = New System.Drawing.Size(0, 15)
+        Me.Label7.Size = New System.Drawing.Size(34, 15)
         Me.Label7.TabIndex = 19
         '
         'Label6
@@ -119,18 +127,11 @@ Partial Class normal_backup
         '
         Me.Label4.AutoSize = True
         Me.Label4.Font = New System.Drawing.Font("Segoe UI", 9.75!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point)
-        Me.Label4.Location = New System.Drawing.Point(504, 113)
+        Me.Label4.Location = New System.Drawing.Point(504, 115)
         Me.Label4.Name = "Label4"
         Me.Label4.Size = New System.Drawing.Size(23, 17)
         Me.Label4.TabIndex = 16
         Me.Label4.Text = "To"
-        '
-        'TextBox3
-        '
-        Me.TextBox3.Location = New System.Drawing.Point(530, 115)
-        Me.TextBox3.Name = "TextBox3"
-        Me.TextBox3.Size = New System.Drawing.Size(105, 23)
-        Me.TextBox3.TabIndex = 15
         '
         'DateTimePicker1
         '
@@ -147,6 +148,7 @@ Partial Class normal_backup
         Me.Label3.Location = New System.Drawing.Point(530, 44)
         Me.Label3.Name = "Label3"
         Me.Label3.Size = New System.Drawing.Size(0, 15)
+        Me.Label3.TabIndex = 20
         '
         'Label2
         '
@@ -167,7 +169,7 @@ Partial Class normal_backup
         Me.Button5.Font = New System.Drawing.Font("Segoe UI Semibold", 9.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point)
         Me.Button5.Image = Global.Migrate_To_GDrive.My.Resources.Resources.data_copy_32
         Me.Button5.ImageAlign = System.Drawing.ContentAlignment.MiddleRight
-        Me.Button5.Location = New System.Drawing.Point(670, 114)
+        Me.Button5.Location = New System.Drawing.Point(716, 143)
         Me.Button5.Margin = New System.Windows.Forms.Padding(3, 2, 3, 2)
         Me.Button5.Name = "Button5"
         Me.Button5.Size = New System.Drawing.Size(141, 46)
@@ -269,7 +271,6 @@ Partial Class normal_backup
     Friend WithEvents Label6 As Label
     Friend WithEvents Label5 As Label
     Friend WithEvents Label4 As Label
-    Friend WithEvents TextBox3 As TextBox
     Friend WithEvents DateTimePicker1 As DateTimePicker
     Friend WithEvents Label3 As Label
     Friend WithEvents Label2 As Label
@@ -280,4 +281,5 @@ Partial Class normal_backup
     Friend WithEvents Label1 As Label
     Friend WithEvents TextBox1 As TextBox
     Friend WithEvents TextBox2 As TextBox
+    Friend WithEvents DateTimePicker2 As DateTimePicker
 End Class

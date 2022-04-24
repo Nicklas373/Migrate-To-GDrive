@@ -5,19 +5,22 @@
     Dim lastErr As String = "log/lastErr"
     Dim uiSrcPath As String = "conf/nrm_backup/nrmSrcPath"
     Dim uiDestPath As String = "conf/nrm_backup/nrmDestPath"
-    Dim uiDatePath As String = "conf/nrm_backup/nrmDatePath"
+    Dim uiFrDatePath As String = "conf/nrm_backup/nrmFrDatePath"
+    Dim uiReDatePath As String = "conf/nrm_backup/nrmReDatePath"
+    Dim uiToDatePath As String = "conf/nrm_backup/nrmToDatePath"
+    Dim uiProcessorCount As String = "conf/nrm_backup/nrmProcessor"
     Private Sub normal_backup_Load(sender As Object, e As EventArgs) Handles MyBase.Load
         DateTimePicker1.Visible = False
         DateTimePicker1.Format = DateTimePickerFormat.Custom
         DateTimePicker1.CustomFormat = "MM-dd-yyyy"
+        DateTimePicker2.Visible = False
+        DateTimePicker2.Format = DateTimePickerFormat.Custom
+        DateTimePicker2.CustomFormat = "MM-dd-yyyy"
         Label4.Visible = False
-        Dim dt As Date = Today
-        TextBox3.Text = dt.ToString("MM-dd-yyyy")
-        TextBox3.Enabled = False
-        TextBox3.Visible = False
         TextBox1.ReadOnly = True
         TextBox2.ReadOnly = True
         AllowTransparency = False
+        WriteLogicalCount(uiProcessorCount)
     End Sub
     Private Sub Button1_Click(sender As Object, e As EventArgs) Handles Button1.Click
         filedialog.InitialDirectory = Environment.SpecialFolder.UserProfile
@@ -69,20 +72,20 @@
                         CheckFileExist(lastErr, "Source drive not exist !")
                     End If
                 ElseIf ComboBox1.Text = "Today" Then
-                    If File.Exists(uiDatePath) Then
+                    If File.Exists(uiReDatePath) Then
                         GC.Collect()
                         GC.WaitForPendingFinalizers()
-                        File.Delete(uiDatePath)
-                        File.Create(uiDatePath).Dispose()
-                        Dim destWriter As New StreamWriter(uiDatePath, True)
+                        File.Delete(uiReDatePath)
+                        File.Create(uiReDatePath).Dispose()
+                        Dim destWriter As New StreamWriter(uiReDatePath, True)
                         Dim dt As Date = Today
-                        destWriter.WriteLine(dt.ToString("MM-dd-yyyy"))
+                        destWriter.WriteLine(dt.ToString("yyyyMMdd"))
                         destWriter.Close()
                     Else
-                        File.Create(uiDatePath).Dispose()
-                        Dim destWriter As New StreamWriter(uiDatePath, True)
+                        File.Create(uiReDatePath).Dispose()
+                        Dim destWriter As New StreamWriter(uiReDatePath, True)
                         Dim dt As Date = Today
-                        destWriter.WriteLine(dt.ToString("MM-dd-yyyy"))
+                        destWriter.WriteLine(dt.ToString("yyyyMMdd"))
                         destWriter.Close()
                     End If
                     uiTrimSrc = TextBox1.Text
@@ -103,20 +106,40 @@
                         CheckFileExist(lastErr, "Source drive not exist !")
                     End If
                 ElseIf ComboBox1.Text = "From Date" Then
-                    If File.Exists(uiDatePath) Then
+                    If File.Exists(uiFrDatePath) Then
                         GC.Collect()
                         GC.WaitForPendingFinalizers()
-                        File.Delete(uiDatePath)
-                        File.Create(uiDatePath).Dispose()
-                        Dim destWriter As New StreamWriter(uiDatePath, True)
+                        File.Delete(uiFrDatePath)
+                        File.Create(uiFrDatePath).Dispose()
+                        Dim destWriter As New StreamWriter(uiFrDatePath, True)
                         Dim dt As Date = DateTimePicker1.Value.ToShortDateString
-                        destWriter.WriteLine(dt.ToString("MM/dd/yyyy"))
+                        destWriter.WriteLine(dt.ToString("yyyyMMdd"))
                         destWriter.Close()
                     Else
-                        File.Create(uiDatePath).Dispose()
-                        Dim destWriter As New StreamWriter(uiDatePath, True)
+                        File.Create(uiFrDatePath).Dispose()
+                        Dim destWriter As New StreamWriter(uiFrDatePath, True)
                         Dim dt As Date = DateTimePicker1.Value.ToShortDateString
-                        destWriter.WriteLine(dt.ToString("MM/dd/yyyy"))
+                        destWriter.WriteLine(dt.ToString("yyyyMMdd"))
+                        destWriter.Close()
+                    End If
+                    If File.Exists(uiToDatePath) Then
+                        GC.Collect()
+                        GC.WaitForPendingFinalizers()
+                        File.Delete(uiToDatePath)
+                        File.Create(uiToDatePath).Dispose()
+                        Dim destWriter As New StreamWriter(uiToDatePath, True)
+                        Dim dt As Date = DateTimePicker2.Value.ToShortDateString
+                        Dim newDate As Integer = Integer.Parse(dt.ToString("dd") + 1)
+                        Dim newMonthYear As String = dt.ToString("yyyyMM")
+                        destWriter.WriteLine(newMonthYear + newDate.ToString)
+                        destWriter.Close()
+                    Else
+                        File.Create(uiToDatePath).Dispose()
+                        Dim destWriter As New StreamWriter(uiToDatePath, True)
+                        Dim dt As Date = DateTimePicker2.Value.ToShortDateString
+                        Dim newDate As Integer = Integer.Parse(dt.ToString("dd") + 1)
+                        Dim newMonthYear As String = dt.ToString("yyyyMM")
+                        destWriter.WriteLine(newMonthYear + newDate.ToString)
                         destWriter.Close()
                     End If
                     uiTrimSrc = TextBox1.Text
@@ -144,12 +167,12 @@
     Private Sub ComboBox1_SelectedIndexChanged(sender As Object, e As EventArgs) Handles ComboBox1.SelectedIndexChanged
         If ComboBox1.Text = "From Date" Then
             DateTimePicker1.Visible = True
+            DateTimePicker2.Visible = True
             Label4.Visible = True
-            TextBox3.Visible = True
         Else
             DateTimePicker1.Visible = False
+            DateTimePicker2.Visible = False
             Label4.Visible = False
-            TextBox3.Visible = False
         End If
     End Sub
     Private Sub ShowNotif()

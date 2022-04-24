@@ -2,14 +2,15 @@
 cd ..
 set /p TsrcPath=<conf/cli_backup/cliSrcPath
 set /p TdestPath=<conf/cli_backup/cliDestPath
+set /p Tprocessor=<conf/cli_backup/cliProcessor
 if exist "%TsrcPath%" (
 	if exist "%TdestPath%" (
-		call xcopy "%TsrcPath%" "%TdestPath%" /e /f /i /k /v /y >> "log/log"
+		call robocopy "%TsrcPath%" "%TdestPath%" * /S /DCOPY:DAT /MT:%Tprocessor% /LOG+:log/log /TS /FP /TEE /V
 		if %ERRORLEVEL% == 0 goto :next
-		if %ERRORLEVEL% == 1 goto :err1
-		if %ERRORLEVEL% == 2 goto :err2
 		if %ERRORLEVEL% == 4 goto :err4
-		if %ERRORLEVEL% == 5 goto :err5
+		if %ERRORLEVEL% == 8 goto :err8
+		if %ERRORLEVEL% == 16 goto :err16
+		echo err>> "log/lastResult"
 		echo # MigrateToGDrive v1.1 >> "log/err"
 		echo Backup Result			: Error >> "log/err"
 		echo Reason			: Unspecified Error: %errorlevel% >> "log/err"
@@ -21,48 +22,42 @@ if exist "%TsrcPath%" (
 		echo. >> "log/err"
 		goto :endofscript
 
-		:err1
-		echo # MigrateToGDrive v1.1 >> "log/err" 
-		echo Backup Result			: Error >> "log/err"
-		echo Reason			: No files or folder found to backup >> "log/err"
-		echo Source Path			: %TsrcPath% >> "log/err"
-		echo Destination Path			: %TdestPath% >> "log/err"
-		echo Backup Time			: %date% - %time% >> "log/err"
-		echo Backup Pref			: Anytime >> "log/err"
-		echo Backup Typ				: Auto >> "log/err"
-		echo. >> "log/err"
-		goto :endofscript
-
-		:err2
-		echo # MigrateToGDrive v1.1 >> "log/err" 
-		echo Backup Result			: Error >> "log/err"
-		echo Reason			: Process terminate by user >> "log/err"
-		echo Source Path			: %TsrcPath% >> "log/err"
-		echo Destination Path			: %TdestPath% >> "log/err"
-		echo Backup Time			: %date% - %time% >> "log/err"
-		echo Backup Pref			: Anytime >> "log/err"
-		echo Backup Type			: Auto >> "log/err"
-		echo. >> "log/err"
-		goto :endofscript
-
 		:err4
+		echo err>> "log/lastResult"
 		echo # MigrateToGDrive v1.1 >> "log/err" 
 		echo Backup Result			: Error >> "log/err"
-		echo Reason			: Insufficient permissions >> "log/err"
-		echo Source Path			: %TsrcPath% >> "log/err"
-		echo Destination Path			: %TdestPath% >> "log/err"
+		echo Reason			: Some mismatched files or directories were detected ! >> "log/err"
+		echo Some mismatched files or directories were detected ! >> "log/lastErr"
+		echo Source Path			: %TsrcPath% >> "log/err" 
+		echo Destination Path			: %TdestPath% >> "log/err" 
 		echo Backup Time			: %date% - %time% >> "log/err"
 		echo Backup Pref			: Anytime >> "log/err"
 		echo Backup Type			: Auto >> "log/err"
 		echo. >> "log/err"
 		goto :endofscript
 
-		:err5
-		echo # MigrateToGDrive v1.1 >> "log/err" 
+		:err8
+		echo err>> "log/lastResult"
+		echo #MigrateToGDrive v1.1 >> "log/err" 
 		echo Backup Result			: Error >> "log/err"
-		echo Reason			: Disk write error occured >> "log/err"
-		echo Source Path			: %TsrcPath% >> "log/err"
-		echo Destination Path			: %TdestPath% >> "log/err"
+		echo Reason			: Some files or directories could not be copied !>> "log/err"
+		echo Some files or directories could not be copied ! >> "log/lastErr"
+		echo Source Path			: %TsrcPath%
+		echo Destination Path			: %TdestPath%
+		echo Backup Time			: %date% - %time% >> "log/err"
+		echo Backup Pref			: Anytime >> "log/err"
+		echo Backup Type			: Auto >> "log/err"
+		echo. >> "log/err"
+		goto :endofscript
+
+		:err16
+		echo err>> "log/lastResult"
+		echo #MigrateToGDrive v1.1 >> "log/err" 
+		echo Backup Result			: Error >> "log/err"
+		echo Reason			: Serious error. Robocopy did not copy any files ! >> "log/err"
+		echo Serious error. Robocopy did not copy any files ! >> "log/lastErr"
+		echo Source Path			: %TsrcPath%
+		echo Destination Path			: %TdestPath%
 		echo Backup Time			: %date% - %time% >> "log/err"
 		echo Backup Pref			: Anytime >> "log/err"
 		echo Backup Type			: Auto >> "log/err"
@@ -70,6 +65,7 @@ if exist "%TsrcPath%" (
 		goto :endofscript
 
 		:next
+		echo success>> "log/lastResult"
 		echo # MigrateToGDrive v1.1 >> "log/log"
 		echo Backup Result			: Success >> "log/log"
 		echo Source Path			: %TsrcPath% >> "log/log"
@@ -80,6 +76,7 @@ if exist "%TsrcPath%" (
 		echo. >> "log/log"
 		goto :endofscript
 	) else (
+		echo err>> "log/lastResult"
 		echo # MigrateToGDrive v1.1 >> "log/err" 
 		echo Backup Result				: Error >> "log/err"
 		echo Reason					: Destination path not exists >> "log/err"
@@ -92,6 +89,7 @@ if exist "%TsrcPath%" (
 		goto :endofscript
 	)
 ) else (
+	echo err>> "log/lastResult"
 	echo # MigrateToGDrive vv1.1 >> "log/err" 
 	echo Backup Result			: Error >> "log/err"
 	echo Reason			: Source path not exists >> "log/err"
