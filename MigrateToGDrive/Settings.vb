@@ -8,6 +8,7 @@ Public Class Settings
     Dim cliSrcPath As String = "conf/cli_backup/cliSrcPath"
     Dim cliDestPath As String = "conf/cli_backup/cliDestPath"
     Dim cliDatePath As String = "conf/cli_backup/cliDatePath"
+    Dim cliProcessor As String = "conf/cli_backup/cliProcessor"
     Private Sub Button4_Click(sender As Object, e As EventArgs) Handles Button4.Click
         TextBox1.ReadOnly = False
         TextBox2.ReadOnly = False
@@ -60,7 +61,7 @@ Public Class Settings
                     File.Delete(confPath)
                     File.Create(confPath).Dispose()
                     Dim writer As New StreamWriter(confPath, True)
-                    writer.WriteLine("Migrate To GDrive Config v1.0")
+                    writer.WriteLine("Migrate To GDrive Config v1.1")
                     writer.WriteLine("Source Directory: " & TextBox1.Text)
                     writer.WriteLine("Destination Directory: " & TextBox2.Text)
                     writer.WriteLine("Backup Preferences: " & ComboBox1.Text)
@@ -70,7 +71,7 @@ Public Class Settings
                 Else
                     File.Create(confPath).Dispose()
                     Dim writer As New StreamWriter(confPath, True)
-                    writer.WriteLine("Migrate To GDrive Config v1.0")
+                    writer.WriteLine("Migrate To GDrive Config v1.1")
                     writer.WriteLine("Source Directory: " & TextBox1.Text)
                     writer.WriteLine("Destination Directory: " & TextBox2.Text)
                     writer.WriteLine("Backup Preferences: " & ComboBox1.Text)
@@ -183,7 +184,10 @@ Public Class Settings
     Private Sub Button8_Click_1(sender As Object, e As EventArgs) Handles Button8.Click
         GroupBox4.Enabled = False
         GroupBox5.Enabled = False
+        GroupBox4.Visible = False
+        GroupBox5.Visible = False
         ComboBox2.Enabled = False
+        ComboBox2.ResetText()
         Button6.Visible = False
         Button7.Visible = True
         Button8.Visible = False
@@ -191,7 +195,9 @@ Public Class Settings
     Private Sub ComboBox2_SelectedIndexChanged(sender As Object, e As EventArgs) Handles ComboBox2.SelectedIndexChanged
         If ComboBox2.Text = "Weekly" Then
             GroupBox5.Enabled = True
+            GroupBox5.Visible = True
             GroupBox4.Enabled = False
+            GroupBox4.Visible = False
             TextBox4.Text = ""
             ComboBox6.SelectedIndex = 0
             ComboBox7.SelectedIndex = 0
@@ -205,6 +211,8 @@ Public Class Settings
         ElseIf ComboBox2.Text = "Daily" Then
             GroupBox4.Enabled = True
             GroupBox5.Enabled = False
+            GroupBox4.Visible = True
+            GroupBox5.Visible = False
             TextBox3.Text = ""
             ComboBox4.SelectedIndex = 0
             ComboBox5.SelectedIndex = 0
@@ -291,7 +299,6 @@ Public Class Settings
             End If
         End If
     End Sub
-
     Private Sub ComboBox5_SelectedIndexChanged(sender As Object, e As EventArgs) Handles ComboBox5.SelectedIndexChanged
         If GroupBox4.Enabled = True Then
             If ComboBox5.Text = "Disabled" Then
@@ -322,6 +329,8 @@ Public Class Settings
         AllowTransparency = False
         GroupBox4.Enabled = False
         GroupBox5.Enabled = False
+        GroupBox4.Visible = False
+        GroupBox5.Visible = False
         Button6.Visible = False
         Button8.Visible = False
         DateTimePicker4.Format = DateTimePickerFormat.Time
@@ -331,7 +340,8 @@ Public Class Settings
         ComboBox2.Enabled = False
         getSrcDriveSize(1)
         getDestDriveSize(1)
-        getBackPref()
+        GetBackPref()
+        WriteLogicalCount(cliProcessor)
     End Sub
     Private Sub GetSrcDriveSize(conf As Integer)
         Dim trimSrc As String

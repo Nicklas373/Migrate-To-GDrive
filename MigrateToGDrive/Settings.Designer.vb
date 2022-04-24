@@ -40,6 +40,7 @@ Partial Class Settings
         Me.Label3 = New System.Windows.Forms.Label()
         Me.ComboBox2 = New System.Windows.Forms.ComboBox()
         Me.GroupBox2 = New System.Windows.Forms.GroupBox()
+        Me.Button7 = New System.Windows.Forms.Button()
         Me.GroupBox5 = New System.Windows.Forms.GroupBox()
         Me.ComboBox6 = New System.Windows.Forms.ComboBox()
         Me.Label19 = New System.Windows.Forms.Label()
@@ -60,8 +61,8 @@ Partial Class Settings
         Me.DateTimePicker6 = New System.Windows.Forms.DateTimePicker()
         Me.Label14 = New System.Windows.Forms.Label()
         Me.Label15 = New System.Windows.Forms.Label()
-        Me.Button7 = New System.Windows.Forms.Button()
         Me.Button8 = New System.Windows.Forms.Button()
+        Me.Button6 = New System.Windows.Forms.Button()
         Me.GroupBox4 = New System.Windows.Forms.GroupBox()
         Me.Label13 = New System.Windows.Forms.Label()
         Me.TextBox3 = New System.Windows.Forms.TextBox()
@@ -74,7 +75,6 @@ Partial Class Settings
         Me.DateTimePicker4 = New System.Windows.Forms.DateTimePicker()
         Me.Label9 = New System.Windows.Forms.Label()
         Me.Label10 = New System.Windows.Forms.Label()
-        Me.Button6 = New System.Windows.Forms.Button()
         Me.GroupBox3 = New System.Windows.Forms.GroupBox()
         Me.Button13 = New System.Windows.Forms.Button()
         Me.Button12 = New System.Windows.Forms.Button()
@@ -95,7 +95,7 @@ Partial Class Settings
         Me.Button1.FlatStyle = System.Windows.Forms.FlatStyle.Flat
         Me.Button1.Font = New System.Drawing.Font("Segoe UI", 9.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point)
         Me.Button1.Image = Global.Migrate_To_GDrive.My.Resources.Resources.folder
-        Me.Button1.Location = New System.Drawing.Point(1153, 36)
+        Me.Button1.Location = New System.Drawing.Point(1234, 33)
         Me.Button1.Margin = New System.Windows.Forms.Padding(3, 4, 3, 4)
         Me.Button1.Name = "Button1"
         Me.Button1.Size = New System.Drawing.Size(54, 42)
@@ -121,7 +121,7 @@ Partial Class Settings
         Me.GroupBox1.Margin = New System.Windows.Forms.Padding(3, 4, 3, 4)
         Me.GroupBox1.Name = "GroupBox1"
         Me.GroupBox1.Padding = New System.Windows.Forms.Padding(3, 4, 3, 4)
-        Me.GroupBox1.Size = New System.Drawing.Size(1263, 264)
+        Me.GroupBox1.Size = New System.Drawing.Size(1324, 206)
         Me.GroupBox1.TabIndex = 1
         Me.GroupBox1.TabStop = False
         Me.GroupBox1.Text = "Configure Folder"
@@ -140,7 +140,7 @@ Partial Class Settings
         '
         Me.Label4.AutoSize = True
         Me.Label4.Font = New System.Drawing.Font("Segoe UI", 9.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point)
-        Me.Label4.Location = New System.Drawing.Point(18, 108)
+        Me.Label4.Location = New System.Drawing.Point(19, 88)
         Me.Label4.Name = "Label4"
         Me.Label4.Size = New System.Drawing.Size(109, 15)
         Me.Label4.TabIndex = 15
@@ -150,7 +150,7 @@ Partial Class Settings
         '
         Me.Label7.AutoSize = True
         Me.Label7.Font = New System.Drawing.Font("Segoe UI", 9.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point)
-        Me.Label7.Location = New System.Drawing.Point(19, 179)
+        Me.Label7.Location = New System.Drawing.Point(19, 136)
         Me.Label7.Name = "Label7"
         Me.Label7.Size = New System.Drawing.Size(119, 15)
         Me.Label7.TabIndex = 14
@@ -162,7 +162,7 @@ Partial Class Settings
         Me.ComboBox1.FlatStyle = System.Windows.Forms.FlatStyle.Flat
         Me.ComboBox1.FormattingEnabled = True
         Me.ComboBox1.Items.AddRange(New Object() {"Anytime", "Today"})
-        Me.ComboBox1.Location = New System.Drawing.Point(215, 179)
+        Me.ComboBox1.Location = New System.Drawing.Point(151, 133)
         Me.ComboBox1.Name = "ComboBox1"
         Me.ComboBox1.Size = New System.Drawing.Size(165, 23)
         Me.ComboBox1.TabIndex = 13
@@ -172,7 +172,7 @@ Partial Class Settings
         '
         Me.Label2.AutoSize = True
         Me.Label2.Font = New System.Drawing.Font("Segoe UI", 9.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point)
-        Me.Label2.Location = New System.Drawing.Point(664, 79)
+        Me.Label2.Location = New System.Drawing.Point(894, 71)
         Me.Label2.Name = "Label2"
         Me.Label2.Size = New System.Drawing.Size(0, 15)
         Me.Label2.TabIndex = 9
@@ -181,7 +181,7 @@ Partial Class Settings
         '
         Me.Label1.AutoSize = True
         Me.Label1.Font = New System.Drawing.Font("Segoe UI", 9.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point)
-        Me.Label1.Location = New System.Drawing.Point(664, 143)
+        Me.Label1.Location = New System.Drawing.Point(894, 117)
         Me.Label1.Name = "Label1"
         Me.Label1.Size = New System.Drawing.Size(0, 15)
         Me.Label1.TabIndex = 8
@@ -191,7 +191,7 @@ Partial Class Settings
         Me.Button5.Font = New System.Drawing.Font("Segoe UI", 9.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point)
         Me.Button5.Image = CType(resources.GetObject("Button5.Image"), System.Drawing.Image)
         Me.Button5.ImageAlign = System.Drawing.ContentAlignment.MiddleRight
-        Me.Button5.Location = New System.Drawing.Point(586, 183)
+        Me.Button5.Location = New System.Drawing.Point(643, 133)
         Me.Button5.Margin = New System.Windows.Forms.Padding(3, 4, 3, 4)
         Me.Button5.Name = "Button5"
         Me.Button5.Size = New System.Drawing.Size(94, 56)
@@ -206,7 +206,7 @@ Partial Class Settings
         Me.Button4.Font = New System.Drawing.Font("Segoe UI", 9.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point)
         Me.Button4.Image = CType(resources.GetObject("Button4.Image"), System.Drawing.Image)
         Me.Button4.ImageAlign = System.Drawing.ContentAlignment.MiddleRight
-        Me.Button4.Location = New System.Drawing.Point(1153, 179)
+        Me.Button4.Location = New System.Drawing.Point(1194, 136)
         Me.Button4.Margin = New System.Windows.Forms.Padding(3, 4, 3, 4)
         Me.Button4.Name = "Button4"
         Me.Button4.Size = New System.Drawing.Size(94, 56)
@@ -220,7 +220,7 @@ Partial Class Settings
         Me.Button3.Font = New System.Drawing.Font("Segoe UI", 9.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point)
         Me.Button3.Image = CType(resources.GetObject("Button3.Image"), System.Drawing.Image)
         Me.Button3.ImageAlign = System.Drawing.ContentAlignment.MiddleRight
-        Me.Button3.Location = New System.Drawing.Point(477, 183)
+        Me.Button3.Location = New System.Drawing.Point(535, 133)
         Me.Button3.Margin = New System.Windows.Forms.Padding(3, 4, 3, 4)
         Me.Button3.Name = "Button3"
         Me.Button3.Size = New System.Drawing.Size(94, 56)
@@ -232,20 +232,20 @@ Partial Class Settings
         '
         'TextBox2
         '
-        Me.TextBox2.Location = New System.Drawing.Point(215, 108)
+        Me.TextBox2.Location = New System.Drawing.Point(152, 90)
         Me.TextBox2.Margin = New System.Windows.Forms.Padding(3, 4, 3, 4)
         Me.TextBox2.Name = "TextBox2"
         Me.TextBox2.ReadOnly = True
-        Me.TextBox2.Size = New System.Drawing.Size(922, 23)
+        Me.TextBox2.Size = New System.Drawing.Size(1076, 23)
         Me.TextBox2.TabIndex = 4
         '
         'TextBox1
         '
-        Me.TextBox1.Location = New System.Drawing.Point(215, 44)
+        Me.TextBox1.Location = New System.Drawing.Point(152, 44)
         Me.TextBox1.Margin = New System.Windows.Forms.Padding(3, 4, 3, 4)
         Me.TextBox1.Name = "TextBox1"
         Me.TextBox1.ReadOnly = True
-        Me.TextBox1.Size = New System.Drawing.Size(922, 23)
+        Me.TextBox1.Size = New System.Drawing.Size(1076, 23)
         Me.TextBox1.TabIndex = 3
         '
         'Button2
@@ -254,7 +254,7 @@ Partial Class Settings
         Me.Button2.FlatStyle = System.Windows.Forms.FlatStyle.Flat
         Me.Button2.Font = New System.Drawing.Font("Segoe UI", 9.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point)
         Me.Button2.Image = Global.Migrate_To_GDrive.My.Resources.Resources.folder
-        Me.Button2.Location = New System.Drawing.Point(1151, 100)
+        Me.Button2.Location = New System.Drawing.Point(1234, 79)
         Me.Button2.Margin = New System.Windows.Forms.Padding(3, 4, 3, 4)
         Me.Button2.Name = "Button2"
         Me.Button2.Size = New System.Drawing.Size(56, 42)
@@ -282,21 +282,35 @@ Partial Class Settings
         '
         'GroupBox2
         '
-        Me.GroupBox2.Controls.Add(Me.GroupBox5)
         Me.GroupBox2.Controls.Add(Me.Button7)
+        Me.GroupBox2.Controls.Add(Me.GroupBox5)
         Me.GroupBox2.Controls.Add(Me.Button8)
+        Me.GroupBox2.Controls.Add(Me.Button6)
         Me.GroupBox2.Controls.Add(Me.ComboBox2)
         Me.GroupBox2.Controls.Add(Me.GroupBox4)
-        Me.GroupBox2.Controls.Add(Me.Button6)
         Me.GroupBox2.Controls.Add(Me.Label3)
-        Me.GroupBox2.Location = New System.Drawing.Point(14, 288)
+        Me.GroupBox2.Location = New System.Drawing.Point(14, 230)
         Me.GroupBox2.Margin = New System.Windows.Forms.Padding(3, 4, 3, 4)
         Me.GroupBox2.Name = "GroupBox2"
         Me.GroupBox2.Padding = New System.Windows.Forms.Padding(3, 4, 3, 4)
-        Me.GroupBox2.Size = New System.Drawing.Size(1263, 500)
+        Me.GroupBox2.Size = New System.Drawing.Size(629, 462)
         Me.GroupBox2.TabIndex = 2
         Me.GroupBox2.TabStop = False
         Me.GroupBox2.Text = "Configure Scheduler"
+        '
+        'Button7
+        '
+        Me.Button7.Font = New System.Drawing.Font("Segoe UI", 9.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point)
+        Me.Button7.Image = CType(resources.GetObject("Button7.Image"), System.Drawing.Image)
+        Me.Button7.ImageAlign = System.Drawing.ContentAlignment.MiddleRight
+        Me.Button7.Location = New System.Drawing.Point(522, 388)
+        Me.Button7.Margin = New System.Windows.Forms.Padding(3, 4, 3, 4)
+        Me.Button7.Name = "Button7"
+        Me.Button7.Size = New System.Drawing.Size(94, 56)
+        Me.Button7.TabIndex = 13
+        Me.Button7.Text = "Edit"
+        Me.Button7.TextAlign = System.Drawing.ContentAlignment.MiddleLeft
+        Me.Button7.UseVisualStyleBackColor = True
         '
         'GroupBox5
         '
@@ -319,11 +333,11 @@ Partial Class Settings
         Me.GroupBox5.Controls.Add(Me.DateTimePicker6)
         Me.GroupBox5.Controls.Add(Me.Label14)
         Me.GroupBox5.Controls.Add(Me.Label15)
-        Me.GroupBox5.Location = New System.Drawing.Point(623, 92)
+        Me.GroupBox5.Location = New System.Drawing.Point(6, 80)
         Me.GroupBox5.Margin = New System.Windows.Forms.Padding(3, 4, 3, 4)
         Me.GroupBox5.Name = "GroupBox5"
         Me.GroupBox5.Padding = New System.Windows.Forms.Padding(3, 4, 3, 4)
-        Me.GroupBox5.Size = New System.Drawing.Size(609, 337)
+        Me.GroupBox5.Size = New System.Drawing.Size(608, 288)
         Me.GroupBox5.TabIndex = 12
         Me.GroupBox5.TabStop = False
         Me.GroupBox5.Text = "Weekly Task"
@@ -512,26 +526,12 @@ Partial Class Settings
         Me.Label15.TabIndex = 14
         Me.Label15.Text = "Set Time"
         '
-        'Button7
-        '
-        Me.Button7.Font = New System.Drawing.Font("Segoe UI", 9.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point)
-        Me.Button7.Image = CType(resources.GetObject("Button7.Image"), System.Drawing.Image)
-        Me.Button7.ImageAlign = System.Drawing.ContentAlignment.MiddleRight
-        Me.Button7.Location = New System.Drawing.Point(1153, 437)
-        Me.Button7.Margin = New System.Windows.Forms.Padding(3, 4, 3, 4)
-        Me.Button7.Name = "Button7"
-        Me.Button7.Size = New System.Drawing.Size(94, 56)
-        Me.Button7.TabIndex = 13
-        Me.Button7.Text = "Edit"
-        Me.Button7.TextAlign = System.Drawing.ContentAlignment.MiddleLeft
-        Me.Button7.UseVisualStyleBackColor = True
-        '
         'Button8
         '
         Me.Button8.Font = New System.Drawing.Font("Segoe UI", 9.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point)
         Me.Button8.Image = CType(resources.GetObject("Button8.Image"), System.Drawing.Image)
         Me.Button8.ImageAlign = System.Drawing.ContentAlignment.MiddleRight
-        Me.Button8.Location = New System.Drawing.Point(592, 437)
+        Me.Button8.Location = New System.Drawing.Point(207, 388)
         Me.Button8.Margin = New System.Windows.Forms.Padding(3, 4, 3, 4)
         Me.Button8.Name = "Button8"
         Me.Button8.Size = New System.Drawing.Size(94, 56)
@@ -539,6 +539,20 @@ Partial Class Settings
         Me.Button8.Text = "Cancel"
         Me.Button8.TextAlign = System.Drawing.ContentAlignment.MiddleLeft
         Me.Button8.UseVisualStyleBackColor = True
+        '
+        'Button6
+        '
+        Me.Button6.Font = New System.Drawing.Font("Segoe UI", 9.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point)
+        Me.Button6.Image = CType(resources.GetObject("Button6.Image"), System.Drawing.Image)
+        Me.Button6.ImageAlign = System.Drawing.ContentAlignment.MiddleRight
+        Me.Button6.Location = New System.Drawing.Point(310, 388)
+        Me.Button6.Margin = New System.Windows.Forms.Padding(3, 4, 3, 4)
+        Me.Button6.Name = "Button6"
+        Me.Button6.Size = New System.Drawing.Size(94, 56)
+        Me.Button6.TabIndex = 14
+        Me.Button6.Text = "Save"
+        Me.Button6.TextAlign = System.Drawing.ContentAlignment.MiddleLeft
+        Me.Button6.UseVisualStyleBackColor = True
         '
         'GroupBox4
         '
@@ -557,7 +571,7 @@ Partial Class Settings
         Me.GroupBox4.Margin = New System.Windows.Forms.Padding(3, 4, 3, 4)
         Me.GroupBox4.Name = "GroupBox4"
         Me.GroupBox4.Padding = New System.Windows.Forms.Padding(3, 4, 3, 4)
-        Me.GroupBox4.Size = New System.Drawing.Size(608, 337)
+        Me.GroupBox4.Size = New System.Drawing.Size(608, 229)
         Me.GroupBox4.TabIndex = 11
         Me.GroupBox4.TabStop = False
         Me.GroupBox4.Text = "Daily Task"
@@ -660,20 +674,6 @@ Partial Class Settings
         Me.Label10.TabIndex = 10
         Me.Label10.Text = "Set Time"
         '
-        'Button6
-        '
-        Me.Button6.Font = New System.Drawing.Font("Segoe UI", 9.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point)
-        Me.Button6.Image = CType(resources.GetObject("Button6.Image"), System.Drawing.Image)
-        Me.Button6.ImageAlign = System.Drawing.ContentAlignment.MiddleRight
-        Me.Button6.Location = New System.Drawing.Point(482, 437)
-        Me.Button6.Margin = New System.Windows.Forms.Padding(3, 4, 3, 4)
-        Me.Button6.Name = "Button6"
-        Me.Button6.Size = New System.Drawing.Size(94, 56)
-        Me.Button6.TabIndex = 14
-        Me.Button6.Text = "Save"
-        Me.Button6.TextAlign = System.Drawing.ContentAlignment.MiddleLeft
-        Me.Button6.UseVisualStyleBackColor = True
-        '
         'GroupBox3
         '
         Me.GroupBox3.Controls.Add(Me.Button13)
@@ -682,11 +682,11 @@ Partial Class Settings
         Me.GroupBox3.Controls.Add(Me.Button10)
         Me.GroupBox3.Controls.Add(Me.Button9)
         Me.GroupBox3.Controls.Add(Me.RichTextBox1)
-        Me.GroupBox3.Location = New System.Drawing.Point(14, 796)
+        Me.GroupBox3.Location = New System.Drawing.Point(650, 230)
         Me.GroupBox3.Margin = New System.Windows.Forms.Padding(3, 4, 3, 4)
         Me.GroupBox3.Name = "GroupBox3"
         Me.GroupBox3.Padding = New System.Windows.Forms.Padding(3, 4, 3, 4)
-        Me.GroupBox3.Size = New System.Drawing.Size(1263, 415)
+        Me.GroupBox3.Size = New System.Drawing.Size(688, 462)
         Me.GroupBox3.TabIndex = 11
         Me.GroupBox3.TabStop = False
         Me.GroupBox3.Text = "Task Info"
@@ -768,9 +768,9 @@ Partial Class Settings
         Me.RichTextBox1.Margin = New System.Windows.Forms.Padding(3, 4, 3, 4)
         Me.RichTextBox1.Name = "RichTextBox1"
         Me.RichTextBox1.ReadOnly = True
-        Me.RichTextBox1.Size = New System.Drawing.Size(1093, 376)
+        Me.RichTextBox1.Size = New System.Drawing.Size(521, 420)
         Me.RichTextBox1.TabIndex = 0
-        Me.RichTextBox1.Text = "Log Will Show Here ..."
+        Me.RichTextBox1.Text = "Information regarding task and config will show here..."
         '
         'Settings
         '
@@ -778,7 +778,7 @@ Partial Class Settings
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
         Me.AutoScroll = True
         Me.BackColor = System.Drawing.Color.LightSteelBlue
-        Me.ClientSize = New System.Drawing.Size(1313, 1055)
+        Me.ClientSize = New System.Drawing.Size(1350, 697)
         Me.Controls.Add(Me.GroupBox3)
         Me.Controls.Add(Me.GroupBox2)
         Me.Controls.Add(Me.GroupBox1)
