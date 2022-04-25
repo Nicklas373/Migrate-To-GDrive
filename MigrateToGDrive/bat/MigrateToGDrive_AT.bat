@@ -5,7 +5,7 @@ set /p TdestPath=<conf/cli_backup/cliDestPath
 set /p Tprocessor=<conf/cli_backup/cliProcessor
 if exist "%TsrcPath%" (
 	if exist "%TdestPath%" (
-		call robocopy "%TsrcPath%" "%TdestPath%" * /S /DCOPY:DAT /MT:%Tprocessor% /LOG+:log/log /TS /FP /TEE /V
+		call robocopy "%TsrcPath%" "%TdestPath%" * /S /DCOPY:DAT /MT:%Tprocessor% /LOG+:log/log /TS /FP /TEE /V /ETA
 		if %ERRORLEVEL% == 0 goto :next
 		if %ERRORLEVEL% == 4 goto :err4
 		if %ERRORLEVEL% == 8 goto :err8
