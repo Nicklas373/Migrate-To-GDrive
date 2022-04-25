@@ -15,7 +15,11 @@
     <Copyright>HANA-CI Build Project 2016-2022</Copyright>
     <PackageIcon>drive.ico</PackageIcon>
     <PackageIconUrl />
-    <PackageReleaseNotes>v1.1.2.1 (20220424):
+    <PackageReleaseNotes>V1.1.2.2 (20220425):
+- Add ETA flags for robocopy
+- Misc UI changes on normal backup layout
+
+v1.1.2.1 (20220424):
 - Other misc changes
 - Re-design settings menu
 - Switch from xcopy library to robocopy library
@@ -45,7 +49,7 @@ v1.1.0.0 (20220419):
 v1.0.0.0 (20220416):
 - INITIAL RELEASE</PackageReleaseNotes>
     <ApplicationManifest>My Project\app.manifest</ApplicationManifest>
-    <Version>1.1.2.1</Version>
+    <Version>1.1.2.2</Version>
     <Description>simple application that primary have aim to backup data from directory to directory that was specified from users with several time frame options and include with scheduler management that can do backup automatically. And also support some essentials features like backup as archive with or without encryption for security (Only for password).
 
 Additional library:

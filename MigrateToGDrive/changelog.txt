@@ -1,3 +1,7 @@
+V1.1.2.2 (20220425):
+- Add ETA flags for robocopy
+- Misc UI changes on normal backup layout
+
 v1.1.2.1 (20220424):
 - Other misc changes
 - Re-design settings menu
