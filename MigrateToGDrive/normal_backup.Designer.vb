@@ -46,11 +46,10 @@ Partial Class normal_backup
         'RichTextBox1
         '
         Me.RichTextBox1.BackColor = System.Drawing.Color.WhiteSmoke
-        Me.RichTextBox1.Location = New System.Drawing.Point(10, 232)
-        Me.RichTextBox1.Margin = New System.Windows.Forms.Padding(3, 2, 3, 2)
+        Me.RichTextBox1.Location = New System.Drawing.Point(11, 309)
         Me.RichTextBox1.Name = "RichTextBox1"
         Me.RichTextBox1.ReadOnly = True
-        Me.RichTextBox1.Size = New System.Drawing.Size(864, 316)
+        Me.RichTextBox1.Size = New System.Drawing.Size(987, 420)
         Me.RichTextBox1.TabIndex = 20
         Me.RichTextBox1.Text = "Backup history will show here..."
         '
@@ -73,11 +72,9 @@ Partial Class normal_backup
         Me.GroupBox2.Controls.Add(Me.TextBox2)
         Me.GroupBox2.FlatStyle = System.Windows.Forms.FlatStyle.Flat
         Me.GroupBox2.Font = New System.Drawing.Font("Segoe UI", 9.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point)
-        Me.GroupBox2.Location = New System.Drawing.Point(12, 11)
-        Me.GroupBox2.Margin = New System.Windows.Forms.Padding(3, 2, 3, 2)
+        Me.GroupBox2.Location = New System.Drawing.Point(14, 15)
         Me.GroupBox2.Name = "GroupBox2"
-        Me.GroupBox2.Padding = New System.Windows.Forms.Padding(3, 2, 3, 2)
-        Me.GroupBox2.Size = New System.Drawing.Size(863, 198)
+        Me.GroupBox2.Size = New System.Drawing.Size(986, 264)
         Me.GroupBox2.TabIndex = 21
         Me.GroupBox2.TabStop = False
         Me.GroupBox2.Text = "Backup"
@@ -85,19 +82,20 @@ Partial Class normal_backup
         'DateTimePicker2
         '
         Me.DateTimePicker2.CustomFormat = ""
-        Me.DateTimePicker2.Location = New System.Drawing.Point(530, 115)
+        Me.DateTimePicker2.Location = New System.Drawing.Point(617, 151)
+        Me.DateTimePicker2.Margin = New System.Windows.Forms.Padding(3, 4, 3, 4)
         Me.DateTimePicker2.Name = "DateTimePicker2"
-        Me.DateTimePicker2.Size = New System.Drawing.Size(200, 23)
+        Me.DateTimePicker2.Size = New System.Drawing.Size(228, 27)
         Me.DateTimePicker2.TabIndex = 21
         '
         'Label7
         '
         Me.Label7.AutoSize = True
         Me.Label7.Font = New System.Drawing.Font("Segoe UI", 9.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point)
-        Me.Label7.Location = New System.Drawing.Point(530, 88)
+        Me.Label7.Location = New System.Drawing.Point(606, 117)
         Me.Label7.Margin = New System.Windows.Forms.Padding(2, 0, 2, 0)
         Me.Label7.Name = "Label7"
-        Me.Label7.Size = New System.Drawing.Size(34, 15)
+        Me.Label7.Size = New System.Drawing.Size(0, 20)
         Me.Label7.TabIndex = 19
         '
         'Label6
@@ -105,9 +103,9 @@ Partial Class normal_backup
         Me.Label6.AutoSize = True
         Me.Label6.FlatStyle = System.Windows.Forms.FlatStyle.Flat
         Me.Label6.Font = New System.Drawing.Font("Segoe UI", 9.75!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point)
-        Me.Label6.Location = New System.Drawing.Point(6, 58)
+        Me.Label6.Location = New System.Drawing.Point(7, 77)
         Me.Label6.Name = "Label6"
-        Me.Label6.Size = New System.Drawing.Size(123, 17)
+        Me.Label6.Size = New System.Drawing.Size(158, 23)
         Me.Label6.TabIndex = 18
         Me.Label6.Text = "Destination Folder"
         '
@@ -116,9 +114,9 @@ Partial Class normal_backup
         Me.Label5.AutoSize = True
         Me.Label5.FlatStyle = System.Windows.Forms.FlatStyle.Flat
         Me.Label5.Font = New System.Drawing.Font("Segoe UI", 9.75!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point)
-        Me.Label5.Location = New System.Drawing.Point(6, 19)
+        Me.Label5.Location = New System.Drawing.Point(7, 25)
         Me.Label5.Name = "Label5"
-        Me.Label5.Size = New System.Drawing.Size(92, 17)
+        Me.Label5.Size = New System.Drawing.Size(120, 23)
         Me.Label5.TabIndex = 17
         Me.Label5.Text = "Source Folder"
         Me.Label5.TextAlign = System.Drawing.ContentAlignment.MiddleCenter
@@ -127,36 +125,37 @@ Partial Class normal_backup
         '
         Me.Label4.AutoSize = True
         Me.Label4.Font = New System.Drawing.Font("Segoe UI", 9.75!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point)
-        Me.Label4.Location = New System.Drawing.Point(504, 115)
+        Me.Label4.Location = New System.Drawing.Point(587, 151)
         Me.Label4.Name = "Label4"
-        Me.Label4.Size = New System.Drawing.Size(23, 17)
+        Me.Label4.Size = New System.Drawing.Size(28, 23)
         Me.Label4.TabIndex = 16
         Me.Label4.Text = "To"
         '
         'DateTimePicker1
         '
         Me.DateTimePicker1.CustomFormat = ""
-        Me.DateTimePicker1.Location = New System.Drawing.Point(298, 115)
+        Me.DateTimePicker1.Location = New System.Drawing.Point(352, 151)
+        Me.DateTimePicker1.Margin = New System.Windows.Forms.Padding(3, 4, 3, 4)
         Me.DateTimePicker1.Name = "DateTimePicker1"
-        Me.DateTimePicker1.Size = New System.Drawing.Size(200, 23)
+        Me.DateTimePicker1.Size = New System.Drawing.Size(228, 27)
         Me.DateTimePicker1.TabIndex = 14
         '
         'Label3
         '
         Me.Label3.AutoSize = True
         Me.Label3.Font = New System.Drawing.Font("Segoe UI", 9.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point)
-        Me.Label3.Location = New System.Drawing.Point(530, 44)
+        Me.Label3.Location = New System.Drawing.Point(606, 59)
         Me.Label3.Name = "Label3"
-        Me.Label3.Size = New System.Drawing.Size(0, 15)
+        Me.Label3.Size = New System.Drawing.Size(0, 20)
         Me.Label3.TabIndex = 20
         '
         'Label2
         '
         Me.Label2.AutoSize = True
         Me.Label2.Font = New System.Drawing.Font("Segoe UI", 9.75!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point)
-        Me.Label2.Location = New System.Drawing.Point(6, 113)
+        Me.Label2.Location = New System.Drawing.Point(7, 151)
         Me.Label2.Name = "Label2"
-        Me.Label2.Size = New System.Drawing.Size(127, 17)
+        Me.Label2.Size = New System.Drawing.Size(166, 23)
         Me.Label2.TabIndex = 12
         Me.Label2.Text = "Backup Preferences"
         '
@@ -169,10 +168,9 @@ Partial Class normal_backup
         Me.Button5.Font = New System.Drawing.Font("Segoe UI Semibold", 9.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point)
         Me.Button5.Image = Global.Migrate_To_GDrive.My.Resources.Resources.data_copy_32
         Me.Button5.ImageAlign = System.Drawing.ContentAlignment.MiddleRight
-        Me.Button5.Location = New System.Drawing.Point(716, 143)
-        Me.Button5.Margin = New System.Windows.Forms.Padding(3, 2, 3, 2)
+        Me.Button5.Location = New System.Drawing.Point(818, 191)
         Me.Button5.Name = "Button5"
-        Me.Button5.Size = New System.Drawing.Size(141, 46)
+        Me.Button5.Size = New System.Drawing.Size(161, 61)
         Me.Button5.TabIndex = 7
         Me.Button5.Text = "Backup Now"
         Me.Button5.TextAlign = System.Drawing.ContentAlignment.MiddleLeft
@@ -185,10 +183,9 @@ Partial Class normal_backup
         Me.ComboBox1.Font = New System.Drawing.Font("Segoe UI", 9.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point)
         Me.ComboBox1.FormattingEnabled = True
         Me.ComboBox1.Items.AddRange(New Object() {"Anytime", "Today", "From Date"})
-        Me.ComboBox1.Location = New System.Drawing.Point(147, 115)
-        Me.ComboBox1.Margin = New System.Windows.Forms.Padding(3, 2, 3, 2)
+        Me.ComboBox1.Location = New System.Drawing.Point(179, 151)
         Me.ComboBox1.Name = "ComboBox1"
-        Me.ComboBox1.Size = New System.Drawing.Size(145, 23)
+        Me.ComboBox1.Size = New System.Drawing.Size(165, 28)
         Me.ComboBox1.TabIndex = 11
         '
         'Button3
@@ -197,10 +194,9 @@ Partial Class normal_backup
         Me.Button3.FlatAppearance.BorderColor = System.Drawing.Color.LightSteelBlue
         Me.Button3.FlatStyle = System.Windows.Forms.FlatStyle.Flat
         Me.Button3.Image = Global.Migrate_To_GDrive.My.Resources.Resources.folder
-        Me.Button3.Location = New System.Drawing.Point(817, 51)
-        Me.Button3.Margin = New System.Windows.Forms.Padding(3, 2, 3, 2)
+        Me.Button3.Location = New System.Drawing.Point(932, 66)
         Me.Button3.Name = "Button3"
-        Me.Button3.Size = New System.Drawing.Size(42, 34)
+        Me.Button3.Size = New System.Drawing.Size(48, 45)
         Me.Button3.TabIndex = 3
         Me.Button3.UseVisualStyleBackColor = False
         '
@@ -211,10 +207,9 @@ Partial Class normal_backup
         Me.Button1.FlatAppearance.BorderColor = System.Drawing.Color.LightSteelBlue
         Me.Button1.FlatStyle = System.Windows.Forms.FlatStyle.Flat
         Me.Button1.Image = Global.Migrate_To_GDrive.My.Resources.Resources.folder
-        Me.Button1.Location = New System.Drawing.Point(817, 13)
-        Me.Button1.Margin = New System.Windows.Forms.Padding(3, 2, 3, 2)
+        Me.Button1.Location = New System.Drawing.Point(932, 17)
         Me.Button1.Name = "Button1"
-        Me.Button1.Size = New System.Drawing.Size(42, 34)
+        Me.Button1.Size = New System.Drawing.Size(48, 45)
         Me.Button1.TabIndex = 0
         Me.Button1.TextAlign = System.Drawing.ContentAlignment.MiddleLeft
         Me.Button1.UseVisualStyleBackColor = False
@@ -223,40 +218,39 @@ Partial Class normal_backup
         '
         Me.Label1.AutoSize = True
         Me.Label1.Font = New System.Drawing.Font("Segoe UI", 9.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point)
-        Me.Label1.Location = New System.Drawing.Point(530, 85)
+        Me.Label1.Location = New System.Drawing.Point(606, 113)
         Me.Label1.Name = "Label1"
-        Me.Label1.Size = New System.Drawing.Size(0, 15)
+        Me.Label1.Size = New System.Drawing.Size(0, 20)
         Me.Label1.TabIndex = 10
         '
         'TextBox1
         '
-        Me.TextBox1.Location = New System.Drawing.Point(147, 19)
-        Me.TextBox1.Margin = New System.Windows.Forms.Padding(3, 2, 3, 2)
+        Me.TextBox1.Location = New System.Drawing.Point(179, 26)
         Me.TextBox1.Name = "TextBox1"
         Me.TextBox1.ScrollBars = System.Windows.Forms.ScrollBars.Horizontal
-        Me.TextBox1.Size = New System.Drawing.Size(664, 23)
+        Me.TextBox1.Size = New System.Drawing.Size(747, 27)
         Me.TextBox1.TabIndex = 1
         '
         'TextBox2
         '
-        Me.TextBox2.Location = New System.Drawing.Point(147, 63)
-        Me.TextBox2.Margin = New System.Windows.Forms.Padding(3, 2, 3, 2)
+        Me.TextBox2.Location = New System.Drawing.Point(179, 77)
         Me.TextBox2.Name = "TextBox2"
         Me.TextBox2.ScrollBars = System.Windows.Forms.ScrollBars.Horizontal
-        Me.TextBox2.Size = New System.Drawing.Size(664, 23)
+        Me.TextBox2.Size = New System.Drawing.Size(747, 27)
         Me.TextBox2.TabIndex = 4
         '
         'normal_backup
         '
-        Me.AutoScaleDimensions = New System.Drawing.SizeF(7.0!, 15.0!)
+        Me.AutoScaleDimensions = New System.Drawing.SizeF(8.0!, 20.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
         Me.AutoScroll = True
         Me.BackColor = System.Drawing.Color.LightSteelBlue
-        Me.ClientSize = New System.Drawing.Size(886, 569)
+        Me.ClientSize = New System.Drawing.Size(1013, 759)
         Me.Controls.Add(Me.RichTextBox1)
         Me.Controls.Add(Me.GroupBox2)
         Me.ForeColor = System.Drawing.SystemColors.ControlText
         Me.Icon = CType(resources.GetObject("$this.Icon"), System.Drawing.Icon)
+        Me.Margin = New System.Windows.Forms.Padding(3, 4, 3, 4)
         Me.Name = "normal_backup"
         Me.Text = "MigrateToGDrive | Normal Backup"
         Me.GroupBox2.ResumeLayout(False)
