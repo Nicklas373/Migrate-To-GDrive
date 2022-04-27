@@ -1,6 +1,7 @@
 ﻿Public Class normal_backup
     Dim filedialog As New FolderBrowserDialog
     Dim logPath As String = "log/log"
+    Dim roboPath As String = "log/robolog"
     Dim lastResult As String = "log/lastResult"
     Dim lastErr As String = "log/lastErr"
     Dim uiSrcPath As String = "conf/nrm_backup/nrmSrcPath"
@@ -63,6 +64,7 @@
                             PrepareNotif(lastResult)
                             PrepareNotif(lastErr)
                             ManualBackup("bat/MigrateToGDrive_AT_MN.bat")
+                            WriteFrRobo()
                         Else
                             CheckFileExist(lastResult, "err")
                             CheckFileExist(lastErr, "Destination drive not exist !")
@@ -97,6 +99,7 @@
                             PrepareNotif(lastResult)
                             PrepareNotif(lastErr)
                             ManualBackup("bat/MigrateToGDrive_TD_MN.bat")
+                            WriteFrRobo()
                         Else
                             CheckFileExist(lastResult, "err")
                             CheckFileExist(lastErr, "Destination drive not exist !")
@@ -151,6 +154,7 @@
                             PrepareNotif(lastResult)
                             PrepareNotif(lastErr)
                             ManualBackup("bat/MigrateToGDrive_FD_MN.bat")
+                            WriteFrRobo()
                         Else
                             CheckFileExist(lastResult, "err")
                             CheckFileExist(lastErr, "Destination drive not exist !")
@@ -215,5 +219,31 @@
         Else
             MsgBox(log & " File does not exist !", MsgBoxStyle.Critical, "MigrateToGDrive")
         End If
+    End Sub
+    Private Sub WriteFrRobo()
+        Dim destWriter As New StreamWriter(logPath, True)
+        destWriter.WriteLine(PathVal(roboPath, 1))
+        destWriter.WriteLine(PathVal(roboPath, 2))
+        destWriter.WriteLine(PathVal(roboPath, 3))
+        If File.ReadAllText(roboPath).IndexOf("same") >= 0 Then
+            destWriter.WriteLine(PathVal(roboPath, CInt(File.ReadAllLines(roboPath).Length) - 8))
+            destWriter.WriteLine(PathVal(roboPath, CInt(File.ReadAllLines(roboPath).Length) - 7))
+            destWriter.WriteLine(PathVal(roboPath, CInt(File.ReadAllLines(roboPath).Length) - 6))
+            destWriter.WriteLine(PathVal(roboPath, CInt(File.ReadAllLines(roboPath).Length) - 5))
+            destWriter.WriteLine(PathVal(roboPath, CInt(File.ReadAllLines(roboPath).Length) - 4))
+            destWriter.WriteLine(PathVal(roboPath, CInt(File.ReadAllLines(roboPath).Length) - 3))
+            destWriter.WriteLine(PathVal(roboPath, CInt(File.ReadAllLines(roboPath).Length) - 2))
+        Else
+            destWriter.WriteLine(PathVal(roboPath, CInt(File.ReadAllLines(roboPath).Length) - 11))
+            destWriter.WriteLine(PathVal(roboPath, CInt(File.ReadAllLines(roboPath).Length) - 10))
+            destWriter.WriteLine(PathVal(roboPath, CInt(File.ReadAllLines(roboPath).Length) - 9))
+            destWriter.WriteLine(PathVal(roboPath, CInt(File.ReadAllLines(roboPath).Length) - 8))
+            destWriter.WriteLine(PathVal(roboPath, CInt(File.ReadAllLines(roboPath).Length) - 7))
+            destWriter.WriteLine(PathVal(roboPath, CInt(File.ReadAllLines(roboPath).Length) - 4))
+            destWriter.WriteLine(PathVal(roboPath, CInt(File.ReadAllLines(roboPath).Length) - 3))
+            destWriter.WriteLine(PathVal(roboPath, CInt(File.ReadAllLines(roboPath).Length) - 2))
+            destWriter.WriteLine(PathVal(roboPath, CInt(File.ReadAllLines(roboPath).Length) - 1))
+        End If
+        destWriter.Close()
     End Sub
 End Class

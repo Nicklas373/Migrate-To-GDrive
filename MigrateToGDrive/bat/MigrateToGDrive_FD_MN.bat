@@ -6,7 +6,7 @@ set /p TTodatePath=<conf/nrm_backup/nrmToDatePath
 set /p Tprocessor=<conf/nrm_backup/nrmProcessor
 if exist "%TsrcPath%" (
 	if exist "%TdestPath%" (
-		call robocopy "%TsrcPath%" "%TdestPath%" * /S /DCOPY:DAT /MAXAGE:%TFrdatePath% /MINAGE:%TTodatePath% /MT:%Tprocessor% /LOG:log/log /TS /FP /TEE /V /ETA
+		call robocopy "%TsrcPath%" "%TdestPath%" * /S /DCOPY:DAT /MAXAGE:%TFrdatePath% /MINAGE:%TTodatePath% /MT:%Tprocessor% /LOG+:log/robolog /TS /FP /TEE /V /ETA /R:5
 		if %ERRORLEVEL% == 0 goto :next
 		if %ERRORLEVEL% == 4 goto :err4
 		if %ERRORLEVEL% == 8 goto :err8
@@ -72,7 +72,7 @@ if exist "%TsrcPath%" (
 		echo Source Path			: %TsrcPath% >> "log/log"
 		echo Destination Path			: %TdestPath% >> "log/log"
 		echo Backup Time			: %date% - %time% >> "log/log"
-		echo Backup Pref			: From Date %TFrdatePath% to %TTodatePath% >> "log/err"
+		echo Backup Pref			: From Date %TFrdatePath% to %TTodatePath% >> "log/log"
 		echo Backup Type			: Manual >> "log/log"
 		echo. >> "log/log"
 		goto :endofscript

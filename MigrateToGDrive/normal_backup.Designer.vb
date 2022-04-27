@@ -92,7 +92,7 @@ Partial Class normal_backup
         '
         Me.Label7.AutoSize = True
         Me.Label7.Font = New System.Drawing.Font("Segoe UI", 9.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point)
-        Me.Label7.Location = New System.Drawing.Point(606, 117)
+        Me.Label7.Location = New System.Drawing.Point(606, 107)
         Me.Label7.Margin = New System.Windows.Forms.Padding(2, 0, 2, 0)
         Me.Label7.Name = "Label7"
         Me.Label7.Size = New System.Drawing.Size(0, 20)
@@ -144,9 +144,9 @@ Partial Class normal_backup
         '
         Me.Label3.AutoSize = True
         Me.Label3.Font = New System.Drawing.Font("Segoe UI", 9.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point)
-        Me.Label3.Location = New System.Drawing.Point(606, 59)
+        Me.Label3.Location = New System.Drawing.Point(606, 54)
         Me.Label3.Name = "Label3"
-        Me.Label3.Size = New System.Drawing.Size(0, 20)
+        Me.Label3.Size = New System.Drawing.Size(43, 20)
         Me.Label3.TabIndex = 20
         '
         'Label2
