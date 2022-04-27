@@ -15,28 +15,35 @@
     <Copyright>HANA-CI Build Project 2016-2022</Copyright>
     <PackageIcon>drive.ico</PackageIcon>
     <PackageIconUrl />
-    <PackageReleaseNotes>V1.1.2.2 (20220425):
+    <PackageReleaseNotes>v1.1.3 (20220427):
+- Add Retry error flags for robocopy (Max: 5)
+- Dump robocopy log to specific log instead of main log
+- Fixup missed layout position on normal backup menu
+- Insert only robocopy statistic result on main log instead all of robocopy log
+- Reduce notification pop up for export log
+
+v1.1.2-rev2 (20220425):
 - Add ETA flags for robocopy
 - Misc UI changes on normal backup layout
 
-v1.1.2.1 (20220424):
+v1.1.2-rev1 (20220424):
 - Other misc changes
 - Re-design settings menu
 - Switch from xcopy library to robocopy library
 - Support new backup method with specific from &amp; to date
 
-v1.1.2.0 (20220423):
+v1.1.2 (20220423):
 - Code cleanup
 - Drop HMAC Encryption &amp; Decryption method (Issue with SHA-256 Decryption in some cases)
 - Re-design and use MdiParent layout
 - Support decryption for archive backup with several extensions (.7z &amp; .zip)
 
-v1.1.1.0 (20220420):
+v1.1.1 (20220420):
 - Code cleanup
 - Support vertical scrollbar on settings menu for unsupported display resolution
 - Support decryption for archive backup (SHA-256 or HMAC SHA-256)
 
-v1.1.0.0 (20220419):
+v1.1.0 (20220419):
 - Add more log for archive backup (success and error log)
 - Re-design several layout
 - Re-structure code to separate module
@@ -46,10 +53,10 @@ v1.1.0.0 (20220419):
   * Support password encryption on archive backup (SHA-256 or HMAC SHA-256) 
   * Decryption still work in progress
 
-v1.0.0.0 (20220416):
+v1.0.0 (20220416):
 - INITIAL RELEASE</PackageReleaseNotes>
     <ApplicationManifest>My Project\app.manifest</ApplicationManifest>
-    <Version>1.1.2.2</Version>
+    <Version>1.1.3</Version>
     <Description>simple application that primary have aim to backup data from directory to directory that was specified from users with several time frame options and include with scheduler management that can do backup automatically. And also support some essentials features like backup as archive with or without encryption for security (Only for password).
 
 Additional library:
