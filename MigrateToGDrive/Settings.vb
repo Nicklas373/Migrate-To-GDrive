@@ -347,10 +347,10 @@ Public Class Settings
         Dim trimSrc As String
         If conf = 1 Then
             If File.Exists(confPath) Then
-                If ConfVal(1, confPath).Equals("null") Then
+                If PathVal(confPath, 1).Equals("null") Then
                     Label2.Text = ""
                 Else
-                    trimSrc = ConfVal(1, confPath).Replace("Source Directory: ", "")
+                    trimSrc = PathVal(confPath, 1).Replace("Source Directory: ", "")
                     If Directory.Exists(trimSrc) Then
                         Dim freeSpaceSrc As Double = (My.Computer.FileSystem.GetDriveInfo(trimSrc.Remove(3)).TotalFreeSpace / 1024 / 1024 / 1024)
                         Dim totalspaceSrc As Double = (My.Computer.FileSystem.GetDriveInfo(trimSrc.Remove(3)).TotalSize / 1024 / 1024 / 1024)
@@ -382,10 +382,10 @@ Public Class Settings
         Dim trimDest As String
         If conf = 1 Then
             If File.Exists(confPath) Then
-                If ConfVal(2, confPath).Equals("null") Then
+                If PathVal(confPath, 2).Equals("null") Then
                     Label1.Text = ""
                 Else
-                    trimDest = ConfVal(2, confPath).Replace("Destination Directory: ", "")
+                    trimDest = PathVal(confPath, 2).Replace("Destination Directory: ", "")
                     If Directory.Exists(trimDest) Then
                         Dim freeSpaceDest As Double = (My.Computer.FileSystem.GetDriveInfo(trimDest.Remove(3)).TotalFreeSpace / 1024 / 1024 / 1024)
                         Dim totalspaceDest As Double = (My.Computer.FileSystem.GetDriveInfo(trimDest.Remove(3)).TotalSize / 1024 / 1024 / 1024)
@@ -415,9 +415,9 @@ Public Class Settings
     End Sub
     Private Sub GetBackPref()
         If File.Exists(confPath) Then
-            If ConfVal(3, confPath).Replace("Backup Preferences: ", "").Equals("Anytime") Then
+            If PathVal(confPath, 3).Replace("Backup Preferences: ", "").Equals("Anytime") Then
                 ComboBox1.SelectedIndex = 0
-            ElseIf ConfVal(3, confPath).Replace("Backup Preferences: ", "").Equals("Today") Then
+            ElseIf pathval(confPath, 3).Replace("Backup Preferences: ", "").Equals("Today") Then
                 ComboBox1.SelectedIndex = 1
             End If
         End If

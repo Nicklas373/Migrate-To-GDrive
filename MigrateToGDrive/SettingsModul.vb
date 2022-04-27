@@ -14,9 +14,9 @@ Module SettingsModul
         Dim trimSrc As String
         Dim trimDest As String
         Dim trimBak As String
-        trimSrc = ConfVal(1, confPath).Replace("Source Directory: ", "")
-        trimDest = ConfVal(2, confPath).Replace("Destination Directory: ", "")
-        trimBak = ConfVal(3, confPath).Replace("Backup Preferences: ", "")
+        trimSrc = PathVal(confPath, 1).Replace("Source Directory: ", "")
+        trimDest = PathVal(confPath, 2).Replace("Destination Directory: ", "")
+        trimBak = PathVal(confPath, 3).Replace("Backup Preferences: ", "")
         CheckFileExist(cliSrcPath, trimSrc)
         CheckFileExist(cliDestPath, trimDest)
         If trimBak = "null" Then

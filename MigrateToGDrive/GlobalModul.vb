@@ -54,16 +54,6 @@
             Return value
         End If
     End Function
-    Public Function ConfVal(line As Integer, confPath As String) As String
-        Dim value As String
-        If New FileInfo(confPath).Length = 0 Then
-            value = "null"
-            Return value
-        Else
-            value = File.ReadAllLines(confPath).ElementAt(line).ToString
-            Return value
-        End If
-    End Function
     Public Function GetSrcDriveSize(dir As String) As String
         Dim srcDir As String
         If dir = "" Then
