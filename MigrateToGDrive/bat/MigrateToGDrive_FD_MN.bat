@@ -67,6 +67,7 @@ if exist "%TsrcPath%" (
 
 		:next
 		echo success>> "log/lastResult"
+		echo. >> "log/log"
 		echo # MigrateToGDrive v1.1 >> "log/log"
 		echo Backup Result			: Success >> "log/log"
 		echo Source Path			: %TsrcPath% >> "log/log"
