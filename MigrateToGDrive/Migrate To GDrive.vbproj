@@ -15,7 +15,10 @@
     <Copyright>HANA-CI Build Project 2016-2022</Copyright>
     <PackageIcon>drive.ico</PackageIcon>
     <PackageIconUrl />
-    <PackageReleaseNotes>v1.1.3 (20220427):
+    <PackageReleaseNotes>v1.1.4 (20220509):
+- Cleanup robocopy log when normal backup is running
+
+v1.1.3 (20220427):
 - Add Retry error flags for robocopy (Max: 5)
 - Dump robocopy log to specific log instead of main log
 - Fixup missed layout position on normal backup menu
@@ -56,7 +59,7 @@ v1.1.0 (20220419):
 v1.0.0 (20220416):
 - INITIAL RELEASE</PackageReleaseNotes>
     <ApplicationManifest>My Project\app.manifest</ApplicationManifest>
-    <Version>1.1.3</Version>
+    <Version>1.1.4</Version>
     <Description>simple application that primary have aim to backup data from directory to directory that was specified from users with several time frame options and include with scheduler management that can do backup automatically. And also support some essentials features like backup as archive with or without encryption for security (Only for password).
 
 Additional library:
@@ -69,6 +72,8 @@ Additional library:
     <PackageTags>#Migrate-To-GDrive</PackageTags>
     <NeutralLanguage>en-US</NeutralLanguage>
     <OptionExplicit>Off</OptionExplicit>
+    <AssemblyVersion>1.1.4</AssemblyVersion>
+    <FileVersion>1.1.4</FileVersion>
   </PropertyGroup>
 
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|AnyCPU'">
