@@ -136,16 +136,28 @@
                         Dim destWriter As New StreamWriter(uiToDatePath, True)
                         Dim dt As Date = DateTimePicker2.Value.ToShortDateString
                         Dim newDate As Integer = Integer.Parse(dt.ToString("dd") + 1)
-                        Dim newMonthYear As String = dt.ToString("yyyyMM")
-                        destWriter.WriteLine(newMonthYear + newDate.ToString)
+                        If newDate < 10 Then
+                            Dim newAffixDate = "0" + newDate.ToString
+                            Dim newMonthYear As String = dt.ToString("yyyyMM")
+                            destWriter.WriteLine(newMonthYear + newAffixDate.ToString)
+                        Else
+                            Dim newMonthYear As String = dt.ToString("yyyyMM")
+                            destWriter.WriteLine(newMonthYear + newDate.ToString)
+                        End If
                         destWriter.Close()
                     Else
                         File.Create(uiToDatePath).Dispose()
                         Dim destWriter As New StreamWriter(uiToDatePath, True)
                         Dim dt As Date = DateTimePicker2.Value.ToShortDateString
                         Dim newDate As Integer = Integer.Parse(dt.ToString("dd") + 1)
-                        Dim newMonthYear As String = dt.ToString("yyyyMM")
-                        destWriter.WriteLine(newMonthYear + newDate.ToString)
+                        If newDate < 10 Then
+                            Dim newAffixDate = "0" + newDate.ToString
+                            Dim newMonthYear As String = dt.ToString("yyyyMM")
+                            destWriter.WriteLine(newMonthYear + newAffixDate.ToString)
+                        Else
+                            Dim newMonthYear As String = dt.ToString("yyyyMM")
+                            destWriter.WriteLine(newMonthYear + newDate.ToString)
+                        End If
                         destWriter.Close()
                     End If
                     uiTrimSrc = TextBox1.Text
