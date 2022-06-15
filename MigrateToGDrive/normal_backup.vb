@@ -1,5 +1,6 @@
 ﻿Public Class normal_backup
     Dim filedialog As New FolderBrowserDialog
+    Dim specificfiledialog As New OpenFileDialog
     Dim logPath As String = "log/log"
     Dim roboPath As String = "log/robolog"
     Dim lastResult As String = "log/lastResult"
@@ -10,6 +11,8 @@
     Dim uiReDatePath As String = "conf/nrm_backup/nrmReDatePath"
     Dim uiToDatePath As String = "conf/nrm_backup/nrmToDatePath"
     Dim uiProcessorCount As String = "conf/nrm_backup/nrmProcessor"
+    Dim uiSpecFilePath As String = "conf/nrm_backup/nrmSpecfilePath"
+    Dim actualDir As String
     Private Sub normal_backup_Load(sender As Object, e As EventArgs) Handles MyBase.Load
         DateTimePicker1.Visible = False
         DateTimePicker1.Format = DateTimePickerFormat.Custom
@@ -24,24 +27,43 @@
         WriteLogicalCount(uiProcessorCount)
     End Sub
     Private Sub Button1_Click(sender As Object, e As EventArgs) Handles Button1.Click
-        filedialog.InitialDirectory = Environment.SpecialFolder.UserProfile
-        filedialog.ShowDialog()
+        If ComboBox2.Text = "Copy Folder" Then
+            filedialog.InitialDirectory = Environment.SpecialFolder.UserProfile
+            filedialog.ShowDialog()
+        ElseIf ComboBox2.Text = "Copy File" Then
+            specificfiledialog.InitialDirectory = Environment.SpecialFolder.UserProfile
+            specificfiledialog.ShowDialog()
+        Else
+            MsgBox("Copy options was not selected !, Please select copy options first !", MsgBoxStyle.Critical, "MigrateToGDrive")
+        End If
     End Sub
     Private Sub FolderBrowserDialog1_Disposed(sender As Object, e As EventArgs) Handles Button1.Click
-        TextBox1.Text = FileDialog.SelectedPath.ToString
-        Label3.Text = GetSrcDriveSize(TextBox1.Text)
+        If ComboBox2.Text = "Copy Folder" Then
+            TextBox1.Text = filedialog.SelectedPath.ToString
+            actualDir = filedialog.SelectedPath.ToString
+            Label3.Text = GetSrcDriveSize(actualDir)
+            Label9.Text = actualDir
+        ElseIf ComboBox2.Text = "Copy File" Then
+            TextBox1.Text = Path.GetFileName(specificfiledialog.FileName.ToString)
+            If (specificfiledialog.FileName.ToString) = "" Then
+                Label3.Text = ""
+                Label9.Text = ""
+            Else
+                actualDir = Path.GetFullPath(specificfiledialog.FileName.ToString)
+                Label3.Text = GetSrcDriveSize(Path.GetDirectoryName(actualDir))
+                Label9.Text = Path.GetDirectoryName(actualDir)
+            End If
+        End If
     End Sub
     Private Sub Button3_Click(sender As Object, e As EventArgs) Handles Button3.Click
         filedialog.InitialDirectory = Environment.SpecialFolder.UserProfile
         filedialog.ShowDialog()
     End Sub
     Private Sub FolderBrowserDialog2_Disposed(sender As Object, e As EventArgs) Handles Button3.Click
-        TextBox2.Text = FileDialog.SelectedPath.ToString
+        TextBox2.Text = filedialog.SelectedPath.ToString
         Label7.Text = GetDestDriveSize(TextBox2.Text)
     End Sub
     Private Sub Button5_Click(sender As Object, e As EventArgs) Handles Button5.Click
-        Dim uiTrimSrc As String
-        Dim uiTrimDest As String
         RichTextBox1.Text = "Processing ..."
         If TextBox1.Text = "" Then
             MsgBox("Source folder is empty !, please fill source folder location", MsgBoxStyle.Critical, "MigrateToGDrive")
@@ -51,133 +73,18 @@
                 MsgBox("Destination folder is empty !, Please fill source folder location", MsgBoxStyle.Critical, "MigrateToGDrive")
                 RichTextBox1.Text = ""
             ElseIf ComboBox1.Text = "" Then
-                MsgBox("Backup preference is empty !, Please select backup preference first !", MsgBoxStyle.Critical, "MigrateToGDrive")
+                MsgBox("Backup options was not selected  !, Please select backup options first !", MsgBoxStyle.Critical, "MigrateToGDrive")
                 RichTextBox1.Text = ""
             Else
-                If File.Exists(roboPath) Then
-                    PrepareNotif(roboPath)
-                End If
-                If ComboBox1.Text = "Anytime" Then
-                    uiTrimSrc = TextBox1.Text
-                    uiTrimDest = TextBox2.Text
-                    If Directory.Exists(uiTrimSrc) Then
-                        If Directory.Exists(uiTrimDest) Then
-                            CheckFileExist(uiSrcPath, uiTrimSrc)
-                            CheckFileExist(uiDestPath, uiTrimDest)
-                            PrepareNotif(lastResult)
-                            PrepareNotif(lastErr)
-                            ManualBackup("bat/MigrateToGDrive_AT_MN.bat")
-                            WriteFrRobo()
-                        Else
-                            CheckFileExist(lastResult, "err")
-                            CheckFileExist(lastErr, "Destination drive not exist !")
-                        End If
-                    Else
-                        CheckFileExist(lastResult, "err")
-                        CheckFileExist(lastErr, "Source drive not exist !")
-                    End If
-                ElseIf ComboBox1.Text = "Today" Then
-                    If File.Exists(uiReDatePath) Then
-                        GC.Collect()
-                        GC.WaitForPendingFinalizers()
-                        File.Delete(uiReDatePath)
-                        File.Create(uiReDatePath).Dispose()
-                        Dim destWriter As New StreamWriter(uiReDatePath, True)
-                        Dim dt As Date = Today
-                        destWriter.WriteLine(dt.ToString("yyyyMMdd"))
-                        destWriter.Close()
-                    Else
-                        File.Create(uiReDatePath).Dispose()
-                        Dim destWriter As New StreamWriter(uiReDatePath, True)
-                        Dim dt As Date = Today
-                        destWriter.WriteLine(dt.ToString("yyyyMMdd"))
-                        destWriter.Close()
-                    End If
-                    uiTrimSrc = TextBox1.Text
-                    uiTrimDest = TextBox2.Text
-                    If Directory.Exists(uiTrimSrc) Then
-                        If Directory.Exists(uiTrimDest) Then
-                            CheckFileExist(uiSrcPath, uiTrimSrc)
-                            CheckFileExist(uiDestPath, uiTrimDest)
-                            PrepareNotif(lastResult)
-                            PrepareNotif(lastErr)
-                            ManualBackup("bat/MigrateToGDrive_TD_MN.bat")
-                            WriteFrRobo()
-                        Else
-                            CheckFileExist(lastResult, "err")
-                            CheckFileExist(lastErr, "Destination drive not exist !")
-                        End If
-                    Else
-                        CheckFileExist(lastResult, "err")
-                        CheckFileExist(lastErr, "Source drive not exist !")
-                    End If
-                ElseIf ComboBox1.Text = "From Date" Then
-                    If File.Exists(uiFrDatePath) Then
-                        GC.Collect()
-                        GC.WaitForPendingFinalizers()
-                        File.Delete(uiFrDatePath)
-                        File.Create(uiFrDatePath).Dispose()
-                        Dim destWriter As New StreamWriter(uiFrDatePath, True)
-                        Dim dt As Date = DateTimePicker1.Value.ToShortDateString
-                        destWriter.WriteLine(dt.ToString("yyyyMMdd"))
-                        destWriter.Close()
-                    Else
-                        File.Create(uiFrDatePath).Dispose()
-                        Dim destWriter As New StreamWriter(uiFrDatePath, True)
-                        Dim dt As Date = DateTimePicker1.Value.ToShortDateString
-                        destWriter.WriteLine(dt.ToString("yyyyMMdd"))
-                        destWriter.Close()
-                    End If
-                    If File.Exists(uiToDatePath) Then
-                        GC.Collect()
-                        GC.WaitForPendingFinalizers()
-                        File.Delete(uiToDatePath)
-                        File.Create(uiToDatePath).Dispose()
-                        Dim destWriter As New StreamWriter(uiToDatePath, True)
-                        Dim dt As Date = DateTimePicker2.Value.ToShortDateString
-                        Dim newDate As Integer = Integer.Parse(dt.ToString("dd") + 1)
-                        If newDate < 10 Then
-                            Dim newAffixDate = "0" + newDate.ToString
-                            Dim newMonthYear As String = dt.ToString("yyyyMM")
-                            destWriter.WriteLine(newMonthYear + newAffixDate.ToString)
-                        Else
-                            Dim newMonthYear As String = dt.ToString("yyyyMM")
-                            destWriter.WriteLine(newMonthYear + newDate.ToString)
-                        End If
-                        destWriter.Close()
-                    Else
-                        File.Create(uiToDatePath).Dispose()
-                        Dim destWriter As New StreamWriter(uiToDatePath, True)
-                        Dim dt As Date = DateTimePicker2.Value.ToShortDateString
-                        Dim newDate As Integer = Integer.Parse(dt.ToString("dd") + 1)
-                        If newDate < 10 Then
-                            Dim newAffixDate = "0" + newDate.ToString
-                            Dim newMonthYear As String = dt.ToString("yyyyMM")
-                            destWriter.WriteLine(newMonthYear + newAffixDate.ToString)
-                        Else
-                            Dim newMonthYear As String = dt.ToString("yyyyMM")
-                            destWriter.WriteLine(newMonthYear + newDate.ToString)
-                        End If
-                        destWriter.Close()
-                    End If
-                    uiTrimSrc = TextBox1.Text
-                    uiTrimDest = TextBox2.Text
-                    If Directory.Exists(uiTrimSrc) Then
-                        If Directory.Exists(uiTrimDest) Then
-                            CheckFileExist(uiSrcPath, uiTrimSrc)
-                            CheckFileExist(uiDestPath, uiTrimDest)
-                            PrepareNotif(lastResult)
-                            PrepareNotif(lastErr)
-                            ManualBackup("bat/MigrateToGDrive_FD_MN.bat")
-                            WriteFrRobo()
-                        Else
-                            CheckFileExist(lastResult, "err")
-                            CheckFileExist(lastErr, "Destination drive not exist !")
-                        End If
-                    Else
-                        CheckFileExist(lastResult, "err")
-                        CheckFileExist(lastErr, "Source drive not exist !")
-                    End If
+                If ComboBox2.Text = "Copy Folder" Then
+                    CheckFileExist(uiSpecFilePath, "*")
+                    beginCopy()
+                ElseIf ComboBox2.Text = "Copy File" Then
+                    CheckFileExist(uiSpecFilePath, TextBox1.Text.ToString)
+                    beginCopy()
+                Else
+                    MsgBox("Copy options was not selected !, Please select copy options first !", MsgBoxStyle.Critical, "MigrateToGDrive")
+                    RichTextBox1.Text = ""
                 End If
                 ShowNotif()
             End If
@@ -233,6 +140,133 @@
             End If
         Else
             MsgBox(log & " File does not exist !", MsgBoxStyle.Critical, "MigrateToGDrive")
+        End If
+    End Sub
+    Private Sub beginCopy()
+        If File.Exists(roboPath) Then
+            PrepareNotif(roboPath)
+        End If
+        If ComboBox1.Text = "Anytime" Then
+            uiTrimSrc = Label9.Text
+            uiTrimDest = TextBox2.Text
+            If Directory.Exists(uiTrimSrc) Then
+                If Directory.Exists(uiTrimDest) Then
+                    CheckFileExist(uiSrcPath, uiTrimSrc)
+                    CheckFileExist(uiDestPath, uiTrimDest)
+                    PrepareNotif(lastResult)
+                    PrepareNotif(lastErr)
+                    ManualBackup("bat/MigrateToGDrive_AT_MN.bat")
+                    WriteFrRobo()
+                Else
+                    CheckFileExist(lastResult, "err")
+                    CheckFileExist(lastErr, "Destination drive not exist !")
+                End If
+            Else
+                CheckFileExist(lastResult, "err")
+                CheckFileExist(lastErr, "Source drive not exist !")
+            End If
+        ElseIf ComboBox1.Text = "Today" Then
+            If File.Exists(uiReDatePath) Then
+                GC.Collect()
+                GC.WaitForPendingFinalizers()
+                File.Delete(uiReDatePath)
+                File.Create(uiReDatePath).Dispose()
+                Dim destWriter As New StreamWriter(uiReDatePath, True)
+                Dim dt As Date = Today
+                destWriter.WriteLine(dt.ToString("yyyyMMdd"))
+                destWriter.Close()
+            Else
+                File.Create(uiReDatePath).Dispose()
+                Dim destWriter As New StreamWriter(uiReDatePath, True)
+                Dim dt As Date = Today
+                destWriter.WriteLine(dt.ToString("yyyyMMdd"))
+                destWriter.Close()
+            End If
+            uiTrimSrc = Label9.Text
+            uiTrimDest = TextBox2.Text
+            If Directory.Exists(uiTrimSrc) Then
+                If Directory.Exists(uiTrimDest) Then
+                    CheckFileExist(uiSrcPath, uiTrimSrc)
+                    CheckFileExist(uiDestPath, uiTrimDest)
+                    PrepareNotif(lastResult)
+                    PrepareNotif(lastErr)
+                    ManualBackup("bat/MigrateToGDrive_TD_MN.bat")
+                    WriteFrRobo()
+                Else
+                    CheckFileExist(lastResult, "err")
+                    CheckFileExist(lastErr, "Destination drive not exist !")
+                End If
+            Else
+                CheckFileExist(lastResult, "err")
+                CheckFileExist(lastErr, "Source drive not exist !")
+            End If
+        ElseIf ComboBox1.Text = "From Date" Then
+            If File.Exists(uiFrDatePath) Then
+                GC.Collect()
+                GC.WaitForPendingFinalizers()
+                File.Delete(uiFrDatePath)
+                File.Create(uiFrDatePath).Dispose()
+                Dim destWriter As New StreamWriter(uiFrDatePath, True)
+                Dim dt As Date = DateTimePicker1.Value.ToShortDateString
+                destWriter.WriteLine(dt.ToString("yyyyMMdd"))
+                destWriter.Close()
+            Else
+                File.Create(uiFrDatePath).Dispose()
+                Dim destWriter As New StreamWriter(uiFrDatePath, True)
+                Dim dt As Date = DateTimePicker1.Value.ToShortDateString
+                destWriter.WriteLine(dt.ToString("yyyyMMdd"))
+                destWriter.Close()
+            End If
+            If File.Exists(uiToDatePath) Then
+                GC.Collect()
+                GC.WaitForPendingFinalizers()
+                File.Delete(uiToDatePath)
+                File.Create(uiToDatePath).Dispose()
+                Dim destWriter As New StreamWriter(uiToDatePath, True)
+                Dim dt As Date = DateTimePicker2.Value.ToShortDateString
+                Dim newDate As Integer = Integer.Parse(dt.ToString("dd") + 1)
+                If newDate < 10 Then
+                    Dim newAffixDate = "0" + newDate.ToString
+                    Dim newMonthYear As String = dt.ToString("yyyyMM")
+                    destWriter.WriteLine(newMonthYear + newAffixDate.ToString)
+                Else
+                    Dim newMonthYear As String = dt.ToString("yyyyMM")
+                    destWriter.WriteLine(newMonthYear + newDate.ToString)
+                End If
+                destWriter.Close()
+            Else
+                File.Create(uiToDatePath).Dispose()
+                Dim destWriter As New StreamWriter(uiToDatePath, True)
+                Dim dt As Date = DateTimePicker2.Value.ToShortDateString
+                Dim newDate As Integer = Integer.Parse(dt.ToString("dd") + 1)
+                If newDate < 10 Then
+                    Dim newAffixDate = "0" + newDate.ToString
+                    Dim newMonthYear As String = dt.ToString("yyyyMM")
+                    destWriter.WriteLine(newMonthYear + newAffixDate.ToString)
+                Else
+                    Dim newMonthYear As String = dt.ToString("yyyyMM")
+                    destWriter.WriteLine(newMonthYear + newDate.ToString)
+                End If
+                destWriter.Close()
+            End If
+            uiTrimSrc = Label9.Text
+            uiTrimDest = TextBox2.Text
+            If Directory.Exists(uiTrimSrc) Then
+                If Directory.Exists(uiTrimDest) Then
+                    CheckFileExist(uiSrcPath, uiTrimSrc)
+                    CheckFileExist(uiDestPath, uiTrimDest)
+                    PrepareNotif(lastResult)
+                    PrepareNotif(lastErr)
+                    ManualBackup("bat/MigrateToGDrive_FD_MN.bat")
+                    WriteFrRobo()
+                Else
+                    CheckFileExist(lastResult, "err")
+                    CheckFileExist(lastErr, "Destination drive not exist !")
+                End If
+            Else
+                CheckFileExist(lastResult, "err")
+                CheckFileExist(lastErr, "Source drive not exist !")
+            End If
         End If
     End Sub
     Private Sub WriteFrRobo()

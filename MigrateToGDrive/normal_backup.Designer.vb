@@ -25,6 +25,8 @@ Partial Class normal_backup
         Dim resources As System.ComponentModel.ComponentResourceManager = New System.ComponentModel.ComponentResourceManager(GetType(normal_backup))
         Me.RichTextBox1 = New System.Windows.Forms.RichTextBox()
         Me.GroupBox2 = New System.Windows.Forms.GroupBox()
+        Me.ComboBox2 = New System.Windows.Forms.ComboBox()
+        Me.Label8 = New System.Windows.Forms.Label()
         Me.DateTimePicker2 = New System.Windows.Forms.DateTimePicker()
         Me.Label7 = New System.Windows.Forms.Label()
         Me.Label6 = New System.Windows.Forms.Label()
@@ -40,6 +42,7 @@ Partial Class normal_backup
         Me.Label1 = New System.Windows.Forms.Label()
         Me.TextBox1 = New System.Windows.Forms.TextBox()
         Me.TextBox2 = New System.Windows.Forms.TextBox()
+        Me.Label9 = New System.Windows.Forms.Label()
         Me.GroupBox2.SuspendLayout()
         Me.SuspendLayout()
         '
@@ -55,6 +58,8 @@ Partial Class normal_backup
         '
         'GroupBox2
         '
+        Me.GroupBox2.Controls.Add(Me.ComboBox2)
+        Me.GroupBox2.Controls.Add(Me.Label8)
         Me.GroupBox2.Controls.Add(Me.DateTimePicker2)
         Me.GroupBox2.Controls.Add(Me.Label7)
         Me.GroupBox2.Controls.Add(Me.Label6)
@@ -78,6 +83,28 @@ Partial Class normal_backup
         Me.GroupBox2.TabIndex = 21
         Me.GroupBox2.TabStop = False
         Me.GroupBox2.Text = "Backup"
+        '
+        'ComboBox2
+        '
+        Me.ComboBox2.BackColor = System.Drawing.Color.White
+        Me.ComboBox2.FlatStyle = System.Windows.Forms.FlatStyle.Flat
+        Me.ComboBox2.Font = New System.Drawing.Font("Segoe UI", 9.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point)
+        Me.ComboBox2.FormattingEnabled = True
+        Me.ComboBox2.Items.AddRange(New Object() {"Copy Folder", "Copy File"})
+        Me.ComboBox2.Location = New System.Drawing.Point(179, 201)
+        Me.ComboBox2.Name = "ComboBox2"
+        Me.ComboBox2.Size = New System.Drawing.Size(165, 28)
+        Me.ComboBox2.TabIndex = 23
+        '
+        'Label8
+        '
+        Me.Label8.AutoSize = True
+        Me.Label8.Font = New System.Drawing.Font("Segoe UI", 9.75!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point)
+        Me.Label8.Location = New System.Drawing.Point(7, 201)
+        Me.Label8.Name = "Label8"
+        Me.Label8.Size = New System.Drawing.Size(119, 23)
+        Me.Label8.TabIndex = 22
+        Me.Label8.Text = "Copy Options"
         '
         'DateTimePicker2
         '
@@ -116,9 +143,9 @@ Partial Class normal_backup
         Me.Label5.Font = New System.Drawing.Font("Segoe UI", 9.75!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point)
         Me.Label5.Location = New System.Drawing.Point(7, 25)
         Me.Label5.Name = "Label5"
-        Me.Label5.Size = New System.Drawing.Size(120, 23)
+        Me.Label5.Size = New System.Drawing.Size(107, 23)
         Me.Label5.TabIndex = 17
-        Me.Label5.Text = "Source Folder"
+        Me.Label5.Text = "Source Data"
         Me.Label5.TextAlign = System.Drawing.ContentAlignment.MiddleCenter
         '
         'Label4
@@ -146,7 +173,7 @@ Partial Class normal_backup
         Me.Label3.Font = New System.Drawing.Font("Segoe UI", 9.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point)
         Me.Label3.Location = New System.Drawing.Point(606, 54)
         Me.Label3.Name = "Label3"
-        Me.Label3.Size = New System.Drawing.Size(43, 20)
+        Me.Label3.Size = New System.Drawing.Size(0, 20)
         Me.Label3.TabIndex = 20
         '
         'Label2
@@ -155,9 +182,9 @@ Partial Class normal_backup
         Me.Label2.Font = New System.Drawing.Font("Segoe UI", 9.75!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point)
         Me.Label2.Location = New System.Drawing.Point(7, 151)
         Me.Label2.Name = "Label2"
-        Me.Label2.Size = New System.Drawing.Size(166, 23)
+        Me.Label2.Size = New System.Drawing.Size(137, 23)
         Me.Label2.TabIndex = 12
-        Me.Label2.Text = "Backup Preferences"
+        Me.Label2.Text = "Backup Options"
         '
         'Button5
         '
@@ -239,6 +266,17 @@ Partial Class normal_backup
         Me.TextBox2.Size = New System.Drawing.Size(747, 27)
         Me.TextBox2.TabIndex = 4
         '
+        'Label9
+        '
+        Me.Label9.AutoSize = True
+        Me.Label9.Font = New System.Drawing.Font("Segoe UI", 9.75!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point)
+        Me.Label9.Location = New System.Drawing.Point(14, 282)
+        Me.Label9.Name = "Label9"
+        Me.Label9.Size = New System.Drawing.Size(74, 23)
+        Me.Label9.TabIndex = 24
+        Me.Label9.Text = "Dummy"
+        Me.Label9.Visible = False
+        '
         'normal_backup
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(8.0!, 20.0!)
@@ -246,6 +284,7 @@ Partial Class normal_backup
         Me.AutoScroll = True
         Me.BackColor = System.Drawing.Color.LightSteelBlue
         Me.ClientSize = New System.Drawing.Size(1013, 759)
+        Me.Controls.Add(Me.Label9)
         Me.Controls.Add(Me.RichTextBox1)
         Me.Controls.Add(Me.GroupBox2)
         Me.ForeColor = System.Drawing.SystemColors.ControlText
@@ -256,6 +295,7 @@ Partial Class normal_backup
         Me.GroupBox2.ResumeLayout(False)
         Me.GroupBox2.PerformLayout()
         Me.ResumeLayout(False)
+        Me.PerformLayout()
 
     End Sub
 
@@ -276,4 +316,7 @@ Partial Class normal_backup
     Friend WithEvents TextBox1 As TextBox
     Friend WithEvents TextBox2 As TextBox
     Friend WithEvents DateTimePicker2 As DateTimePicker
+    Friend WithEvents ComboBox2 As ComboBox
+    Friend WithEvents Label8 As Label
+    Friend WithEvents Label9 As Label
 End Class
