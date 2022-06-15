@@ -15,7 +15,11 @@
     <Copyright>HANA-CI Build Project 2016-2022</Copyright>
     <PackageIcon>drive.ico</PackageIcon>
     <PackageIconUrl />
-    <PackageReleaseNotes>v1.1.5 (20220603):
+    <PackageReleaseNotes>v1.1.6 (20220615):
+- Add options to backup for specific file only
+- Add /COMPRESS and /NOOFFLOAD algorithm for robocopy to solve issue slow data transfer while using SMB on WIFI
+
+v1.1.5 (20220603):
 - Fixup backup issue when 'from date' filter with case the first week of the month
 
 v1.1.4 (20220509):
@@ -62,7 +66,7 @@ v1.1.0 (20220419):
 v1.0.0 (20220416):
 - INITIAL RELEASE</PackageReleaseNotes>
     <ApplicationManifest>My Project\app.manifest</ApplicationManifest>
-    <Version>1.1.5</Version>
+    <Version>1.1.6</Version>
     <Description>simple application that primary have aim to backup data from directory to directory that was specified from users with several time frame options and include with scheduler management that can do backup automatically. And also support some essentials features like backup as archive with or without encryption for security (Only for password).
 
 Additional library:
@@ -75,8 +79,8 @@ Additional library:
     <PackageTags>#Migrate-To-GDrive</PackageTags>
     <NeutralLanguage>en-US</NeutralLanguage>
     <OptionExplicit>Off</OptionExplicit>
-    <AssemblyVersion>1.1.5</AssemblyVersion>
-    <FileVersion>1.1.5</FileVersion>
+    <AssemblyVersion>1.1.6</AssemblyVersion>
+    <FileVersion>1.1.6</FileVersion>
   </PropertyGroup>
 
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|AnyCPU'">
