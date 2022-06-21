@@ -115,7 +115,7 @@ Partial Class advanced_restore
         Me.Label6.Font = New System.Drawing.Font("Segoe UI", 9.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point)
         Me.Label6.Location = New System.Drawing.Point(633, 121)
         Me.Label6.Name = "Label6"
-        Me.Label6.Size = New System.Drawing.Size(43, 20)
+        Me.Label6.Size = New System.Drawing.Size(0, 20)
         Me.Label6.TabIndex = 33
         '
         'Label4
@@ -124,7 +124,7 @@ Partial Class advanced_restore
         Me.Label4.Font = New System.Drawing.Font("Segoe UI", 9.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point)
         Me.Label4.Location = New System.Drawing.Point(633, 65)
         Me.Label4.Name = "Label4"
-        Me.Label4.Size = New System.Drawing.Size(43, 20)
+        Me.Label4.Size = New System.Drawing.Size(0, 20)
         Me.Label4.TabIndex = 33
         '
         'Button6
