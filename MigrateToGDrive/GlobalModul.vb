@@ -54,6 +54,28 @@
             Return value
         End If
     End Function
+    Public Function getFileSize(file As String) As String
+        Dim srcFile As String
+        If file = "" Then
+            srcFile = ""
+            Return srcFile
+        Else
+            Dim newFile As New FileInfo(file)
+            If newFile.Exists Then
+                Dim fileSize As Double = newFile.Length / 1024 / 1024
+                If fileSize < 1.0 Then
+                    Dim newFileSize As Double = (newFile.Length / 1024)
+                    srcFile = Format(newFileSize, "###.##").ToString & " KB"
+                Else
+                    srcFile = Format(fileSize, "###.##").ToString & " MB"
+                End If
+                Return srcFile
+            Else
+                srcFile = "File not found"
+                Return srcFile
+            End If
+        End If
+    End Function
     Public Function GetSrcDriveSize(dir As String) As String
         Dim srcDir As String
         If dir = "" Then
