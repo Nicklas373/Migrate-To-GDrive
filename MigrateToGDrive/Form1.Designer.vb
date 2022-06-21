@@ -31,6 +31,7 @@ Partial Class Form1
         Me.HistoryToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.SettingsToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.AboutToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
+        Me.PDFToolToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.MenuStrip1.SuspendLayout()
         Me.SuspendLayout()
         '
@@ -39,11 +40,12 @@ Partial Class Form1
         Me.MenuStrip1.BackColor = System.Drawing.Color.LightSteelBlue
         Me.MenuStrip1.GripStyle = System.Windows.Forms.ToolStripGripStyle.Visible
         Me.MenuStrip1.ImageScalingSize = New System.Drawing.Size(20, 20)
-        Me.MenuStrip1.Items.AddRange(New System.Windows.Forms.ToolStripItem() {Me.OptionsToolStripMenuItem, Me.HistoryToolStripMenuItem, Me.SettingsToolStripMenuItem, Me.AboutToolStripMenuItem})
+        Me.MenuStrip1.Items.AddRange(New System.Windows.Forms.ToolStripItem() {Me.OptionsToolStripMenuItem, Me.HistoryToolStripMenuItem, Me.PDFToolToolStripMenuItem, Me.SettingsToolStripMenuItem, Me.AboutToolStripMenuItem})
         Me.MenuStrip1.Location = New System.Drawing.Point(0, 0)
         Me.MenuStrip1.Name = "MenuStrip1"
+        Me.MenuStrip1.Padding = New System.Windows.Forms.Padding(3, 3, 0, 3)
         Me.MenuStrip1.RenderMode = System.Windows.Forms.ToolStripRenderMode.Professional
-        Me.MenuStrip1.Size = New System.Drawing.Size(1064, 32)
+        Me.MenuStrip1.Size = New System.Drawing.Size(1216, 34)
         Me.MenuStrip1.TabIndex = 20
         Me.MenuStrip1.Text = "MenuStrip1"
         '
@@ -54,7 +56,7 @@ Partial Class Form1
         Me.OptionsToolStripMenuItem.Image = CType(resources.GetObject("OptionsToolStripMenuItem.Image"), System.Drawing.Image)
         Me.OptionsToolStripMenuItem.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft
         Me.OptionsToolStripMenuItem.Name = "OptionsToolStripMenuItem"
-        Me.OptionsToolStripMenuItem.Size = New System.Drawing.Size(80, 28)
+        Me.OptionsToolStripMenuItem.Size = New System.Drawing.Size(94, 28)
         Me.OptionsToolStripMenuItem.Text = "Backup"
         Me.OptionsToolStripMenuItem.TextAlign = System.Drawing.ContentAlignment.MiddleRight
         '
@@ -62,21 +64,21 @@ Partial Class Form1
         '
         Me.StandardBackupToolStripMenuItem.Font = New System.Drawing.Font("Segoe UI", 9.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point)
         Me.StandardBackupToolStripMenuItem.Name = "StandardBackupToolStripMenuItem"
-        Me.StandardBackupToolStripMenuItem.Size = New System.Drawing.Size(169, 22)
+        Me.StandardBackupToolStripMenuItem.Size = New System.Drawing.Size(210, 26)
         Me.StandardBackupToolStripMenuItem.Text = "Standard Backup"
         '
         'AdvancedBackupToolStripMenuItem
         '
         Me.AdvancedBackupToolStripMenuItem.Font = New System.Drawing.Font("Segoe UI", 9.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point)
         Me.AdvancedBackupToolStripMenuItem.Name = "AdvancedBackupToolStripMenuItem"
-        Me.AdvancedBackupToolStripMenuItem.Size = New System.Drawing.Size(169, 22)
+        Me.AdvancedBackupToolStripMenuItem.Size = New System.Drawing.Size(210, 26)
         Me.AdvancedBackupToolStripMenuItem.Text = "Advanced Backup"
         '
         'RestoreBackupToolStripMenuItem
         '
         Me.RestoreBackupToolStripMenuItem.Font = New System.Drawing.Font("Segoe UI", 9.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point)
         Me.RestoreBackupToolStripMenuItem.Name = "RestoreBackupToolStripMenuItem"
-        Me.RestoreBackupToolStripMenuItem.Size = New System.Drawing.Size(169, 22)
+        Me.RestoreBackupToolStripMenuItem.Size = New System.Drawing.Size(210, 26)
         Me.RestoreBackupToolStripMenuItem.Text = "Restore Backup"
         '
         'HistoryToolStripMenuItem
@@ -86,7 +88,7 @@ Partial Class Form1
         Me.HistoryToolStripMenuItem.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft
         Me.HistoryToolStripMenuItem.ImageScaling = System.Windows.Forms.ToolStripItemImageScaling.None
         Me.HistoryToolStripMenuItem.Name = "HistoryToolStripMenuItem"
-        Me.HistoryToolStripMenuItem.Size = New System.Drawing.Size(83, 28)
+        Me.HistoryToolStripMenuItem.Size = New System.Drawing.Size(99, 28)
         Me.HistoryToolStripMenuItem.Text = "History"
         Me.HistoryToolStripMenuItem.TextAlign = System.Drawing.ContentAlignment.MiddleRight
         '
@@ -97,7 +99,7 @@ Partial Class Form1
         Me.SettingsToolStripMenuItem.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft
         Me.SettingsToolStripMenuItem.ImageScaling = System.Windows.Forms.ToolStripItemImageScaling.None
         Me.SettingsToolStripMenuItem.Name = "SettingsToolStripMenuItem"
-        Me.SettingsToolStripMenuItem.Size = New System.Drawing.Size(89, 28)
+        Me.SettingsToolStripMenuItem.Size = New System.Drawing.Size(104, 28)
         Me.SettingsToolStripMenuItem.Text = "Settings"
         Me.SettingsToolStripMenuItem.TextAlign = System.Drawing.ContentAlignment.MiddleRight
         '
@@ -108,22 +110,32 @@ Partial Class Form1
         Me.AboutToolStripMenuItem.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft
         Me.AboutToolStripMenuItem.ImageScaling = System.Windows.Forms.ToolStripItemImageScaling.None
         Me.AboutToolStripMenuItem.Name = "AboutToolStripMenuItem"
-        Me.AboutToolStripMenuItem.Size = New System.Drawing.Size(77, 28)
+        Me.AboutToolStripMenuItem.Size = New System.Drawing.Size(91, 28)
         Me.AboutToolStripMenuItem.Text = "About"
         Me.AboutToolStripMenuItem.TextAlign = System.Drawing.ContentAlignment.MiddleRight
         '
+        'PDFToolToolStripMenuItem
+        '
+        Me.PDFToolToolStripMenuItem.Font = New System.Drawing.Font("Segoe UI", 9.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point)
+        Me.PDFToolToolStripMenuItem.Image = CType(resources.GetObject("PDFToolToolStripMenuItem.Image"), System.Drawing.Image)
+        Me.PDFToolToolStripMenuItem.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft
+        Me.PDFToolToolStripMenuItem.ImageScaling = System.Windows.Forms.ToolStripItemImageScaling.None
+        Me.PDFToolToolStripMenuItem.Name = "PDFToolToolStripMenuItem"
+        Me.PDFToolToolStripMenuItem.Size = New System.Drawing.Size(109, 28)
+        Me.PDFToolToolStripMenuItem.Text = "PDF Tool"
+        Me.PDFToolToolStripMenuItem.TextAlign = System.Drawing.ContentAlignment.MiddleRight
+        '
         'Form1
         '
-        Me.AutoScaleDimensions = New System.Drawing.SizeF(7.0!, 15.0!)
+        Me.AutoScaleDimensions = New System.Drawing.SizeF(8.0!, 20.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
         Me.BackColor = System.Drawing.Color.LightSteelBlue
-        Me.ClientSize = New System.Drawing.Size(1064, 681)
+        Me.ClientSize = New System.Drawing.Size(1216, 908)
         Me.Controls.Add(Me.MenuStrip1)
         Me.HelpButton = True
         Me.Icon = CType(resources.GetObject("$this.Icon"), System.Drawing.Icon)
         Me.IsMdiContainer = True
         Me.MainMenuStrip = Me.MenuStrip1
-        Me.Margin = New System.Windows.Forms.Padding(3, 2, 3, 2)
         Me.Name = "Form1"
         Me.Text = "MigrateToGDrive"
         Me.MenuStrip1.ResumeLayout(False)
@@ -140,4 +152,5 @@ Partial Class Form1
     Friend WithEvents StandardBackupToolStripMenuItem As ToolStripMenuItem
     Friend WithEvents AdvancedBackupToolStripMenuItem As ToolStripMenuItem
     Friend WithEvents RestoreBackupToolStripMenuItem As ToolStripMenuItem
+    Friend WithEvents PDFToolToolStripMenuItem As ToolStripMenuItem
 End Class

@@ -35,4 +35,10 @@
         }
         menu_about.Show()
     End Sub
+    Private Sub PDFToolToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles PDFToolToolStripMenuItem.Click
+        Dim menu_pdf = New pdf_compress With {
+            .MdiParent = Me
+        }
+        menu_pdf.Show()
+    End Sub
 End Class
