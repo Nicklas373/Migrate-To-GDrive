@@ -7,6 +7,7 @@ features like backup as archive with or without encryption for security (Only fo
 # Additional library:
 - 7-Zip
 - SHA-256 (Encryption / Decryption)
+- SyncFusion (PDF Compression)
 - Windows Task Scheduler
 
 # App Function
@@ -51,6 +52,16 @@ features like backup as archive with or without encryption for security (Only fo
   * Check Error History
   * Clear History
   * Export History
+  
+- PDF Compression
+  * Source PDF
+  * Save Location
+  * Compression Level
+  * Incremental Compression
+  * Optimize Fonts
+  * Optimize Page Contents
+  * Remove MetaData
+  * Size (Before & After compression)
 
 # App Compatibility
 - [.NET Desktop Runtime 6.0](https://dotnet.microsoft.com/en-us/download/dotnet/6.0)
@@ -63,6 +74,7 @@ features like backup as archive with or without encryption for security (Only fo
 <img width="480" height="240" src="https://github.com/Nicklas373/Migrate-To-GDrive/raw/master/MigrateToGDrive/Screenshots/Restore%20Backup%20Menu.png">&nbsp;&nbsp;&nbsp;
 <img width="480" height="240" src="https://github.com/Nicklas373/Migrate-To-GDrive/raw/master/MigrateToGDrive/Screenshots/Log%20Menu.png">&nbsp;&nbsp;&nbsp;
 <img width="480" height="240" src="https://github.com/Nicklas373/Migrate-To-GDrive/raw/master/MigrateToGDrive/Screenshots/Settings%20Menu.png">&nbsp;&nbsp;&nbsp;
+<img width="480" height="240" src="https://github.com/Nicklas373/Migrate-To-GDrive/raw/master/MigrateToGDrive/Screenshots/PDF%20Compress%20Menu.png">&nbsp;&nbsp;&nbsp;
 <img width="480" height="240" src="https://github.com/Nicklas373/Migrate-To-GDrive/raw/master/MigrateToGDrive/Screenshots/About%20Menu.png">&nbsp;&nbsp;&nbsp;
 </p>
 
@@ -77,11 +89,9 @@ features like backup as archive with or without encryption for security (Only fo
   name and logo was taken to make "familiar in case" in term of introduction to the app and function, nothing more than that.
 - And also this is only for my personal usage, if anyone want to use. Just use it at your own risk !
 
-# 7-Zip
+# Additional References
 - [7-ZIP](https://www.7-zip.org/)
-
-# 7-Zip Library
-- 7za.exe
+- [SyncFusion](https://www.syncfusion.com/)
 
 # Image Source
 - <a href="https://www.flaticon.com/free-icons/history" title="history icons">History icons created by Izwar Muis - Flaticon</a>

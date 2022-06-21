@@ -15,7 +15,10 @@
     <Copyright>HANA-CI Build Project 2016-2022</Copyright>
     <PackageIcon>drive.ico</PackageIcon>
     <PackageIconUrl />
-    <PackageReleaseNotes>v1.1.6 (20220615):
+    <PackageReleaseNotes>v1.1.7-EMS (20220621):
+- Add feature to compress PDF based on SyncFusion Library
+
+v1.1.6 (20220615):
 - Add options to backup for specific file only
 - Add /COMPRESS and /NOOFFLOAD algorithm for robocopy to solve issue slow data transfer while using SMB on WIFI
 
@@ -66,12 +69,13 @@ v1.1.0 (20220419):
 v1.0.0 (20220416):
 - INITIAL RELEASE</PackageReleaseNotes>
     <ApplicationManifest>My Project\app.manifest</ApplicationManifest>
-    <Version>1.1.6</Version>
+    <Version>1.1.7-EMS</Version>
     <Description>simple application that primary have aim to backup data from directory to directory that was specified from users with several time frame options and include with scheduler management that can do backup automatically. And also support some essentials features like backup as archive with or without encryption for security (Only for password).
 
 Additional library:
 - 7-Zip
 - SHA-256 (Encryption / Decryption)
+- SyncFusion
 - Windows Task Scheduler</Description>
     <PackageProjectUrl>https://github.com/Nicklas373/Migrate-To-GDrive</PackageProjectUrl>
     <RepositoryUrl>https://github.com/Nicklas373/Migrate-To-GDrive</RepositoryUrl>
@@ -79,8 +83,9 @@ Additional library:
     <PackageTags>#Migrate-To-GDrive</PackageTags>
     <NeutralLanguage>en-US</NeutralLanguage>
     <OptionExplicit>Off</OptionExplicit>
-    <AssemblyVersion>1.1.6</AssemblyVersion>
-    <FileVersion>1.1.6</FileVersion>
+    <AssemblyVersion>1.1.7</AssemblyVersion>
+    <FileVersion>1.1.7</FileVersion>
+    <OptionInfer>On</OptionInfer>
   </PropertyGroup>
 
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|AnyCPU'">
@@ -98,6 +103,7 @@ Additional library:
   </ItemGroup>
 
   <ItemGroup>
+    <PackageReference Include="Syncfusion.Pdf.WinForms" Version="20.1.0.60" />
     <PackageReference Include="System.Management" Version="6.0.0" />
     <PackageReference Include="TaskScheduler" Version="2.10.1" />
   </ItemGroup>

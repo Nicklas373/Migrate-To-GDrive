@@ -1,3 +1,6 @@
+v1.1.7-EMS (20220621):
+- Add feature to compress PDF based on SyncFusion Library
+
 v1.1.6 (20220615):
 - Add options to backup for specific file only
 - Add /COMPRESS and /NOOFFLOAD algorithm for robocopy to solve issue slow data transfer while using SMB on WIFI

@@ -4,12 +4,12 @@
         AllowTransparency = False
         TextBox1.Text = My.Application.Info.ProductName
         TextBox2.Text = My.Application.Info.Version.ToString
-        TextBox3.Text = "June, 15 2022"
+        TextBox3.Text = "June, 21 2022"
         TextBox4.Text = My.Application.Info.Copyright
         TextBox5.Text = My.Application.Info.DirectoryPath
         RichTextBox1.Text = "Description: " & vbCrLf & vbCrLf & "Migrate To GDrive is a " & My.Application.Info.Description
         ReadLog("changelog", changelog)
-        TextBox6.Text = "PT. Elwilis Mitra Sejahtera"
+        TextBox6.Text = "PLACEHOLDER"
         TextBox7.Text = Computer.Name.ToString
         TextBox8.Text = Computer.Info.OSFullName.ToString
         TextBox9.Text = Computer.Info.OSVersion.ToString

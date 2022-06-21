@@ -1794,15 +1794,15 @@
         {
         "Name" = "8:Microsoft Visual Studio"
         "ProductName" = "8:Migrate To GDrive"
-        "ProductCode" = "8:{576063EA-B39E-4636-8D78-75602497663D}"
-        "PackageCode" = "8:{A9B7D370-7A61-4CA3-9D3C-5CD48239806A}"
+        "ProductCode" = "8:{CC4B628C-711F-483E-86B3-79C21A9B4949}"
+        "PackageCode" = "8:{FF9D93C1-C711-4741-B8C0-777CA020B73D}"
         "UpgradeCode" = "8:{397E3C26-24CD-43A8-BBC8-868FE4193D0A}"
         "AspNetVersion" = "8:4.0.30319.0"
         "RestartWWWService" = "11:FALSE"
         "RemovePreviousVersions" = "11:TRUE"
         "DetectNewerInstalledVersion" = "11:TRUE"
         "InstallAllUsers" = "11:FALSE"
-        "ProductVersion" = "8:1.1.6"
+        "ProductVersion" = "8:1.1.7"
         "Manufacturer" = "8:Hana-CI Build Project"
         "ARPHELPTELEPHONE" = "8:"
         "ARPHELPLINK" = "8:https://github.com/Nicklas373/Migrate-To-GDrive"
@@ -2330,7 +2330,7 @@
         {
             "{5259A561-127C-4D43-A0A1-72F10C7B3BF8}:_705D0CE7ADEF49DEB9B4E4C659A309A7"
             {
-            "SourcePath" = "8:..\\MigrateToGDrive\\obj\\Release\\net6.0-windows\\apphost.exe"
+            "SourcePath" = "8:..\\MigrateToGDrive\\obj\\Debug\\net6.0-windows\\apphost.exe"
             "TargetName" = "8:"
             "Tag" = "8:"
             "Folder" = "8:_3464D903FD494FEE9989C0849166D0D8"
